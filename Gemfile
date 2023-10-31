@@ -76,6 +76,9 @@ gem 'cancancan', '~> 3.4'
 # Motor Admin allows you to deploy a no-code admin panel for your application in less than a minute
 gem 'motor-admin', '~> 0.4.7'
 
+# Rails Admin
+gem 'rails_admin', '~> 3.0'
+
 # Active Storage gems for validating attachments https://github.com/igorkasyanchuk/active_storage_validations
 gem 'active_storage_validations', '~> 1.0'
 gem 'mini_magick', '~> 4.12'
@@ -120,3 +123,5 @@ group :test do
   # Code coverage analysis tool for ruby
   gem 'simplecov', require: false
 end
+gem "sassc-rails"
+gem "sassc-rails"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_154135) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_31_102308) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,43 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_154135) do
     t.string "name"
     t.text "description"
     t.boolean "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lear_mats", force: :cascade do |t|
+    t.string "title"
+    t.string "expert_level"
+    t.string "resorce_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learning_materials", force: :cascade do |t|
+    t.string "title"
+    t.string "difficulty"
+    t.string "image_url"
+    t.string "resource_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "learning_mats", force: :cascade do |t|
+    t.string "title"
+    t.string "expert_level"
+    t.string "resource_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
+
+  create_table "learning_resources", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "text"
+    t.string "link"
+    t.string "expertise_level"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

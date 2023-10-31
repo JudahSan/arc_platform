@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   authenticate :user do
     mount Motor::Admin => '/admin'
   end
   resources :projects, only: %i[index show]
   resources :chapters, only: %i[index show]
   resources :countries, only: %i[index show]
+  resources :learning_resources, only: [:index, :new, :create]
   devise_for :users, controllers: {
     registrations: 'users/registrations' # Override devise registration controller
   }

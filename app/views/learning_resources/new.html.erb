@@ -1,0 +1,33 @@
+<%# app/views/learning_resources/new.html.erb %>
+
+<div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-lg">
+  <h2 class="text-2xl font-semibold mb-4">Add New Learning Resource</h2>
+
+  <%= form_for @learning_resource, url: learning_resources_path, html: { class: "grid grid-cols-2 gap-4" } do |f| %>
+    <div class="col-span-2">
+      <%= f.label :title, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_field :title, class: "mt-1 p-2 border rounded w-full" %>
+    </div>
+
+    <div class="col-span-2">
+      <%= f.label :description, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_area :description, class: "mt-1 p-2 border rounded w-full" %>
+    </div>
+
+    <div class="col-span-2">
+      <%= f.label :link, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_field :link, class: "mt-1 p-2 border rounded w-full" %>
+    </div>
+
+    <div class="col-span-2">
+      <%= f.label :expertise_level, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_field :expertise_level, class: "mt-1 p-2 border rounded w-full" %>
+    </div>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <div class="col-span-2">
+      <%= f.submit "Create Learning Resource", class: "bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700" %>
+    </div>
+  <% end %>
+</div>

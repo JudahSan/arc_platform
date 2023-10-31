@@ -1,0 +1,69 @@
+<% content_for(:title,"Learning Materials") %>
+<% content_for(:description,"A list of ruby and ruby on rails learning resources compiled by the ARC community") %>
+
+<div class="container px-4 xl:px-56 mx-auto">
+
+<div class="pt-5"></div>
+
+    <%= form_tag learning_resources_path, method: :get, class: "join items-center" do %>
+      <div class="relative flex items-center">
+        <%= text_field_tag :search, @search_term, class: "border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none", placeholder: 'Search materials here...', autocomplete: 'on' %>
+        <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </div>
+    <% end %>
+  <div class="border-dotted border-t border-gray-300 w-full my-4"></div>
+
+
+  <div class="text-red-500">
+  <h1 class="pt-16 text-red-600 font-bold text-5xl ">
+    Featured materials
+  </h1>
+</div>
+
+<div class="pt-10"></div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  <% @learning_resources.first(3).each do |resource| %>
+    <div class="card glass hover:shadow-lg transform transition-transform duration-300 hover:scale-105">
+      <figure class="h-48 overflow-hidden">
+        <img src="<%= asset_path('default_image.png') || resource.link.presence %>" alt="<%= resource.title %>" lass="w-full h-32 object-cover rounded" />
+      </figure>
+      <div class="card-body p-4">
+        <h2 class="card-title text-xl font-semibold mb-2"><%= resource.title %></h2>
+        <p class="text-gray-600 mb-4"><%= resource.description %></p>
+        <div class="card-actions flex justify-end">
+          <%= link_to "Learn More", resource.link, target: "_blank", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="pt-20"></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <% @learning_resources.each do |resource| %>
+      <div class="card bg-base-100 shadow-xl p-4">
+        <figure><img src="<%= asset_path('default_image.png') || resource.link.presence  %>" alt="<%= resource.title %>" class="place-self-center w-72 h-72 md:w-48 md:h-48 card rounded-box" /></figure>
+        <div class="card-body">
+          <p class="text-sm text-gray-500"> <%= resource.expertise_level %></p>
+          <div class="card-actions">
+            <h3 class="card-title text-lg font-semibold mb-2 pt-2"><%= resource.title %></h3>
+            <%= link_to "View Resource", resource.link, target: "_blank", class: "btn btn-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+
+</div>
+
+
+
+
+
