@@ -5,8 +5,9 @@ require 'test_helper'
 class LRControllerTest < ActionDispatch::IntegrationTest
   setup do
     @learning_resource = learning_resources(:one) # Assuming you have fixtures set up
-    @user = users(:one) # Assuming you have users fixtures set up
-    sign_in @user
+    @user = users(:organization_admin) # Create and organization_admin user
+    @user.confirm
+    sign_in(@user) # Sign in user
   end
 
   test 'should get index' do
