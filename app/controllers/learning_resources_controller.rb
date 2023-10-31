@@ -15,7 +15,7 @@ class LearningResourcesController < ApplicationController
   def create
     @learning_resource = current_user.learning_resources.build(learning_resource_params)
     if @learning_resource.save
-      redirect_to learning_resources_path, notice: 'Learning material was added successfully.'
+      redirect_to learning_resources_path, notice: t('learning_resources.create_success')
     else
       render :new
     end

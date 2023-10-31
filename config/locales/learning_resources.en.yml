@@ -1,0 +1,4 @@
+# config/locales/learning_resources.en.yml
+en:
+  learning_resources:
+    create_success: "Learning material was added successfully."

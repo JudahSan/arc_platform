@@ -5,5 +5,5 @@ class LearningResource < ApplicationRecord
 end
 
 class User < ApplicationRecord
-  has_many :learning_resources
+  has_many :learning_resources, dependent: :destroy
 end

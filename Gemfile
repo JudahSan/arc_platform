@@ -123,5 +123,5 @@ group :test do
   # Code coverage analysis tool for ruby
   gem 'simplecov', require: false
 end
-gem "sassc-rails"
-gem "sassc-rails"
+
+gem 'sassc-rails'
