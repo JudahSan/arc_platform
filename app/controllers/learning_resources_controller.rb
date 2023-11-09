@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'open-uri'
 class LearningResourcesController < ApplicationController
   before_action :authenticate_user!, except: [:index] # Ensure users are authenticated for new and create actions
 

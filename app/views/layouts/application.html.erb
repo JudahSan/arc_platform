@@ -45,6 +45,7 @@
               <% end %>
 
               <li><%= link_to 'Learning Materials', landing_learn_path %></li>
+<!--              <li><%#= link_to 'Learning Materials', learning_resources_path %></li>-->
 
               <% if user_signed_in? %>
                 <li><%= button_to "Sign out", destroy_user_session_path, method: :delete %></li>
@@ -87,6 +88,7 @@
             
             <%= link_to 'Learning Materials', landing_learn_path,
                         class: 'text-sm font-small text-gray-500 hover:text-red-600' %>
+            <%#= link_to 'Learning Materials', learning_resources_path, class: 'text-sm font-small text-gray-500 hover:text-red-600' %>
           </nav>
           <% if user_signed_in? %>
 
