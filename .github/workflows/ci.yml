@@ -18,17 +18,21 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18.19.0
+      - name: Install Ruby dependecies
+        run: |
+          bundle install
       - name: yarn install, build
         run: |
           yarn install
           yarn run build
-      - name: run Lighthouse CI
+      - name: Install Lighthouse CI
         run: |
           yarn global add @lhci/cli@0.13.0
+      - name: Run Lighthouse CI
+        run: |
           lhci autorun
-          env:
+        env:
             LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-
 
   linters:
     name: RuboCop Linter
@@ -96,4 +100,3 @@ jobs:
           bin/rails css:build
           bundle exec rails db:prepare
           bundle exec rails test
-
