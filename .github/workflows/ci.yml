@@ -18,9 +18,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18.19.0
-      - name: Install Ruby dependecies
-        run: |
-          bundle install
+#      - name: Install Ruby dependecies
+#        run: |
+#          bundle install
       - name: yarn install, build
         run: |
           yarn install
