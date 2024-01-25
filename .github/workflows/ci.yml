@@ -27,7 +27,7 @@ jobs:
           yarn run build
       - name: Install Lighthouse CI
         run: |
-          yarn add -D add @lhci/cli
+          yarn add -D @lhci/cli
       - name: Run Lighthouse CI
         run: |
           yarn lhci autorun
