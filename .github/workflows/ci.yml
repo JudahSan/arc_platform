@@ -34,7 +34,7 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Run Lighthouse CI
         run: |
-          lhci autorun
+          yarn lhci autorun
         env:
             LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
