@@ -180,6 +180,55 @@ Run the following command in the terminal
 
 Once your changes are reviewed they will be merged to the main branch
 
+### Web Page Quality Testing with Lighthouse CI
+
+Ensure the quality of your web pages by using Lighthouse CI, a powerful tool for automating performance, accessibility, SEO, and more. Follow these steps to integrate Lighthouse CI into your project:
+
+1. **Install Lighthouse CI:**
+   ```bash
+   yarn add -D @lhci/cli
+
+2. **Run Lighthouse CI:**
+   ```bash
+   yarn lhci autorun
+   ```
+
+3. **Customize Configurration(Optional):**
+
+   If needed, you can create an `.lighthouserc.js` file in the root of your project to customize Lighthouse CI configurations. Here's an example configuration:
+
+   ```json
+   {
+     "ci": {
+       "collect": {
+         "settings": {
+           "chromeFlags": "--no-sandbox"
+         }
+       },
+       "upload": {
+         "target": "temporary-public-storage"
+       }
+     },
+     "collect": {
+       "numberOfRuns": 3
+     },
+     "assert": {
+       "assertions": {
+         "categories:performance": ["error", { "minScore": 0.9 }]
+       }
+     }
+   }
+   ```
+
+4. **Reviewing Results:**
+
+   Lighthouse CI provides detailed insights into your web app's performance. Be sure to review the generated reports for actionable improvements.
+
+For more details and configuration options, check the [Lighthouse CI documentation](https://github.com/GoogleChrome/lighthouse-ci).
+
+Happy testing!
+
+
 ## Contributing
 
 Thank you for your interest in contributing to the Africa Ruby Community (ARC) Platform! We welcome contributions from developers of all experience levels.
