@@ -30,11 +30,11 @@ jobs:
           yarn add -D @lhci/cli
       - name: Start Rails Server
         run: |
-          bundle exec rails server -b 0.0.0.0 & 
-          sleep 5
+          gem install bundler
+          bundle install --jobs 4 --retry 3
       - name: Run Lighthouse CI
         run: |
-          $(yarn bin)/lhci autorun
+          lhci autorun
         env:
             LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
