@@ -9,18 +9,18 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-#      - name: Setup Ruby and Rails
-#        uses: ruby/setup-ruby@v1
-#        with:
-#          ruby-version: 3.0.2
-#          bundler-cache: true
+      - name: Setup Ruby and Rails
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.2
+          bundler-cache: true
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: 18.19.0
-#      - name: Install Ruby dependecies
-#        run: |
-#          bundle install
+      - name: Install Ruby dependecies
+        run: |
+          bundle install
       - name: yarn install, build
         run: |
           yarn install
@@ -28,9 +28,13 @@ jobs:
       - name: Install Lighthouse CI
         run: |
           yarn add -D @lhci/cli
+      - name: Start Rails Server
+        run: |
+          bundle exec rails server -b 0.0.0.0 & 
+          sleep 5
       - name: Run Lighthouse CI
         run: |
-          yarn lhci autorun
+          $(yarn bin)/lhci autorun
         env:
             LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
