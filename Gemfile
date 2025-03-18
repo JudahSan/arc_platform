@@ -58,7 +58,7 @@ group :development do
   gem 'annotate', '~> 3.2', '>= 3.2.0'
 
   # Capistrano - deployment gems
-  gem 'capistrano', '~> 3.11'
+  gem 'capistrano', '~> 3.19.2'
   gem 'capistrano-asdf'
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rails', '~> 1.4'

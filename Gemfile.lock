@@ -434,7 +434,7 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1.119)
   bootsnap
   cancancan (~> 3.4)
-  capistrano (~> 3.11)
+  capistrano (~> 3.19.2)
   capistrano-asdf
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
