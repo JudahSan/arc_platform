@@ -13,6 +13,7 @@ gem 'cssbundling-rails' # Bundle and process CSS [https://github.com/rails/cssbu
 gem 'devise' # Devise 4.0 works with Rails 4.1 onwards.
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
+gem 'invisible_captcha' # Spam protection solution [https://github.com/markets/invisible_captcha]
 gem 'jbuilder' # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jsbundling-rails' # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'mini_magick', '~> 4.12'
