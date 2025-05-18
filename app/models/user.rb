@@ -63,6 +63,9 @@ class User < ApplicationRecord
     { with: /\A(?!.*--|.*-$|.*_)[a-zA-Z0-9][\w-]+[a-zA-Z0-9]{0,39}\z/ },
                               unless: -> { github_username.blank? }
 
+  # Validate that the GitHub account exists
+  validate :github_account_exists, if: -> { github_username.present? }
+
   private
 
   ##
@@ -70,5 +73,13 @@ class User < ApplicationRecord
   # :member.
   def set_defaults
     self.role ||= :member
+  end
+
+  ##
+  # Validates that the GitHub account exists using the GithubAccountVerifier service
+  def github_account_exists
+    return if GithubAccountVerifier.exists?(github_username)
+
+    errors.add(:github_username, 'must be a valid GitHub account')
   end
 end

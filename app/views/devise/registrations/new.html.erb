@@ -29,6 +29,7 @@
         </div>
 
         <%= f.input :github_username, placeholder: 'Enter Github username', label: 'Github username',
+                    hint: 'Must be a valid GitHub account. We will verify this username.',
                     input_html: { class: 'input-bordered w-full', autocomplete: 'github_username' } %>
 
         <%= f.input :password, placeholder: 'Enter password', label: 'Password',
