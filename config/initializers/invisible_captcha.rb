@@ -1,14 +1,16 @@
 # config/initializers/invisible_captcha.rb
 
 InvisibleCaptcha.setup do |config|
-  # config.honeypots           << ['more', 'fake', 'attribute', 'names']
+  # Add more honeypot field names
+  config.honeypots           << ['website', 'url', 'phone', 'address', 'comment']
   # config.visual_honeypots    = false
-  # config.timestamp_threshold = 2
-  # config.timestamp_enabled   = true
-  # config.injectable_styles   = false
-  # config.spinner_enabled     = true
+  # Increase the timestamp threshold to 3 seconds (forms submitted faster than this are likely bots)
+  config.timestamp_threshold = 3
+  config.timestamp_enabled   = true
+  config.injectable_styles   = true
+  config.spinner_enabled     = true
 
-  # Leave these unset if you want to use I18n (see below)
-  # config.sentence_for_humans     = 'If you are a human, ignore this field'
-  # config.timestamp_error_message = 'Sorry, that was too quick! Please resubmit.'
+  # Custom error messages
+  config.sentence_for_humans     = 'Please leave this field empty'
+  config.timestamp_error_message = 'Sorry, that was too quick! Please wait a moment and try again.'
 end

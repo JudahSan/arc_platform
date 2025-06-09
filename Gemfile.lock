@@ -175,6 +175,12 @@ GEM
       tzinfo
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
+    faraday (2.13.1)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     ffi (1.17.1-arm64-darwin)
     ffi (1.17.1-x86_64-darwin)
     ffi (1.17.1-x86_64-linux-gnu)
@@ -231,6 +237,8 @@ GEM
       fugit (~> 1.0)
       rails (>= 5.2)
     msgpack (1.8.0)
+    net-http (0.6.0)
+      uri
     net-imap (0.5.6)
       date
       net-protocol
@@ -279,6 +287,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (2.2.12)
+    rack-attack (6.7.0)
+      rack (>= 1.0, < 4)
     rack-session (1.0.2)
       rack (< 3)
     rack-test (2.2.0)
@@ -307,6 +317,9 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
+    rails_cloudflare_turnstile (0.4.1)
+      faraday (>= 1.0, < 3.0)
+      rails (>= 6.0, < 8.1)
     railties (7.2.2.1)
       actionpack (= 7.2.2.1)
       activesupport (= 7.2.2.1)
@@ -406,6 +419,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
+    uri (1.0.3)
     useragent (0.16.11)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -458,7 +472,9 @@ DEPENDENCIES
   pg (~> 1.1)
   premailer-rails (~> 1.12)
   puma (~> 5.0)
+  rack-attack
   rails (~> 7.2.2.1)
+  rails_cloudflare_turnstile
   redis (~> 4.0)
   rubocop (~> 1.51.0)
   rubocop-performance (~> 1.18)

@@ -26,6 +26,7 @@ gem 'rails', '~> 7.2.2.1' # Bundle edge Rails instead: gem "rails", github: "rai
 gem 'redis', '~> 4.0' # Use Redis adapter to run Action Cable in production
 # An ActionMailer adapter to send email using SendGrid's HTTPS Web API (instead of SMTP).
 gem 'sendgrid-actionmailer', '~> 3.2'
+gem 'rack-attack' # Rack middleware for blocking & throttling abusive requests
 gem 'simple_form', '~> 5.1' # Gem to pimp up forms
 gem 'sitemap_generator' # A dynamic sitemap generator gem for the Ruby on Rails framework
 gem 'sprockets-rails' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -33,6 +34,7 @@ gem 'stimulus-rails' # Hotwire's modest JavaScript framework [https://stimulus.h
 gem 'turbo-rails' # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'rails_cloudflare_turnstile'
 
 # gem "kredis" # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
