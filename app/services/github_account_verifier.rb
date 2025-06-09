@@ -22,7 +22,7 @@ class GithubAccountVerifier
       response = Net::HTTP.get_response(uri)
 
       # GitHub returns 200 if user exists, 404 if not
-      return response.code == '200'
+      response.code == '200'
     rescue StandardError => e
       Rails.logger.error("Error verifying GitHub account: #{e.message}")
       # In case of error, we'll return false to be safe

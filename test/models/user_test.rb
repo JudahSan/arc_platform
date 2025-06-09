@@ -56,7 +56,7 @@ class UserTest < ActiveSupport::TestCase
     GithubAccountVerifier.stubs(:exists?).returns(true)
 
     user = User.new(@valid_attributes)
-    assert user.valid?, "User should be valid with valid attributes"
+    assert user.valid?, 'User should be valid with valid attributes'
   end
 
   test 'should not be valid without a github_username' do
@@ -68,7 +68,7 @@ class UserTest < ActiveSupport::TestCase
   test 'should not be valid with an invalid github_username format' do
     user = User.new(@valid_attributes.merge(github_username: 'invalid--username'))
     assert_not user.valid?
-    assert_includes user.errors[:github_username], "is invalid"
+    assert_includes user.errors[:github_username], 'is invalid'
   end
 
   test 'should not be valid with a non-existent github account' do
@@ -77,6 +77,6 @@ class UserTest < ActiveSupport::TestCase
 
     user = User.new(@valid_attributes)
     assert_not user.valid?
-    assert_includes user.errors[:github_username], "must be a valid GitHub account"
+    assert_includes user.errors[:github_username], 'must be a valid GitHub account'
   end
 end

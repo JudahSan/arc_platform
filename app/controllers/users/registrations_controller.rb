@@ -30,14 +30,14 @@ module Users
 
     def check_bot_detection
       # If JavaScript is disabled or bot detection indicates a bot, reject the submission
-      if params[:js_enabled].blank? || params[:bot_detection] == 'true'
-        flash[:alert] = "Sorry, we couldn't process your request."
-        redirect_to new_user_registration_path
-      end
+      return unless params[:js_enabled].blank? || params[:bot_detection] == 'true'
+
+      flash[:alert] = I18n.t('registrations.bot_detection_failed_alert')
+      redirect_to new_user_registration_path
     end
 
     def forbidden_turnstile
-      flash[:error] = "We had a problem creating your account."
+      flash[:error] = I18n.t('registrations.turnstile_forbidden_error')
       redirect_to root_path
     end
   end
