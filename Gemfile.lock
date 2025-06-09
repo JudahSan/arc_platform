@@ -229,6 +229,8 @@ GEM
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     minitest (5.25.4)
+    mocha (2.7.1)
+      ruby2_keywords (>= 0.0.5)
     motor-admin (0.4.35)
       ar_lazy_preload (~> 1.0)
       audited (~> 5.0)
@@ -365,6 +367,7 @@ GEM
     ruby-vips (2.2.3)
       ffi (~> 1.12)
       logger
+    ruby2_keywords (0.0.5)
     ruby_http_client (3.5.5)
     rubyzip (2.4.1)
     securerandom (0.4.1)
@@ -468,6 +471,7 @@ DEPENDENCIES
   jsbundling-rails
   letter_opener
   mini_magick (~> 4.12)
+  mocha
   motor-admin (~> 0.4.7)
   pg (~> 1.1)
   premailer-rails (~> 1.12)

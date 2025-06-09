@@ -75,6 +75,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'faker', '~> 3.1'
+  gem 'mocha'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false  # Code coverage analysis tool for ruby
   gem 'webdrivers'

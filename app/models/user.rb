@@ -52,7 +52,7 @@ class User < ApplicationRecord
   before_create :set_defaults # Set model defaults before create
 
   # Enums
-  enum role: { member: 0, chapter_admin: 1, organization_admin: 2 }
+  enum :role, { member: 0, chapter_admin: 1, organization_admin: 2 }
 
   # Validations
   validates :email, :name, :phone_number, :github_username, presence: true
