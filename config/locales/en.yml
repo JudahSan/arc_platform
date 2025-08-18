@@ -33,4 +33,7 @@ en:
     bot_detection_failed_alert: "Sorry, we couldn't process your request."
     turnstile_forbidden_error: "We had a problem creating your account."
 
-
+  turnstile:
+    errors:
+      registration_failed: 'Please complete the Turnstile challenge to create an account.'
+      login_failed: 'Please complete the Turnstile challenge to sign in.'

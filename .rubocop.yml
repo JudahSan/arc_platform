@@ -19,3 +19,7 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - 'app/controllers/users/sessions_controller.rb'
