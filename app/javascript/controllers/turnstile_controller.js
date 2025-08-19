@@ -1,5 +1,31 @@
 import { Controller } from "@hotwired/stimulus";
 
+/**
+ * Cloudflare Turnstile Stimulus controller
+ *
+ * Responsibilities:
+ * - Renders the Turnstile widget into the provided target element once the
+ *   Cloudflare script is available (it may arrive asynchronously).
+ * - Disables the nearest form submit button until the Turnstile challenge is
+ *   solved, then re-enables it via the Turnstile callback.
+ * - Supports explicit configuration via Stimulus values: sitekey, size, theme.
+ *
+ * Requirements:
+ * - Include the Turnstile script tag in your layout (already present in
+ *   app/views/layouts/application.html.erb):
+ *     <%= javascript_include_tag "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit", defer: true, async: true %>
+ * - Provide a container element with data-controller="turnstile" and a nested
+ *   data-turnstile-target="turnstile" div for rendering.
+ * - Ensure sitekey value is provided, typically from credentials.
+ *
+ * Example (see shared/_cloudflare_turnstile.html.erb):
+ *   <div data-controller="turnstile"
+ *        data-turnstile-sitekey-value="..."
+ *        data-turnstile-size-value="flexible"
+ *        data-turnstile-theme-value="light">
+ *     <div data-turnstile-target="turnstile"></div>
+ *   </div>
+ */
 export default class extends Controller {
   static values = {
     sitekey: String,

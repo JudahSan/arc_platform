@@ -1,5 +1,26 @@
 # frozen_string_literal: true
 
+# Service object to verify Cloudflare Turnstile tokens on the server-side.
+#
+# Usage:
+#   token = params['cf-turnstile-response']
+#   verifier = TurnstileVerifier.new(token, request.remote_ip)
+#   if verifier.verify
+#     # proceed
+#   else
+#     # handle failure
+#   end
+#
+# Configuration:
+# - Requires Rails credentials under: cloudflare_turnstile.secret_key
+#   rails credentials:edit
+#   cloudflare_turnstile:
+#     secret_key: YOUR_SECRET_KEY
+#     site_key: YOUR_PUBLIC_SITE_KEY
+# - Performs up to MAX_RETRIES attempts with exponential backoff when network
+#   errors occur. Returns boolean true/false and logs failures.
+# - Endpoint: https://challenges.cloudflare.com/turnstile/v0/siteverify
+#
 class TurnstileVerifier
   VERIFY_URI = URI('https://challenges.cloudflare.com/turnstile/v0/siteverify').freeze
   MAX_RETRIES = 3
@@ -11,6 +32,8 @@ class TurnstileVerifier
     @ip = ip
   end
 
+  # Returns true on successful verification, false otherwise.
+  # Returns false immediately if token is blank.
   def verify
     return false if token.blank?
 
