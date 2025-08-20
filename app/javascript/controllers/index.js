@@ -2,20 +2,13 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "controllers/application"
+import { application } from "./application"
 
-import HelloController from "controllers/hello_controller"
+import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
-import RemovalsController from "controllers/removals_controller"
+import RemovalsController from "./removals_controller.js"
 application.register("removals", RemovalsController)
 
-import TurboFramesController from "controllers/turbo_frames_controller"
-application.register("turbo-frames", TurboFramesController)
-
-import TurnstileController from "controllers/turnstile_controller"
-application.register("turnstile", TurnstileController)
-
-export function registerControllers(application) {
-  application.register("turnstile", TurnstileController)
-}
+import TurboFramesController from "./turbo_frames_controller.js"
+application.register("turbo_frames", TurboFramesController)

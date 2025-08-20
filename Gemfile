@@ -13,16 +13,15 @@ gem 'cssbundling-rails' # Bundle and process CSS [https://github.com/rails/cssbu
 gem 'devise' # Devise 4.0 works with Rails 4.1 onwards.
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
-gem 'importmap-rails'
 gem 'invisible_captcha' # Spam protection solution [https://github.com/markets/invisible_captcha]
 gem 'jbuilder' # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem 'jsbundling-rails' # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'jsbundling-rails' # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem 'mini_magick', '~> 4.12'
 # Motor Admin allows you to deploy a no-code admin panel for your application in less than a minute
 gem 'motor-admin', '~> 0.4.7'
 gem 'pg', '~> 1.1' # Use postgresql as the database for Active Record
 gem 'premailer-rails', '~> 1.12' # This gem is a drop in solution for styling HTML emails with CSS
-gem 'puma', '~> 6.0' # Use the Puma web server [https://github.com/puma/puma]
+gem 'puma', '~> 5.0' # Use the Puma web server [https://github.com/puma/puma]
 gem 'rails', '~> 7.2.2.1' # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'redis', '~> 4.0' # Use Redis adapter to run Action Cable in production
 # An ActionMailer adapter to send email using SendGrid's HTTPS Web API (instead of SMTP).
@@ -34,6 +33,7 @@ gem 'sprockets-rails' # The original asset pipeline for Rails [https://github.co
 gem 'stimulus-rails' # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'turbo-rails' # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'rails_cloudflare_turnstile'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # gem "kredis" # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]

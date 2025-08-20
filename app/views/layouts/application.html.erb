@@ -9,8 +9,8 @@
   <%= favicon_link_tag 'favicon.ico' %>
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit", "data-turbo-track": "reload", defer: true, async: true %>
-  <%= javascript_importmap_tags %>
+  <%= javascript_include_tag "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit", "data-turbo-track": "reload", defer: true %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 </head>
 
 <body>
