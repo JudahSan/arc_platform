@@ -6,10 +6,6 @@
 Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path.
-# Include the CSS build output directory used by cssbundling-rails.
-# With importmap-rails, JavaScript is served via import maps (see layout),
-# so we only need Sprockets to serve built CSS and other assets.
-Rails.application.config.assets.paths << Rails.root.join('app/assets/builds')
 # Rails.application.config.assets.paths << Emoji.images_path
 
 # Precompile additional assets.

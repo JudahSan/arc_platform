@@ -46,7 +46,6 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_TEST_MASTER_KEY }}
           DB_HOST: 127.0.0.1
         run: |
-          
           bin/rails css:build
           bundle exec rails db:prepare
           bundle exec rails test
