@@ -1,9 +1,5 @@
-<%# Display Turnstile-related error message when present.
-    To use, set @turnstile_error in your controller or render with a local, e.g.:
-      render partial: "shared/turnstile_error", locals: { turnstile_error: "Verification failed" }
-%>
-<% if defined?(turnstile_error) ? turnstile_error.present? : @turnstile_error.present? %>
+<% if @turnstile_error.present? %>
   <div class="alert alert-danger">
-    <%= defined?(turnstile_error) ? turnstile_error : @turnstile_error %>
+    <%= @turnstile_error %>
   </div>
 <% end %>

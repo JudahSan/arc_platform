@@ -5,7 +5,7 @@ jobs:
     name: RuboCop Linter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
       - name: Setup Ruby 3.4.1
         uses: ruby/setup-ruby@v1
         with:
@@ -26,15 +26,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: arc_platform_test
 
     steps:
-      - uses: actions/checkout@v5
-      - name: Install system dependencies
-        run: sudo apt-get -yqq update && sudo apt-get -yqq install libpq-dev
+      - uses: actions/checkout@v4
       - name: Setup Ruby 3.4.1
         uses: ruby/setup-ruby@v1
         with:
@@ -44,12 +38,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-      - name: Ensure Yarn is available
-        run: npm i -g yarn@1.22.19
+          node-version: '18'
+          
       - name: Find yarn cache location
         id: yarn-cache
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+        
       - name: JS package cache
         uses: actions/cache@v4
         with:
@@ -63,10 +57,15 @@ jobs:
 
       - name: Build and run tests
         env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          #POSTGRES_PASSWORD: postgres
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_TEST_MASTER_KEY }}
-          DB_HOST: 127.0.0.1
         run: |
+          sudo apt-get -yqq install libpq-dev
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bin/rails javascript:build
           bin/rails css:build
           bundle exec rails db:prepare
           bundle exec rails test

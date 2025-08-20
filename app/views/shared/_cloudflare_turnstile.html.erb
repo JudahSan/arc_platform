@@ -1,23 +1,3 @@
-<%#
-  Cloudflare Turnstile widget partial
-  Usage:
-    <%= render "shared/cloudflare_turnstile" %>
-
-  Configuration:
-  - Requires credentials:
-      rails credentials:edit
-      cloudflare_turnstile:
-        site_key: YOUR_PUBLIC_SITE_KEY
-        secret_key: YOUR_SECRET_KEY
-  - The Stimulus controller reads the site key from credentials and renders the widget.
-  - You can override size/theme by passing locals if desired, e.g.:
-      <%= render "shared/cloudflare_turnstile", size: "flexible", theme: "light" %>
-    and then bind those locals to data attributes below if you extend the partial.
-
-  Notes:
-  - Ensure the layout includes the Turnstile script (see application.html.erb).
-  - The controller will disable the submit button until the challenge is solved.
-%>
 <div data-controller="turnstile"
      class="mt-4"
      data-turnstile-sitekey-value="<%= Rails.application.credentials.dig(:cloudflare_turnstile, :site_key) %>"

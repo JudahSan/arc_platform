@@ -9,8 +9,6 @@
   <%= favicon_link_tag 'favicon.ico' %>
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%# Cloudflare Turnstile script (explicit render mode). Required for the
-      Stimulus controller to render the widget. See controllers/turnstile_controller.js %>
   <%= javascript_include_tag "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit", "data-turbo-track": "reload", defer: true, async: true %>
   <%= javascript_importmap_tags %>
 </head>
