@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  authenticate :user do
+  # secure Motor Admin - only logged-in admins can access
+  authenticate :user, -> (u) { u.organization_admin? || u.chapter_admin? } do
     mount Motor::Admin => '/admin'
   end
   resources :projects, only: %i[index show]
