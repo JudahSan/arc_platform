@@ -44,7 +44,7 @@ class LearningMaterialsControllerTest < ActionDispatch::IntegrationTest
   #     LearningMaterial.create!(
   #       title: "Material #{i}",
   #       level: :beginner,
-  #       link: "https://example.com/#{i}"
+  #       link_url: "https://example.com/#{i}"
   #     )
   #   end
   #
