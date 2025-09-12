@@ -30,8 +30,25 @@ class LearningMaterial < ApplicationRecord
 
   validates :title, presence: true
   validates :level, presence: true
-  validates :link_url, presence: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
-  validates :thumbnail_url, allow_blank: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
+  validates :link, presence: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
+  validates :thumbnail, allow_blank: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
+
+  # App-level aliases for cleaner naming
+  def link_url
+    link
+  end
+
+  def link_url=(value)
+    self.link = value
+  end
+
+  def thumbnail_url
+    thumbnail
+  end
+
+  def thumbnail_url=(value)
+    self.thumbnail = value
+  end
 
   scope :featured, -> { where(featured: true) }
   scope :by_level, ->(lvl) { lvl.present? ? where(level: levels[lvl]) : all }
