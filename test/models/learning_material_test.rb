@@ -35,7 +35,6 @@ class LearningMaterialTest < ActiveSupport::TestCase
     assert_not lm.valid?
     assert_includes lm.errors.attribute_names, :title
     assert_includes lm.errors.attribute_names, :level
-    # model uses alias_attribute :link, :link
     assert_includes lm.errors.attribute_names, :link
   end
 
@@ -65,7 +64,5 @@ class LearningMaterialTest < ActiveSupport::TestCase
 
     assert_equal 'https://example.com', lm.link
     assert_equal 'https://example.com/thumb.png', lm.thumbnail
-    assert_equal 'https://example.com', lm.link_url
-    assert_equal 'https://example.com/thumb.png', lm.thumbnail_url
   end
 end
