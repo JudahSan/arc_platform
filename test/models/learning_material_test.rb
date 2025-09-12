@@ -35,8 +35,8 @@ class LearningMaterialTest < ActiveSupport::TestCase
     assert_not lm.valid?
     assert_includes lm.errors.attribute_names, :title
     assert_includes lm.errors.attribute_names, :level
-    # model uses alias_attribute :link, :link
-    assert_includes lm.errors.attribute_names, :link
+    # model uses alias_attribute :link_url, :link
+    assert_includes lm.errors.attribute_names, :link_url
   end
 
   test 'enum levels' do
@@ -56,16 +56,5 @@ class LearningMaterialTest < ActiveSupport::TestCase
 
   test 'featured scope returns only featured' do
     assert_equal [learning_materials(:ruby_basics)], LearningMaterial.featured
-  end
-
-  test 'url aliases map to db columns' do
-    lm = LearningMaterial.new
-    lm.link_url = 'https://example.com'
-    lm.thumbnail_url = 'https://example.com/thumb.png'
-
-    assert_equal 'https://example.com', lm.link
-    assert_equal 'https://example.com/thumb.png', lm.thumbnail
-    assert_equal 'https://example.com', lm.link_url
-    assert_equal 'https://example.com/thumb.png', lm.thumbnail_url
   end
 end

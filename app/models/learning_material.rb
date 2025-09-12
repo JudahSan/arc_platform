@@ -30,8 +30,8 @@ class LearningMaterial < ApplicationRecord
 
   validates :title, presence: true
   validates :level, presence: true
-  validates :link, presence: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
-  validates :thumbnail, allow_blank: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
+  validates :link_url, presence: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
+  validates :thumbnail_url, allow_blank: true, format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
 
   # App-level aliases for cleaner naming
   def link_url
