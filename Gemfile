@@ -11,6 +11,10 @@ gem 'bootsnap', require: false # Reduces boot times through caching; required in
 gem 'cancancan', '~> 3.4' # Authorization library which restricts what resources a given user is allowed to access
 gem 'cssbundling-rails' # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'devise' # Devise 4.0 works with Rails 4.1 onwards.
+# OAuth integration
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem 'image_processing', '~> 1.2'
 gem 'invisible_captcha' # Spam protection solution [https://github.com/markets/invisible_captcha]
