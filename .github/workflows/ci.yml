@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - name: Setup Ruby 3.4.4
+      - name: Setup Ruby 3.4.7
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4.4' # Not needed with a .ruby-version file
