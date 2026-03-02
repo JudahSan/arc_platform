@@ -66,7 +66,7 @@ class User < ApplicationRecord
 
   # Validate that the GitHub account exists
   validate :github_account_exists,
-           if: -> {
+           if: lambda {
              github_username.present? &&
                github_username_changed? &&
                !skip_github_verification
@@ -74,36 +74,34 @@ class User < ApplicationRecord
 
   # OAuth methods
   def self.from_omniauth(auth)
-    email = auth.info.email
-    nickname = auth.info.nickname.presence
-    display_name = auth.info.name.presence || nickname || email.to_s.split('@').first
-
-    user = find_or_initialize_by(email: email)
-
-    # During OAuth creation/update, do not hit external GitHub verifier
+    user = find_or_initialize_by(email: auth.info.email)
     user.skip_github_verification = true
 
-    # Always ensure we have a name
-    user.name = display_name if user.name.blank? || user.name != display_name
-
-    # Assign github_username if safe (unique or already matching)
-    if nickname.present?
-      if user.github_username.blank? || user.github_username == nickname
-        # Only assign if not taken by someone else
-        unless User.where.not(id: user.id).exists?(github_username: nickname)
-          user.github_username = nickname
-        end
-      end
-    end
-
-    # Ensure password exists for DB auth (even if not used for OAuth)
-    user.password = Devise.friendly_token[0, 20] if user.encrypted_password.blank?
-
-    # Auto-confirm OAuth users
+    update_user_from_auth(user, auth)
+    ensure_user_credentials(user)
     user.confirmed_at ||= Time.current
 
     user.save
     user
+  end
+
+  def self.update_user_from_auth(user, auth)
+    nickname = auth.info.nickname.presence
+    display_name = auth.info.name.presence || nickname || auth.info.email.to_s.split('@').first
+
+    user.name = display_name if user.name.blank? || user.name != display_name
+    assign_github_username(user, nickname) if nickname.present?
+  end
+
+  def self.assign_github_username(user, nickname)
+    return unless user.github_username.blank? || user.github_username == nickname
+    return if User.where.not(id: user.id).exists?(github_username: nickname)
+
+    user.github_username = nickname
+  end
+
+  def self.ensure_user_credentials(user)
+    user.password = Devise.friendly_token[0, 20] if user.encrypted_password.blank?
   end
 
   private

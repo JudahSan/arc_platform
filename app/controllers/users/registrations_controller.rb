@@ -25,7 +25,7 @@ module Users
       oauth_data = session['devise.github_data']
       # Initialize resource if it doesn't exist
       self.resource ||= resource_class.new
-      
+
       resource.email = oauth_data['info']['email'] if oauth_data.dig('info', 'email')
       resource.name = oauth_data['info']['name'] if oauth_data.dig('info', 'name')
       resource.github_username = oauth_data['info']['nickname'] if oauth_data.dig('info', 'nickname')
@@ -52,9 +52,9 @@ module Users
       return if session['devise.github_data'].present?
 
       # Remove github_username from the submitted params if present
-      if params[:user].is_a?(ActionController::Parameters)
-        params[:user].delete(:github_username)
-      end
+      return unless params[:user].is_a?(ActionController::Parameters)
+
+      params[:user].delete(:github_username)
     end
   end
 end

@@ -13,7 +13,7 @@ module Users
       # Clean up OmniAuth test mode
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:github] = nil
-      
+
       # Clean up any stubs
       GithubAccountVerifier.unstub(:exists?) if GithubAccountVerifier.respond_to?(:unstub)
     end
@@ -25,20 +25,20 @@ module Users
     test 'should sign in existing user from GitHub OAuth' do
       # Mock the GitHub account verification to return true for the test
       GithubAccountVerifier.stubs(:exists?).returns(true)
-      
+
       # Create existing user
-      existing_user = create_test_user(email: 'existing@example.com')
+      create_test_user(email: 'existing@example.com')
 
       # Mock GitHub OAuth response for existing user
       auth_hash = OmniAuth::AuthHash.new({
-        provider: 'github',
-        uid: '123456',
-        info: {
-          email: 'existing@example.com',
-          name: 'Updated Name',
-          nickname: 'updated-username'
-        }
-      })
+                                           provider: 'github',
+                                           uid: '123456',
+                                           info: {
+                                             email: 'existing@example.com',
+                                             name: 'Updated Name',
+                                             nickname: 'updated-username'
+                                           }
+                                         })
 
       assert_no_difference 'User.count' do
         get '/users/auth/github/callback', env: { 'omniauth.auth' => auth_hash }
@@ -54,18 +54,18 @@ module Users
       controller = Users::OmniauthCallbacksController.new
       controller.request = ActionDispatch::TestRequest.create
       controller.request.env['omniauth.error'] = StandardError.new('Test error')
-      
+
       # Mock the redirect_to method to capture the redirect
       redirect_path = nil
       alert_message = nil
-      
+
       controller.define_singleton_method(:redirect_to) do |path, options = {}|
         redirect_path = path
         alert_message = options[:alert]
       end
-      
+
       controller.failure
-      
+
       assert_equal root_path, redirect_path
       assert_equal 'Authentication failed. Please try again or use email/password login.', alert_message
     end
@@ -73,17 +73,17 @@ module Users
     test 'should handle user creation failure' do
       # Mock the GitHub account verification to return false for invalid username
       GithubAccountVerifier.stubs(:exists?).returns(false)
-      
+
       # Mock OAuth response with invalid data that would cause user creation to fail
       auth_hash = OmniAuth::AuthHash.new({
-        provider: 'github',
-        uid: '123456',
-        info: {
-          email: '', # Invalid email
-          name: 'Test User',
-          nickname: 'testuser'
-        }
-      })
+                                           provider: 'github',
+                                           uid: '123456',
+                                           info: {
+                                             email: '', # Invalid email
+                                             name: 'Test User',
+                                             nickname: 'testuser'
+                                           }
+                                         })
 
       assert_no_difference 'User.count' do
         # Manually set the omniauth.auth in the request environment

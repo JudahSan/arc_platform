@@ -11,6 +11,7 @@ gem 'bootsnap', require: false # Reduces boot times through caching; required in
 gem 'cancancan', '~> 3.4' # Authorization library which restricts what resources a given user is allowed to access
 gem 'cssbundling-rails' # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'devise' # Devise 4.0 works with Rails 4.1 onwards.
+gem 'geocoder', '~> 1.8' # Complete geocoding solution for Ruby
 # OAuth integration
 gem 'omniauth'
 gem 'omniauth-github'

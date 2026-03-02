@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_24_182731) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_02_195113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -57,6 +57,29 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_24_182731) do
     t.datetime "created_at", null: false
     t.string "name"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.bigint "chapter_id", null: false
+    t.datetime "created_at", null: false
+    t.text "description", null: false
+    t.datetime "end_datetime", null: false
+    t.string "event_type", null: false
+    t.decimal "latitude", precision: 10, scale: 8
+    t.string "location_name"
+    t.decimal "longitude", precision: 11, scale: 8
+    t.string "payment_status", default: "free"
+    t.integer "price_cents", default: 0
+    t.string "slug"
+    t.datetime "start_datetime", null: false
+    t.string "status", default: "draft", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_events_on_chapter_id"
+    t.index ["event_type"], name: "index_events_on_event_type"
+    t.index ["slug"], name: "index_events_on_slug", unique: true
+    t.index ["start_datetime"], name: "index_events_on_start_datetime"
+    t.index ["status"], name: "index_events_on_status"
   end
 
   create_table "feature_flags", force: :cascade do |t|
@@ -303,6 +326,15 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_24_182731) do
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
+  create_table "speakers", force: :cascade do |t|
+    t.text "bio"
+    t.datetime "created_at", null: false
+    t.bigint "event_id", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_speakers_on_event_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "confirmation_sent_at"
     t.string "confirmation_token"
@@ -346,6 +378,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_24_182731) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "chapters"
   add_foreign_key "motor_alert_locks", "motor_alerts", column: "alert_id"
   add_foreign_key "motor_alerts", "motor_queries", column: "query_id"
   add_foreign_key "motor_note_tag_tags", "motor_note_tags", column: "tag_id"
@@ -354,6 +387,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_24_182731) do
   add_foreign_key "project_contributors", "projects"
   add_foreign_key "project_contributors", "users"
   add_foreign_key "projects", "chapters"
+  add_foreign_key "speakers", "events", on_delete: :cascade
   add_foreign_key "users_chapters", "chapters"
   add_foreign_key "users_chapters", "users"
 end

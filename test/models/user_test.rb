@@ -90,7 +90,7 @@ class UserTest < ActiveSupport::TestCase
     )
 
     user = User.from_omniauth(auth_data)
-    
+
     assert user.persisted?, 'User should be saved'
     assert_equal 'oauth@example.com', user.email
     assert_equal 'OAuth User', user.name
@@ -100,7 +100,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'should find existing user from omniauth data' do
     existing_user = User.create!(@valid_attributes.merge(email: 'existing@example.com', confirmed_at: Time.current))
-    
+
     auth_data = OpenStruct.new(
       info: OpenStruct.new(
         email: 'existing@example.com',
@@ -110,7 +110,7 @@ class UserTest < ActiveSupport::TestCase
     )
 
     user = User.from_omniauth(auth_data)
-    
+
     assert_equal existing_user.id, user.id, 'Should return existing user'
     assert_equal existing_user.email, user.email
   end

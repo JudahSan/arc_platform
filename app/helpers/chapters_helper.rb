@@ -93,4 +93,18 @@ module ChaptersHelper
       social.merge(alt: I18n.t(social[:alt_key]))
     end
   end
+
+  # Returns the country map icon path for a given country name
+  def country_icon(country_name)
+    return nil if country_name.blank?
+
+    icon_map = {
+      'Kenya' => 'country_kenya.png',
+      'Rwanda' => 'country_rwanda.png',
+      'Tanzania' => 'country_tanzania.png',
+      'Uganda' => 'country_uganda.png'
+    }
+
+    icon_map[country_name]
+  end
 end
