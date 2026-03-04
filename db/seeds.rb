@@ -145,3 +145,148 @@ if defined?(Project)
 
   Rails.logger.debug { "Seeded #{Project.count} projects." }
 end
+
+# Seed Events and Speakers
+if defined?(Event) && defined?(Speaker)
+  Rails.logger.debug 'Seeding Events and Speakers...'
+
+  # Ensure we have chapters
+  country = Country.find_or_create_by!(name: 'Kenya')
+  nairobi_chapter = Chapter.find_or_create_by!(name: 'Nairobi') do |c|
+    c.location = 'Nairobi, Kenya'
+    c.description = 'The Nairobi chapter of the African Ruby Community.'
+    c.country = country
+  end
+
+  mombasa_chapter = Chapter.find_or_create_by!(name: 'Mombasa') do |c|
+    c.location = 'Mombasa, Kenya'
+    c.description = 'The Mombasa chapter of the African Ruby Community.'
+    c.country = country
+  end
+
+  # Create upcoming events
+  upcoming_conference = Event.find_or_create_by!(title: 'RubyConf Africa 2025') do |e|
+    e.description = 'The premier Ruby conference in Africa, bringing together developers from across the continent to share knowledge, network, and celebrate Ruby programming.'
+    e.start_datetime = 3.months.from_now
+    e.end_datetime = 3.months.from_now + 2.days
+    e.status = 'published'
+    e.event_type = 'conference'
+    e.location_name = 'Kenyatta International Convention Centre, Nairobi'
+    e.latitude = -1.2921
+    e.longitude = 36.8219
+    e.payment_status = 'paid'
+    e.price_cents = 15_000
+    e.chapter = nairobi_chapter
+  end
+
+  # Add speakers to the conference
+  Speaker.find_or_create_by!(name: 'Matz Yukihiro', event: upcoming_conference) do |s|
+    s.bio = 'Creator of the Ruby programming language. Matz has been programming since 1980 and is known for his philosophy of making programmers happy.'
+  end
+
+  Speaker.find_or_create_by!(name: 'Sarah Mei', event: upcoming_conference) do |s|
+    s.bio = 'Chief Consultant at DevMynd Software and a prominent figure in the Ruby community, known for her work on improving software development practices.'
+  end
+
+  Event.find_or_create_by!(title: 'Rails Workshop for Beginners') do |e|
+    e.description = 'A hands-on workshop for developers new to Ruby on Rails. Learn the fundamentals of building web applications with Rails.'
+    e.start_datetime = 2.weeks.from_now
+    e.end_datetime = 2.weeks.from_now + 6.hours
+    e.status = 'published'
+    e.event_type = 'workshop'
+    e.location_name = 'iHub Nairobi'
+    e.latitude = -1.2864
+    e.longitude = 36.8172
+    e.payment_status = 'free'
+    e.price_cents = 0
+    e.chapter = nairobi_chapter
+  end
+
+  Event.find_or_create_by!(title: 'Nairobi Ruby Meetup - May') do |e|
+    e.description = 'Monthly meetup for Ruby developers in Nairobi. This month we will discuss performance optimization techniques and share project updates.'
+    e.start_datetime = 1.month.from_now
+    e.end_datetime = 1.month.from_now + 3.hours
+    e.status = 'published'
+    e.event_type = 'meetup'
+    e.location_name = 'Nairobi Garage'
+    e.latitude = -1.2921
+    e.longitude = 36.8219
+    e.payment_status = 'free'
+    e.price_cents = 0
+    e.chapter = nairobi_chapter
+  end
+
+  Event.find_or_create_by!(title: 'Mombasa Ruby Meetup') do |e|
+    e.description = 'Join fellow Ruby enthusiasts in Mombasa for an evening of coding, networking, and knowledge sharing.'
+    e.start_datetime = 3.weeks.from_now
+    e.end_datetime = 3.weeks.from_now + 3.hours
+    e.status = 'published'
+    e.event_type = 'meetup'
+    e.location_name = 'Swahili Pot Hub'
+    e.latitude = -4.0435
+    e.longitude = 39.6682
+    e.payment_status = 'free'
+    e.price_cents = 0
+    e.chapter = mombasa_chapter
+  end
+
+  # Create past events
+  past_conference = Event.find_or_create_by!(title: 'RubyConf Africa 2024') do |e|
+    e.description = 'The 2024 edition of RubyConf Africa was a huge success with over 300 attendees from 15 African countries.'
+    e.start_datetime = 6.months.ago
+    e.end_datetime = 6.months.ago + 2.days
+    e.status = 'published'
+    e.event_type = 'conference'
+    e.location_name = 'Kenyatta International Convention Centre, Nairobi'
+    e.latitude = -1.2921
+    e.longitude = 36.8219
+    e.payment_status = 'paid'
+    e.price_cents = 12_000
+    e.chapter = nairobi_chapter
+  end
+
+  Speaker.find_or_create_by!(name: 'DHH', event: past_conference) do |s|
+    s.bio = 'Creator of Ruby on Rails and founder of Basecamp. DHH is a strong advocate for programmer happiness and work-life balance.'
+  end
+
+  Event.find_or_create_by!(title: 'Nairobi Ruby Meetup - January') do |e|
+    e.description = 'Our first meetup of 2024 focused on new features in Rails 7.1 and community project showcases.'
+    e.start_datetime = 4.months.ago
+    e.end_datetime = 4.months.ago + 3.hours
+    e.status = 'published'
+    e.event_type = 'meetup'
+    e.location_name = 'Nairobi Garage'
+    e.latitude = -1.2921
+    e.longitude = 36.8219
+    e.payment_status = 'free'
+    e.price_cents = 0
+    e.chapter = nairobi_chapter
+  end
+
+  Rails.logger.debug { "Seeded #{Event.count} events and #{Speaker.count} speakers." }
+end
+
+# Enable feature flags for events, conferences, projects, and learning materials
+if defined?(FeatureFlag)
+  FeatureFlag.find_or_create_by!(name: 'events') do |ff|
+    ff.enabled = true
+    ff.description = 'Show/hide Events in navigation'
+  end
+
+  FeatureFlag.find_or_create_by!(name: 'conferences') do |ff|
+    ff.enabled = true
+    ff.description = 'Show/hide Conferences in navigation'
+  end
+
+  FeatureFlag.find_or_create_by!(name: 'projects') do |ff|
+    ff.enabled = true
+    ff.description = 'Show/hide Projects in navigation'
+  end
+
+  FeatureFlag.find_or_create_by!(name: 'learning_materials') do |ff|
+    ff.enabled = true
+    ff.description = 'Show/hide Learning Materials in navigation'
+  end
+
+  Rails.logger.debug 'Enabled events, conferences, projects, and learning materials feature flags.'
+end
