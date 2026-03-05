@@ -26,8 +26,24 @@ end
 if defined?(Project)
   Rails.logger.debug 'Seeding Projects...'
 
+  # Ensure we have countries - all countries with icon files
+  countries_data = [
+    'Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burundi',
+    'Cameroon', 'Central African Republic', 'Chad', 'Democratic Republic of Congo',
+    'Egypt', 'Ethiopia', 'Gabon', 'Ghana', 'Ivory Coast', 'Kenya',
+    'Madagascar', 'Malawi', 'Mauritius', 'Morocco', 'Namibia', 'Nigeria',
+    'Rwanda', 'Senegal', 'Sierra Leone', 'Somalia', 'South Africa', 'Tanzania',
+    'Togo', 'Tunisia', 'Uganda', 'Zambia', 'Zimbabwe'
+  ]
+
+  countries_data.each do |country_name|
+    Country.find_or_create_by!(name: country_name)
+  end
+
+  Rails.logger.debug "Seeded #{Country.count} countries."
+
   # Ensure we have a country and chapter
-  country = Country.find_or_create_by!(name: 'Kenya')
+  country = Country.find_by(name: 'Kenya')
   chapter = Chapter.find_or_create_by!(name: 'Nairobi') do |c|
     c.location = 'Nairobi, Kenya'
     c.description = 'The Nairobi chapter of the African Ruby Community.'
@@ -289,4 +305,126 @@ if defined?(FeatureFlag)
   end
 
   Rails.logger.debug 'Enabled events, conferences, projects, and learning materials feature flags.'
+end
+
+# Create admin user
+if defined?(User)
+  # Organization Admin
+  admin_user = User.find_or_initialize_by(email: 'admin@example.com')
+  
+  if admin_user.new_record?
+    admin_user.name = 'Admin User'
+    admin_user.password = 'password'
+    admin_user.password_confirmation = 'password'
+    admin_user.role = :organization_admin
+    admin_user.confirmed_at = Time.current # Skip email confirmation
+    admin_user.skip_github_verification = true
+    
+    if admin_user.save
+      Rails.logger.debug 'Created admin user: admin@example.com with password: password'
+    else
+      Rails.logger.error "Failed to create admin user: #{admin_user.errors.full_messages.join(', ')}"
+    end
+  else
+    Rails.logger.debug 'Admin user already exists: admin@example.com'
+  end
+
+  # Chapter Admin for Nairobi
+  nairobi_admin = User.find_or_initialize_by(email: 'nairobi.admin@example.com')
+  
+  if nairobi_admin.new_record?
+    nairobi_admin.name = 'Nairobi Chapter Admin'
+    nairobi_admin.password = 'password'
+    nairobi_admin.password_confirmation = 'password'
+    nairobi_admin.role = :chapter_admin
+    nairobi_admin.confirmed_at = Time.current
+    nairobi_admin.skip_github_verification = true
+    
+    if nairobi_admin.save
+      # Associate with Nairobi chapter
+      if defined?(Chapter)
+        nairobi_chapter = Chapter.find_by(name: 'Nairobi')
+        if nairobi_chapter
+          UsersChapter.find_or_create_by!(user: nairobi_admin, chapter: nairobi_chapter) do |uc|
+            uc.main_chapter = true
+          end
+        end
+      end
+      Rails.logger.debug 'Created chapter admin: nairobi.admin@example.com with password: password'
+    else
+      Rails.logger.error "Failed to create chapter admin: #{nairobi_admin.errors.full_messages.join(', ')}"
+    end
+  else
+    Rails.logger.debug 'Nairobi chapter admin already exists: nairobi.admin@example.com'
+  end
+
+  # Chapter Admin for Mombasa
+  mombasa_admin = User.find_or_initialize_by(email: 'mombasa.admin@example.com')
+  
+  if mombasa_admin.new_record?
+    mombasa_admin.name = 'Mombasa Chapter Admin'
+    mombasa_admin.password = 'password'
+    mombasa_admin.password_confirmation = 'password'
+    mombasa_admin.role = :chapter_admin
+    mombasa_admin.confirmed_at = Time.current
+    mombasa_admin.skip_github_verification = true
+    
+    if mombasa_admin.save
+      # Associate with Mombasa chapter
+      if defined?(Chapter)
+        mombasa_chapter = Chapter.find_by(name: 'Mombasa')
+        if mombasa_chapter
+          UsersChapter.find_or_create_by!(user: mombasa_admin, chapter: mombasa_chapter) do |uc|
+            uc.main_chapter = true
+          end
+        end
+      end
+      Rails.logger.debug 'Created chapter admin: mombasa.admin@example.com with password: password'
+    else
+      Rails.logger.error "Failed to create chapter admin: #{mombasa_admin.errors.full_messages.join(', ')}"
+    end
+  else
+    Rails.logger.debug 'Mombasa chapter admin already exists: mombasa.admin@example.com'
+  end
+
+  # Regular Members
+  member_data = [
+    { email: 'john.doe@example.com', name: 'John Doe', chapter: 'Nairobi' },
+    { email: 'jane.smith@example.com', name: 'Jane Smith', chapter: 'Nairobi' },
+    { email: 'peter.kamau@example.com', name: 'Peter Kamau', chapter: 'Mombasa' },
+    { email: 'mary.wanjiku@example.com', name: 'Mary Wanjiku', chapter: 'Nairobi' },
+    { email: 'david.omondi@example.com', name: 'David Omondi', chapter: 'Mombasa' }
+  ]
+
+  member_data.each do |data|
+    member = User.find_or_initialize_by(email: data[:email])
+    
+    if member.new_record?
+      member.name = data[:name]
+      member.password = 'password'
+      member.password_confirmation = 'password'
+      member.role = :member
+      member.confirmed_at = Time.current
+      member.skip_github_verification = true
+      
+      if member.save
+        # Associate with chapter
+        if defined?(Chapter)
+          chapter = Chapter.find_by(name: data[:chapter])
+          if chapter
+            UsersChapter.find_or_create_by!(user: member, chapter: chapter) do |uc|
+              uc.main_chapter = true
+            end
+          end
+        end
+        Rails.logger.debug "Created member: #{data[:email]} with password: password"
+      else
+        Rails.logger.error "Failed to create member #{data[:email]}: #{member.errors.full_messages.join(', ')}"
+      end
+    else
+      Rails.logger.debug "Member already exists: #{data[:email]}"
+    end
+  end
+
+  Rails.logger.debug "Seeded #{User.count} users total."
 end
