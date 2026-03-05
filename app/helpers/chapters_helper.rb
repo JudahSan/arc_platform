@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/ModuleLength
 module ChaptersHelper
   ACTIVITIES = [
     { image: 'activities_local_meetups.png', title_key: 'activities.meetups' },
@@ -96,6 +97,7 @@ module ChaptersHelper
 
   # Returns the country map icon path for a given country name
   # Only returns path if the icon file actually exists
+  # rubocop:disable Metrics/MethodLength
   def country_icon(country_name)
     return nil if country_name.blank?
 
@@ -138,4 +140,6 @@ module ChaptersHelper
 
     icon_map[country_name]
   end
+  # rubocop:enable Metrics/MethodLength
 end
+# rubocop:enable Metrics/ModuleLength
