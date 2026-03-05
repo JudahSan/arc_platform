@@ -143,6 +143,20 @@ en:
       title: "Chapters"
       page_title: "Chapters"
       page_description: "A showcase of the different ruby communities spread across the East African region."
+    show:
+      title: "Chapters"
+      subtitle: "Join your local chapter and connect with Ruby developers in your region."
+      chapter: "Chapter"
+      members: "Members"
+      view_members: "View Members"
+      learn_more: "Learn More"
+      leaders_organizers: "Chapter Leaders & Organizers"
+      upcoming_events: "Upcoming Chapter Events"
+      past_events: "Past Chapter Events"
+      no_upcoming_events: "No upcoming events scheduled at this time. Check back soon!"
+      featured_projects: "Featured Chapter Projects"
+      free: "Free"
+      paid: "Paid"
     countries:
       kenya: "Kenya"
       rwanda: "Rwanda"
@@ -305,6 +319,41 @@ en:
       speakers: "Speakers"
       share_event: "Share this event"
       other_events: "Other Events"
+    new:
+      title: "Create New Event"
+      back_to_events: "Back to Events"
+    edit:
+      title: "Edit Event"
+      back_to_event: "Back to Event"
+    form:
+      errors_prohibited: "prohibited this event from being saved:"
+      title: "Title"
+      description: "Description"
+      start_datetime: "Start Date & Time"
+      end_datetime: "End Date & Time"
+      chapter: "Chapter"
+      event_type: "Event Type"
+      status: "Status"
+      location: "Location"
+      location_placeholder: "e.g., iHub Nairobi, Kenya"
+      location_hint: "Coordinates will be automatically geocoded for map display"
+      payment_status: "Payment Status"
+      price_cents: "Price (in cents)"
+      image: "Image"
+      speakers_section: "Speakers"
+      add_speaker: "+ Add Speaker"
+      submit: "Save Event"
+      event_types:
+        meetup: "Meetup"
+        conference: "Conference"
+        workshop: "Workshop"
+      statuses:
+        draft: "Draft"
+        published: "Published"
+        archived: "Archived"
+      payment_statuses:
+        free: "Free"
+        paid: "Paid"
 
   # Conferences page translations
   conferences:

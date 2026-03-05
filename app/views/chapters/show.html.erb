@@ -1,8 +1,8 @@
 <!-- Header Section -->
 <div class="bg-white border-b border-gray-200 py-8">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 class="text-4xl font-bold text-gray-900 mb-4">Chapters</h1>
-    <p class="text-gray-600 text-lg">Join your local chapter and connect with Ruby developers in your region.</p>
+    <h1 class="text-4xl font-bold text-gray-900 mb-4"><%= t('chapters.show.title') %></h1>
+    <p class="text-gray-600 text-lg"><%= t('chapters.show.subtitle') %></p>
   </div>
 </div>
 
@@ -11,13 +11,13 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
     <div class="card bg-white shadow">
       <div class="card-body">
-        <h2 class="card-title text-xl"><%= @chapter.name %> Chapter</h2>
+        <h2 class="card-title text-xl"><%= @chapter.name %> <%= t('chapters.show.chapter') %></h2>
         <p class="text-gray-600"><%= @chapter.location.presence || @chapter.country&.name || 'Location' %></p>
         <div class="divider my-2"></div>
-        <p class="text-2xl font-bold text-black-600"><%= @member_count %>+ Members</p>
+        <p class="text-2xl font-bold text-black-600"><%= @member_count %>+ <%= t('chapters.show.members') %></p>
         <div class="card-actions justify-between pt-4">
-          <button class="btn btn-sm btn-outline">View Members</button>
-          <button class="btn btn-sm btn-red">Learn More</button>
+          <button class="btn btn-sm btn-outline"><%= t('chapters.show.view_members') %></button>
+          <button class="btn btn-sm btn-red"><%= t('chapters.show.learn_more') %></button>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
 
   <!-- Chapter Members Section -->
   <div class="bg-white rounded-lg shadow-md p-8 mb-12">
-    <h2 class="text-2xl font-bold mb-8">Chapter Leaders & Organizers</h2>
+    <h2 class="text-2xl font-bold mb-8"><%= t('chapters.show.leaders_organizers') %></h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <% if @chapter.users.any? %>
         <% @chapter.users.limit(4).each do |user| %>
@@ -46,7 +46,7 @@
 
   <!-- Chapter Events -->
   <div class="mb-12">
-    <h2 class="text-2xl font-bold mb-6">Upcoming Chapter Events</h2>
+    <h2 class="text-2xl font-bold mb-6"><%= t('chapters.show.upcoming_events') %></h2>
     <% if @upcoming_events.any? %>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <% @upcoming_events.each do |event| %>
@@ -66,11 +66,11 @@
                 <!-- Payment Status Badge -->
                 <% if event.payment_status == 'free' %>
                   <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    Free
+                    <%= t('chapters.show.free') %>
                   </div>
                 <% elsif event.payment_status == 'paid' %>
                   <div class="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                    Paid
+                    <%= t('chapters.show.paid') %>
                   </div>
                 <% end %>
               </div>
@@ -107,7 +107,7 @@
       </div>
     <% else %>
       <div class="bg-blue-50 rounded-lg p-8">
-        <p class="text-gray-600">No upcoming events scheduled at this time. Check back soon!</p>
+        <p class="text-gray-600"><%= t('chapters.show.no_upcoming_events') %></p>
       </div>
     <% end %>
   </div>
@@ -115,7 +115,7 @@
   <!-- Past Events -->
   <% if @past_events.present? && @past_events.any? %>
     <div class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Past Chapter Events</h2>
+      <h2 class="text-2xl font-bold mb-6"><%= t('chapters.show.past_events') %></h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <% @past_events.each do |event| %>
           <div class="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden">
@@ -168,7 +168,7 @@
   <!-- Featured Projects -->
   <% if @featured_projects&.any? %>
     <div class="mb-12">
-      <h2 class="text-2xl font-bold mb-6">Featured Chapter Projects</h2>
+      <h2 class="text-2xl font-bold mb-6"><%= t('chapters.show.featured_projects') %></h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <% @featured_projects.each do |project| %>
           <%= link_to project_path(project), class: "card card-compact bg-white shadow hover:shadow-lg transition-shadow" do %>

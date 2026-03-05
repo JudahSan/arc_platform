@@ -142,6 +142,20 @@ fr:
       title: "Chapitres"
       page_title: "Chapitres"
       page_description: "Une vitrine des différentes communautés ruby réparties dans la région d'Afrique de l'Est."
+    show:
+      title: "Chapitres"
+      subtitle: "Rejoignez votre chapitre local et connectez-vous avec les développeurs Ruby de votre région."
+      chapter: "Chapitre"
+      members: "Membres"
+      view_members: "Voir les Membres"
+      learn_more: "En savoir plus"
+      leaders_organizers: "Dirigeants et Organisateurs du Chapitre"
+      upcoming_events: "Événements à Venir du Chapitre"
+      past_events: "Événements Passés du Chapitre"
+      no_upcoming_events: "Aucun événement à venir prévu pour le moment. Revenez bientôt !"
+      featured_projects: "Projets Vedettes du Chapitre"
+      free: "Gratuit"
+      paid: "Payant"
     countries:
       kenya: "Kenya"
       rwanda: "Rwanda"
@@ -304,6 +318,41 @@ fr:
       speakers: "Intervenants"
       share_event: "Partager cet événement"
       other_events: "Autres Événements"
+    new:
+      title: "Créer un Nouvel Événement"
+      back_to_events: "Retour aux Événements"
+    edit:
+      title: "Modifier l'Événement"
+      back_to_event: "Retour à l'Événement"
+    form:
+      errors_prohibited: "ont empêché cet événement d'être enregistré:"
+      title: "Titre"
+      description: "Description"
+      start_datetime: "Date et Heure de Début"
+      end_datetime: "Date et Heure de Fin"
+      chapter: "Chapitre"
+      event_type: "Type d'Événement"
+      status: "Statut"
+      location: "Lieu"
+      location_placeholder: "ex: iHub Nairobi, Kenya"
+      location_hint: "Les coordonnées seront automatiquement géocodées pour l'affichage de la carte"
+      payment_status: "Statut de Paiement"
+      price_cents: "Prix (en centimes)"
+      image: "Image"
+      speakers_section: "Intervenants"
+      add_speaker: "+ Ajouter un Intervenant"
+      submit: "Enregistrer l'Événement"
+      event_types:
+        meetup: "Rencontre"
+        conference: "Conférence"
+        workshop: "Atelier"
+      statuses:
+        draft: "Brouillon"
+        published: "Publié"
+        archived: "Archivé"
+      payment_statuses:
+        free: "Gratuit"
+        paid: "Payant"
 
   # Conferences page translations
   conferences:

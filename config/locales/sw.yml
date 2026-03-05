@@ -142,6 +142,20 @@ sw:
       title: "Sura"
       page_title: "Sura"
       page_description: "Maonyesho ya jumuiya mbalimbali za ruby zilizotawanyika katika eneo la Afrika Mashariki."
+    show:
+      title: "Sura"
+      subtitle: "Jiunge na sura yako ya ndani na uunganishe na wabunifu wa Ruby katika eneo lako."
+      chapter: "Sura"
+      members: "Wanachama"
+      view_members: "Ona Wanachama"
+      learn_more: "Jifunze Zaidi"
+      leaders_organizers: "Viongozi na Waandaaji wa Sura"
+      upcoming_events: "Matukio Yanayokuja ya Sura"
+      past_events: "Matukio Yaliyopita ya Sura"
+      no_upcoming_events: "Hakuna matukio yanayokuja yaliyopangwa kwa sasa. Angalia tena hivi karibuni!"
+      featured_projects: "Miradi ya Kipekee ya Sura"
+      free: "Bure"
+      paid: "Malipo"
     countries:
       kenya: "Kenya"
       rwanda: "Rwanda"
@@ -304,6 +318,41 @@ sw:
       speakers: "Wasemaji"
       share_event: "Shiriki tukio hili"
       other_events: "Matukio Mengine"
+    new:
+      title: "Unda Tukio Jipya"
+      back_to_events: "Rudi kwa Matukio"
+    edit:
+      title: "Hariri Tukio"
+      back_to_event: "Rudi kwa Tukio"
+    form:
+      errors_prohibited: "zimezuia tukio hili kuhifadhiwa:"
+      title: "Kichwa"
+      description: "Maelezo"
+      start_datetime: "Tarehe na Muda wa Kuanza"
+      end_datetime: "Tarehe na Muda wa Kumalizia"
+      chapter: "Sura"
+      event_type: "Aina ya Tukio"
+      status: "Hali"
+      location: "Mahali"
+      location_placeholder: "mfano, iHub Nairobi, Kenya"
+      location_hint: "Kuratibu zitakodishwa kiotomatiki kwa kuonyesha ramani"
+      payment_status: "Hali ya Malipo"
+      price_cents: "Bei (kwa senti)"
+      image: "Picha"
+      speakers_section: "Wasemaji"
+      add_speaker: "+ Ongeza Msemaji"
+      submit: "Hifadhi Tukio"
+      event_types:
+        meetup: "Mkutano"
+        conference: "Mkutano"
+        workshop: "Warsha"
+      statuses:
+        draft: "Rasimu"
+        published: "Imechapishwa"
+        archived: "Imehifadhiwa"
+      payment_statuses:
+        free: "Bure"
+        paid: "Malipo"
 
   # Conferences page translations
   conferences:
