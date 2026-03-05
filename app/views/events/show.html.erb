@@ -17,15 +17,15 @@
     <div class="lg:col-span-1">
       <div class="card bg-white shadow-lg h-full">
         <div class="card-body space-y-5">
-          <h3 class="card-title text-xl">Event Details</h3>
+          <h3 class="card-title text-xl"><%= t('events.show.event_details') %></h3>
 
           <div>
-            <p class="text-sm text-gray-500 mb-1">Date</p>
+            <p class="text-sm text-gray-500 mb-1"><%= t('events.show.date') %></p>
             <p class="font-semibold text-lg"><%= @event.start_datetime.strftime("%B %d, %Y") %></p>
           </div>
 
           <div>
-            <p class="text-sm text-gray-500 mb-1">Time</p>
+            <p class="text-sm text-gray-500 mb-1"><%= t('events.show.time') %></p>
             <p class="font-semibold">
               <%= @event.start_datetime.strftime("%I:%M %p") %> - <%= @event.end_datetime.strftime("%I:%M %p") %>
             </p>
@@ -33,26 +33,26 @@
           </div>
 
           <div>
-            <p class="text-sm text-gray-500 mb-1">Event Type</p>
+            <p class="text-sm text-gray-500 mb-1"><%= t('events.show.event_type') %></p>
             <p class="font-semibold"><%= @event.event_type.to_s.titleize %></p>
           </div>
 
           <% if @event.payment_status == 'paid' %>
             <div>
-              <p class="text-sm text-gray-500 mb-1">Price</p>
+              <p class="text-sm text-gray-500 mb-1"><%= t('events.show.price') %></p>
               <p class="font-semibold text-lg"><%= number_to_currency(@event.price_cents / 100.0) %></p>
             </div>
           <% else %>
             <div>
-              <p class="font-semibold text-lg text-green-600">Free Event</p>
+              <p class="font-semibold text-lg text-green-600"><%= t('events.show.free_event') %></p>
             </div>
           <% end %>
 
           <div class="divider my-1"></div>
 
           <div class="space-y-3">
-            <%= link_to "Add to calendar", "#", class: "btn btn-outline btn-block" %>
-            <%= link_to "Attend event", "#", class: "btn btn-primary btn-block" %>
+            <%= link_to t('events.show.add_to_calendar'), "#", class: "btn btn-outline btn-block" %>
+            <%= link_to t('events.show.attend_event'), "#", class: "btn btn-primary btn-block" %>
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
 
     <!-- About -->
     <div>
-      <h2 class="text-2xl font-bold mb-4">About</h2>
+      <h2 class="text-2xl font-bold mb-4"><%= t('events.show.about') %></h2>
       <div class="prose max-w-none text-gray-700">
         <%= simple_format(@event.description) %>
       </div>
@@ -75,14 +75,14 @@
 
     <!-- Location + Map -->
     <div>
-      <h2 class="text-2xl font-bold mb-4">Location</h2>
-      <p class="text-gray-700 text-lg mb-4"><%= @event.location_name || "Location TBA" %></p>
+      <h2 class="text-2xl font-bold mb-4"><%= t('events.show.location') %></h2>
+      <p class="text-gray-700 text-lg mb-4"><%= @event.location_name || t('events.show.location_tba') %></p>
 
       <% if @event.mappable? %>
         <div id="event-map" class="w-full h-96 rounded-lg border border-gray-200 mb-4"></div>
         <a href="https://www.google.com/maps/dir/?api=1&destination=<%= @event.latitude %>,<%= @event.longitude %>" 
            target="_blank" rel="noopener" class="btn btn-outline btn-primary">
-          Get Directions
+          <%= t('events.show.get_directions') %>
         </a>
       <% end %>
     </div>
@@ -90,7 +90,7 @@
     <!-- Speakers -->
     <% if @event.speakers.any? %>
       <div>
-        <h3 class="text-2xl font-bold mb-6">Speakers</h3>
+        <h3 class="text-2xl font-bold mb-6"><%= t('events.show.speakers') %></h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <% @event.speakers.each do |speaker| %>
             <div class="text-center">
@@ -109,7 +109,7 @@
 
     <!-- Share -->
     <div>
-      <h3 class="font-semibold text-gray-900 mb-3">Share this event</h3>
+      <h3 class="font-semibold text-gray-900 mb-3"><%= t('events.show.share_event') %></h3>
       <div class="flex items-center gap-4">
         <a class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border-2 text-white bg-[#1DA1F2] hover:bg-[#1a8cd8] transition-colors"
            href="https://twitter.com/intent/tweet?text=<%= CGI.escape(@event.title) %>&url=<%= CGI.escape(request.original_url) %>"
@@ -141,13 +141,13 @@
     <!-- Related Events -->
     <% if @related_events.present? && @related_events.any? %>
       <div>
-        <h4 class="text-xl font-bold mb-4">Other Events</h4>
+        <h4 class="text-xl font-bold mb-4"><%= t('events.show.other_events') %></h4>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <% @related_events.each do |event| %>
             <%= link_to event_path(event), class: "block p-4 border border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition" do %>
               <p class="font-semibold text-gray-900 mb-1"><%= event.title %></p>
               <p class="text-sm text-gray-600"><%= event.start_datetime.strftime("%B %d, %Y") %></p>
-              <p class="text-sm text-gray-600"><%= event.location_name || "Location TBA" %></p>
+              <p class="text-sm text-gray-600"><%= event.location_name || t('events.show.location_tba') %></p>
             <% end %>
           <% end %>
         </div>

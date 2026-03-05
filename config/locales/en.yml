@@ -272,6 +272,57 @@ en:
       featured: "Featured"
       open_resource: "Open resource"
 
+  # Events page translations
+  events:
+    index:
+      title: "Events"
+      page_title: "Events"
+      page_description: "Discover Ruby community events, meetups, conferences, and workshops"
+      create_event: "Create Event"
+      search_placeholder: "Search by title or description..."
+      any_date: "Any date"
+      today: "Today"
+      this_week: "This week"
+      this_month: "This month"
+      upcoming: "Upcoming"
+      past: "Past"
+      all_countries: "All countries"
+      no_events: "No events found matching your search criteria."
+      free: "Free"
+    show:
+      event_details: "Event Details"
+      date: "Date"
+      time: "Time"
+      event_type: "Event Type"
+      price: "Price"
+      free_event: "Free Event"
+      add_to_calendar: "Add to calendar"
+      attend_event: "Attend event"
+      about: "About"
+      location: "Location"
+      location_tba: "Location TBA"
+      get_directions: "Get Directions"
+      speakers: "Speakers"
+      share_event: "Share this event"
+      other_events: "Other Events"
+
+  # Conferences page translations
+  conferences:
+    index:
+      title: "Conferences"
+      page_title: "Conferences"
+      page_description: "Explore major Ruby conferences: upcoming and past, across our chapters"
+      featured_conference: "Featured Conference"
+      view_details: "View details"
+      upcoming_conferences: "Upcoming conferences"
+      past_conferences: "Past conferences"
+      no_conferences: "No conferences available"
+      no_upcoming: "No upcoming conferences yet. Please check back soon."
+      no_past: "No past conferences recorded yet."
+      featured_shown_above: "Featured conference shown above"
+      free: "Free"
+      paid: "Paid"
+
   # Date and time formats
   date:
     formats:

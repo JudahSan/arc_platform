@@ -52,8 +52,9 @@
   </div>
 
   <% if @country_param.present? %>
+<!--    Hide Featured Members-->
     <!-- Featured Members -->
-    <div class="mt-16">
+    <div class="mt-16" style="display: none">
       <h2 class="text-2xl font-bold mb-6">Featured members</h2>
       <% if @featured_members.present? %>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -60,7 +60,7 @@ module ChaptersHelper
     { alt_key: 'social_media.facebook', link: 'https://www.facebook.com/rubycommunity.africa',
       image: 'brands_facebook.png',
       show: true },
-    { alt_key: 'social_media.instagram', link: '#', image: 'brands_instagram.png', show: true },
+    { alt_key: 'social_media.instagram', link: 'https://www.instagram.com/africanruby_community/', image: 'brands_instagram.png', show: true },
     { alt_key: 'social_media.linkedin', link: 'https://www.linkedin.com/company/african-ruby-community/',
       image: 'brands_linkedin.png', show: true },
     { alt_key: 'social_media.github', link: 'https://github.com/nairuby', image: 'brands_github.png', show: true }

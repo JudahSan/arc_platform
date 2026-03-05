@@ -271,6 +271,57 @@ fr:
       featured: "Vedette"
       open_resource: "Ouvrir la ressource"
 
+  # Events page translations
+  events:
+    index:
+      title: "Événements"
+      page_title: "Événements"
+      page_description: "Découvrez les événements de la communauté Ruby, rencontres, conférences et ateliers"
+      create_event: "Créer un Événement"
+      search_placeholder: "Rechercher par titre ou description..."
+      any_date: "N'importe quelle date"
+      today: "Aujourd'hui"
+      this_week: "Cette semaine"
+      this_month: "Ce mois-ci"
+      upcoming: "À venir"
+      past: "Passés"
+      all_countries: "Tous les pays"
+      no_events: "Aucun événement trouvé correspondant à vos critères de recherche."
+      free: "Gratuit"
+    show:
+      event_details: "Détails de l'Événement"
+      date: "Date"
+      time: "Heure"
+      event_type: "Type d'Événement"
+      price: "Prix"
+      free_event: "Événement Gratuit"
+      add_to_calendar: "Ajouter au calendrier"
+      attend_event: "Participer à l'événement"
+      about: "À propos"
+      location: "Lieu"
+      location_tba: "Lieu à confirmer"
+      get_directions: "Obtenir l'itinéraire"
+      speakers: "Intervenants"
+      share_event: "Partager cet événement"
+      other_events: "Autres Événements"
+
+  # Conferences page translations
+  conferences:
+    index:
+      title: "Conférences"
+      page_title: "Conférences"
+      page_description: "Explorez les principales conférences Ruby : à venir et passées, dans nos chapitres"
+      featured_conference: "Conférence Vedette"
+      view_details: "Voir les détails"
+      upcoming_conferences: "Conférences à venir"
+      past_conferences: "Conférences passées"
+      no_conferences: "Aucune conférence disponible"
+      no_upcoming: "Aucune conférence à venir pour le moment. Veuillez revenir bientôt."
+      no_past: "Aucune conférence passée enregistrée pour le moment."
+      featured_shown_above: "Conférence vedette affichée ci-dessus"
+      free: "Gratuit"
+      paid: "Payant"
+
   # Date and time formats
   date:
     formats:

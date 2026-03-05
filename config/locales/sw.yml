@@ -271,6 +271,57 @@ sw:
       featured: "Kipekee"
       open_resource: "Fungua rasilimali"
 
+  # Events page translations
+  events:
+    index:
+      title: "Matukio"
+      page_title: "Matukio"
+      page_description: "Gundua matukio ya jumuiya ya Ruby, mikutano, mikutano na warsha"
+      create_event: "Unda Tukio"
+      search_placeholder: "Tafuta kwa kichwa au maelezo..."
+      any_date: "Tarehe yoyote"
+      today: "Leo"
+      this_week: "Wiki hii"
+      this_month: "Mwezi huu"
+      upcoming: "Yanayokuja"
+      past: "Yaliyopita"
+      all_countries: "Nchi zote"
+      no_events: "Hakuna matukio yaliyopatikana yanayolingana na vigezo vyako vya utafutaji."
+      free: "Bure"
+    show:
+      event_details: "Maelezo ya Tukio"
+      date: "Tarehe"
+      time: "Muda"
+      event_type: "Aina ya Tukio"
+      price: "Bei"
+      free_event: "Tukio la Bure"
+      add_to_calendar: "Ongeza kwenye kalenda"
+      attend_event: "Hudhuria tukio"
+      about: "Kuhusu"
+      location: "Mahali"
+      location_tba: "Mahali Patakapotangazwa"
+      get_directions: "Pata Maelekezo"
+      speakers: "Wasemaji"
+      share_event: "Shiriki tukio hili"
+      other_events: "Matukio Mengine"
+
+  # Conferences page translations
+  conferences:
+    index:
+      title: "Mikutano"
+      page_title: "Mikutano"
+      page_description: "Chunguza mikutano mikubwa ya Ruby: inayokuja na iliyopita, katika sura zetu"
+      featured_conference: "Mkutano wa Kipekee"
+      view_details: "Ona maelezo"
+      upcoming_conferences: "Mikutano inayokuja"
+      past_conferences: "Mikutano iliyopita"
+      no_conferences: "Hakuna mikutano inayopatikana"
+      no_upcoming: "Hakuna mikutano inayokuja bado. Tafadhali angalia tena hivi karibuni."
+      no_past: "Hakuna mikutano iliyopita iliyorekodiwa bado."
+      featured_shown_above: "Mkutano wa kipekee unaonyeshwa hapo juu"
+      free: "Bure"
+      paid: "Malipo"
+
   # Date and time formats
   date:
     formats:
