@@ -1,34 +1,37 @@
-<% content_for :title, "Events" %>
-<% content_for(:description, "Discover Ruby community events, meetups, conferences, and workshops") %>
+<% content_for :title, t('events.index.page_title') %>
+<% content_for(:description, t('events.index.page_description')) %>
 
 <div class="container pt-20 px-4 xl:px-56 mx-auto">
-  <div class="flex justify-between items-center pt-16 pb-16">
-    <h1 class="text-4xl text-red-600 font-bold text-5xl">Events</h1>
+  <div class="flex justify-between items-center pt-16 pb-6">
+    <div>
+      <h1 class="text-4xl text-red-600 font-bold text-5xl mb-2"><%= t('events.index.title') %></h1>
+      <p class="text-gray-600 text-lg"><%= t('events.index.page_description') %></p>
+    </div>
     
     <% if can? :create, Event %>
       <%= link_to new_event_path, class: "btn btn-primary" do %>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
-        Create Event
+        <%= t('events.index.create_event') %>
       <% end %>
     <% end %>
   </div>
 
   <!-- Search Section -->
-  <div class="mb-6">
-    <%= form_with url: events_path, method: :get, data: { controller: "event-search", turbo_frame: "events_list", action: "input->event-search#search change->event-search#search" }, class: 'grid grid-cols-1 md:grid-cols-6 gap-4' do %>
-      <div class="md:col-span-3">
-        <%= text_field_tag :query, params[:query], placeholder: "Search by title or description...", class: 'input input-bordered w-full', data: { event_search_target: "query" } %>
-      </div>
-      <div>
-        <%= select_tag :date, options_for_select([['Any date', ''], ['Today', 'today'], ['This week', 'this_week'], ['This month', 'this_month'], ['Upcoming', 'upcoming'], ['Past', 'past']], params[:date]), class: 'select select-bordered w-full', data: { event_search_target: "date" } %>
-      </div>
-      <div>
-        <%= select_tag :country, options_for_select([["All countries", '']] + @countries.map { |c| [c.name, c.id] }, params[:country]), class: 'select select-bordered w-full', data: { event_search_target: "country" } %>
-      </div>
-      <div>
-        <%= submit_tag "Search", class: 'btn btn-primary w-full' %>
+  <div class="mb-8">
+    <%= form_with url: events_path, method: :get, data: { controller: "event-search", turbo_frame: "events_list", action: "input->event-search#search change->event-search#search" }, class: 'max-w-4xl' do %>
+      <div class="flex gap-4 flex-wrap items-center">
+        <div class="relative flex-1 min-w-[300px]">
+          <%= text_field_tag :query, params[:query], placeholder: t('events.index.search_placeholder'), class: 'w-full h-16 px-6 pr-16 rounded-full border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm text-lg bg-white', data: { event_search_target: "query" } %>
+          <button type="submit" class="bg-red-600 hover:bg-red-700 text-white w-12 h-12 rounded-full transition-colors flex items-center justify-center" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </button>
+        </div>
+        <%= select_tag :date, options_for_select([[t('events.index.any_date'), ''], [t('events.index.today'), 'today'], [t('events.index.this_week'), 'this_week'], [t('events.index.this_month'), 'this_month'], [t('events.index.upcoming'), 'upcoming'], [t('events.index.past'), 'past']], params[:date]), class: 'h-16 px-6 rounded-full border-2 border-gray-300 text-gray-900 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm bg-white text-lg', data: { event_search_target: "date" } %>
+        <%= select_tag :country, options_for_select([[t('events.index.all_countries'), '']] + @countries.map { |c| [c.name, c.id] }, params[:country]), class: 'h-16 px-6 rounded-full border-2 border-gray-300 text-gray-900 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm bg-white text-lg', data: { event_search_target: "country" } %>
       </div>
     <% end %>
   </div>
@@ -57,7 +60,7 @@
                   <!-- Payment Status Badge -->
                   <% if event.payment_status == 'free' %>
                     <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                      Free
+                      <%= t('events.index.free') %>
                     </div>
                   <% elsif event.payment_status == 'paid' %>
                     <div class="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
@@ -99,7 +102,7 @@
         </div>
       <% else %>
         <div class="text-center py-12">
-          <p class="text-gray-500 text-lg">No events found matching your search criteria.</p>
+          <p class="text-gray-500 text-lg"><%= t('events.index.no_events') %></p>
         </div>
       <% end %>
     </section>
