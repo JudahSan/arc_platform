@@ -8,7 +8,7 @@ class ChaptersController < ApplicationController
 
   # GET /chapters or /chapters.json
   def index
-    @countries = Country.order(:name)
+    @countries = Country.joins(:chapters).distinct.order(:name)
     @country_param = determine_country_param
     @chapters = filter_chapters_by_country
     load_country_data if @country_param
