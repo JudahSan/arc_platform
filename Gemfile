@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.4.7'
+ruby '4.0.2'
 
 gem 'active_storage_validations', '~> 1.0' # Active Storage gems for validating attachments https://github.com/igorkasyanchuk/active_storage_validations
 gem 'aws-sdk-s3', '~> 1.208', require: false # Official AWS Ruby gem for Amazon S3
@@ -73,6 +73,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'benchmark'
 
   # Capistrano - deployment gems
   gem 'capistrano', '~> 3.19'

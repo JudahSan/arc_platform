@@ -121,11 +121,11 @@
                 <!-- Event Date & Time -->
                 <div class="space-y-1 mb-4">
                   <p class="text-sm font-semibold text-gray-900">
-                    <%= event.start_datetime.strftime("%B %d, %Y") %>
+                    <%= event.start_in_zone.strftime("%B %d, %Y") %>
                   </p>
                   <p class="text-sm text-gray-600">
-                    <%= event.start_datetime.strftime("%I:%M %p") %> - <%= event.end_datetime.strftime("%I:%M %p") %>
-                    <span class="text-gray-400"><%= event.start_datetime.strftime("%Z") %></span>
+                    <%= event.start_in_zone.strftime("%I:%M %p") %> - <%= event.end_in_zone.strftime("%I:%M %p") %>
+                    <span class="text-gray-400"><%= event.start_in_zone.strftime("%Z") %></span>
                   </p>
                 </div>
                 

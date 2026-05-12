@@ -14,13 +14,13 @@
       <p class="uppercase tracking-widest text-red-200 mb-2"><%= t('conferences.index.featured_conference') %></p>
       <h1 class="text-4xl md:text-5xl font-bold mb-4"><%= @featured_conference.title %></h1>
       <p class="text-red-100 mb-1">
-        <strong><%= @featured_conference.start_datetime.strftime('%B %d, %Y') %></strong>
+        <strong><%= @featured_conference.start_in_zone.strftime('%B %d, %Y') %></strong>
         • <%= @featured_conference.location_name || t('events.show.location_tba') %>
       </p>
       <p class="text-red-100 mb-6">
-        <%= @featured_conference.start_datetime.strftime('%I:%M %p') %>
-        - <%= @featured_conference.end_datetime.strftime('%I:%M %p') %>
-        <%= @featured_conference.start_datetime.strftime('%Z') %>
+        <%= @featured_conference.start_in_zone.strftime('%I:%M %p') %>
+        - <%= @featured_conference.end_in_zone.strftime('%I:%M %p') %>
+        <%= @featured_conference.start_in_zone.strftime('%Z') %>
       </p>
       <%= link_to t('conferences.index.view_details'), event_path(@featured_conference), class: 'btn btn-sm md:btn-md bg-white text-red-700 hover:bg-gray-100' %>
     </div>
@@ -52,7 +52,7 @@
               <div class="card-body p-3 md:p-4">
                 <h3 class="card-title text-base mt-1 text-gray-900"><%= conf.title %></h3>
                 <div class="text-sm text-gray-700 space-y-1">
-                  <p class="text-gray-700"><strong><%= conf.start_datetime.strftime('%B %d, %Y') %></strong></p>
+                  <p class="text-gray-700"><strong><%= conf.start_in_zone.strftime('%B %d, %Y') %></strong></p>
                   <p class="text-gray-700"><%= conf.location_name || t('events.show.location_tba') %></p>
                 </div>
                 <div class="mt-2">
@@ -81,7 +81,7 @@
               <div class="card-body p-3 md:p-4">
                 <h3 class="card-title text-base mt-1 text-gray-900"><%= conf.title %></h3>
                 <div class="text-sm text-gray-700 space-y-1">
-                  <p class="text-gray-700"><strong><%= conf.start_datetime.strftime('%B %d, %Y') %></strong></p>
+                  <p class="text-gray-700"><strong><%= conf.start_in_zone.strftime('%B %d, %Y') %></strong></p>
                   <p class="text-gray-700"><%= conf.location_name || t('events.show.location_tba') %></p>
                 </div>
               </div>

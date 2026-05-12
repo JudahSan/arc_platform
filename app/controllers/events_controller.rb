@@ -87,7 +87,7 @@ class EventsController < ApplicationController
   def event_params
     params.expect(
       event: [:title, :description, :start_datetime, :end_datetime,
-              :status, :event_type, :location_name,
+              :status, :event_type, :location_name, :timezone,
               :payment_status, :price_cents, :chapter_id, :image,
               { speakers_attributes: %i[id name bio photo _destroy] }]
     )

@@ -38,6 +38,21 @@ class Event < ApplicationRecord
     latitude.present? && longitude.present?
   end
 
+  # Time zone helpers
+  def time_zone
+    # Use event's timezone string if present and valid; fallback to application Time.zone
+    tz_name = respond_to?(:timezone) ? (timezone.presence || 'UTC') : 'UTC'
+    ActiveSupport::TimeZone[tz_name] || Time.zone
+  end
+
+  def start_in_zone
+    start_datetime&.in_time_zone(time_zone)
+  end
+
+  def end_in_zone
+    end_datetime&.in_time_zone(time_zone)
+  end
+
   private
 
   def generate_slug

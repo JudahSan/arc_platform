@@ -2,10 +2,10 @@
   <div class="card-body">
     <h3 class="card-title text-lg"><%= event.title %></h3>
     <div class="space-y-2 text-sm text-gray-600">
-      <p><strong><%= event.start_datetime.strftime("%B %d, %Y") %></strong></p>
+      <p><strong><%= event.start_in_zone.strftime("%B %d, %Y") %></strong></p>
       <p><%= event.location_name || "Location TBA" %></p>
-      <p><%= event.start_datetime.strftime("%I:%M %p") %> - <%= event.end_datetime.strftime("%I:%M %p") %></p>
-      <p class="text-gray-400"><%= event.start_datetime.strftime("%Z") %></p>
+      <p><%= event.start_in_zone.strftime("%I:%M %p") %> - <%= event.end_in_zone.strftime("%I:%M %p") %></p>
+      <p class="text-gray-400"><%= event.start_in_zone.strftime("%Z") %></p>
     </div>
     <div class="card-actions justify-end pt-4">
       <% if event.payment_status == 'free' %>

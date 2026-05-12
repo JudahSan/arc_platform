@@ -21,15 +21,15 @@
 
           <div>
             <p class="text-sm text-gray-500 mb-1"><%= t('events.show.date') %></p>
-            <p class="font-semibold text-lg"><%= @event.start_datetime.strftime("%B %d, %Y") %></p>
+            <p class="font-semibold text-lg"><%= @event.start_in_zone.strftime("%B %d, %Y") %></p>
           </div>
 
           <div>
             <p class="text-sm text-gray-500 mb-1"><%= t('events.show.time') %></p>
             <p class="font-semibold">
-              <%= @event.start_datetime.strftime("%I:%M %p") %> - <%= @event.end_datetime.strftime("%I:%M %p") %>
+              <%= @event.start_in_zone.strftime("%I:%M %p") %> - <%= @event.end_in_zone.strftime("%I:%M %p") %>
             </p>
-            <p class="text-sm text-gray-400"><%= @event.start_datetime.strftime("%Z") %></p>
+            <p class="text-sm text-gray-400"><%= @event.start_in_zone.strftime("%Z") %></p>
           </div>
 
           <div>
@@ -147,7 +147,7 @@
           <% @related_events.each do |event| %>
             <%= link_to event_path(event), class: "block p-4 border border-gray-200 rounded-lg hover:border-red-500 hover:bg-red-50 transition" do %>
               <p class="font-semibold text-gray-900 mb-1"><%= event.title %></p>
-              <p class="text-sm text-gray-600"><%= event.start_datetime.strftime("%B %d, %Y") %></p>
+              <p class="text-sm text-gray-600"><%= event.start_in_zone.strftime("%B %d, %Y") %></p>
               <p class="text-sm text-gray-600"><%= event.location_name || t('events.show.location_tba') %></p>
             <% end %>
           <% end %>
