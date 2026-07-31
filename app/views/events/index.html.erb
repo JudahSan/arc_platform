@@ -1,99 +1,130 @@
 <% content_for :title, t('events.index.page_title') %>
 <% content_for(:description, t('events.index.page_description')) %>
 
-<div class="container pt-20 px-4 xl:px-56 mx-auto">
-  <div class="flex justify-between items-center pt-16 pb-6">
+<%# ── HERO STRIP ── %>
+<div class="arc-hero-ruby py-14 px-6 lg:px-8">
+  <div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
     <div>
-      <h1 class="text-4xl text-red-600 font-bold text-5xl mb-2"><%= t('events.index.title') %></h1>
-      <p class="text-gray-600 text-lg"><%= t('events.index.page_description') %></p>
+      <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest mb-4">
+        <i class="fa-regular fa-calendar text-xs"></i>
+        Community Events
+      </div>
+      <h1 class="text-white font-extrabold text-4xl lg:text-5xl mb-2"><%= t('events.index.title') %></h1>
+      <p class="text-white/75 text-base max-w-xl"><%= t('events.index.page_description') %></p>
     </div>
-    
     <% if can? :create, Event %>
-      <%= link_to new_event_path, class: "btn btn-primary" do %>
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-        </svg>
+      <%= link_to new_event_path, class: "arc-btn-ruby self-start md:self-center flex-shrink-0 shadow-lg" do %>
+        <i class="fa-solid fa-plus text-sm"></i>
         <%= t('events.index.create_event') %>
       <% end %>
     <% end %>
   </div>
+</div>
 
-  <!-- Search Section -->
-  <div class="mb-8">
-    <%= form_with url: events_path, method: :get, data: { controller: "event-search", turbo_frame: "events_list", action: "input->event-search#search change->event-search#search" }, class: 'max-w-4xl' do %>
-      <div class="flex gap-4 flex-wrap items-center">
-        <div class="relative flex-1 min-w-[300px]">
-          <%= text_field_tag :query, params[:query], placeholder: t('events.index.search_placeholder'), class: 'w-full h-16 px-6 pr-16 rounded-full border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm text-lg bg-white', data: { event_search_target: "query" } %>
-          <button type="submit" class="bg-red-600 hover:bg-red-700 text-white w-12 h-12 rounded-full transition-colors flex items-center justify-center" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-          </button>
+<%# ── SEARCH SECTION ── %>
+<div class="arc-section-white border-b arc-border shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6">
+    <%= form_with url: events_path, method: :get, data: { controller: "event-search", turbo_frame: "events_list", action: "input->event-search#search change->event-search#search" }, class: 'w-full' do %>
+      <div class="flex gap-3 flex-wrap items-center">
+        <div class="relative flex-1 min-w-[260px]">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm pointer-events-none"></i>
+          <%= text_field_tag :query, params[:query],
+              placeholder: t('events.index.search_placeholder'),
+              class: 'w-full h-12 pl-10 pr-4 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm transition-all',
+              data: { event_search_target: "query" } %>
         </div>
-        <%= select_tag :date, options_for_select([[t('events.index.any_date'), ''], [t('events.index.today'), 'today'], [t('events.index.this_week'), 'this_week'], [t('events.index.this_month'), 'this_month'], [t('events.index.upcoming'), 'upcoming'], [t('events.index.past'), 'past']], params[:date]), class: 'h-16 px-6 rounded-full border-2 border-gray-300 text-gray-900 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm bg-white text-lg', data: { event_search_target: "date" } %>
-        <%= select_tag :country, options_for_select([[t('events.index.all_countries'), '']] + @countries.map { |c| [c.name, c.id] }, params[:country]), class: 'h-16 px-6 rounded-full border-2 border-gray-300 text-gray-900 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm bg-white text-lg', data: { event_search_target: "country" } %>
+
+        <div class="relative">
+          <%= select_tag :date,
+              options_for_select([
+                [t('events.index.any_date'), ''],
+                [t('events.index.today'), 'today'],
+                [t('events.index.this_week'), 'this_week'],
+                [t('events.index.this_month'), 'this_month'],
+                [t('events.index.upcoming'), 'upcoming'],
+                [t('events.index.past'), 'past']
+              ], params[:date]),
+              class: 'h-12 pl-4 pr-10 rounded-xl border border-gray-200 text-gray-700 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm appearance-none cursor-pointer',
+              data: { event_search_target: "date" } %>
+          <i class="fa-solid fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+        </div>
+
+        <div class="relative">
+          <%= select_tag :country,
+              options_for_select([[t('events.index.all_countries'), '']] + @countries.map { |c| [c.name, c.id] }, params[:country]),
+              class: 'h-12 pl-4 pr-10 rounded-xl border border-gray-200 text-gray-700 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm appearance-none cursor-pointer',
+              data: { event_search_target: "country" } %>
+          <i class="fa-solid fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+        </div>
+
+        <button type="submit" class="arc-btn-ruby h-12 px-6 text-sm flex-shrink-0">
+          <i class="fa-solid fa-magnifying-glass text-xs"></i>
+          Search
+        </button>
       </div>
     <% end %>
   </div>
+</div>
 
-  <hr>
-
-  <!-- Events Grid -->
+<%# ── EVENTS GRID ── %>
+<div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 arc-bg-base">
   <%= turbo_frame_tag "events_list" do %>
-    <section class="mb-6">
+    <section>
       <% if @events.any? %>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
           <% @events.each do |event| %>
-            <div class="group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden">
-              <%= link_to event_path(event), data: { turbo_frame: "_top" }, class: "block" do %>
-                <div class="relative aspect-video overflow-hidden bg-gray-200">
+            <div class="arc-card group">
+              <%# Image area with date badge %>
+              <%= link_to event_path(event), data: { turbo_frame: "_top" } do %>
+                <div class="relative overflow-hidden" style="height: 200px;">
                   <% if event.image.attached? %>
-                    <%= image_tag event.image, class: "w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500", alt: event.title %>
+                    <%= image_tag event.image, class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500", alt: event.title %>
                   <% else %>
-                    <div class="w-full h-full bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
-                      <svg class="w-16 h-16 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                      </svg>
+                    <div class="w-full h-full flex items-center justify-center" style="background: linear-gradient(135deg, #CC342D, #8b1219);">
+                      <i class="fa-regular fa-calendar text-white/30 text-5xl"></i>
                     </div>
                   <% end %>
-                  
-                  <!-- Payment Status Badge -->
+
+                  <%# Dark gradient overlay %>
+                  <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);"></div>
+
+                  <%# Date badge %>
+                  <div class="arc-date-badge">
+                    <span class="day"><%= event.start_datetime.strftime("%-d") %></span>
+                    <span class="month"><%= event.start_datetime.strftime("%b") %></span>
+                  </div>
+
+                  <%# Payment badge %>
                   <% if event.payment_status == 'free' %>
-                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                      <%= t('events.index.free') %>
+                    <div class="absolute top-3 right-3">
+                      <span class="arc-badge arc-badge-green text-xs">Free</span>
                     </div>
                   <% elsif event.payment_status == 'paid' %>
-                    <div class="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
-                      <%= number_to_currency(event.price_cents / 100.0) %>
+                    <div class="absolute top-3 right-3">
+                      <span class="arc-badge arc-badge-amber text-xs"><%= number_to_currency(event.price_cents / 100.0) %></span>
                     </div>
                   <% end %>
                 </div>
               <% end %>
-              
-              <div class="p-5 sm:p-6">
+
+              <%# Card body %>
+              <div class="p-5">
                 <%= link_to event_path(event), data: { turbo_frame: "_top" } do %>
-                  <h3 class="text-xl font-bold mb-2 group-hover:text-red-600 transition-colors line-clamp-2"><%= event.title %></h3>
+                  <h3 class="font-bold arc-text-base text-base leading-snug mb-2 group-hover:text-ruby-600 transition-colors line-clamp-2"><%= event.title %></h3>
                 <% end %>
-                
-                <!-- Event Date & Time -->
-                <div class="space-y-1 mb-4">
-                  <p class="text-sm font-semibold text-gray-900">
-                    <%= event.start_datetime.strftime("%B %d, %Y") %>
-                  </p>
-                  <p class="text-sm text-gray-600">
-                    <%= event.start_datetime.strftime("%I:%M %p") %> - <%= event.end_datetime.strftime("%I:%M %p") %>
-                    <span class="text-gray-400"><%= event.start_datetime.strftime("%Z") %></span>
-                  </p>
-                </div>
-                
-                <!-- Country Badge -->
+
+                <p class="text-sm arc-text-faint mb-3">
+                  <i class="fa-regular fa-clock text-ruby-400 mr-1"></i>
+                  <%= event.start_datetime.strftime("%I:%M %p") %> – <%= event.end_datetime.strftime("%I:%M %p %Z") %>
+                </p>
+
                 <% country_name = event.chapter&.country&.name %>
                 <% if country_name %>
-                  <div class="inline-flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-700">
+                  <div class="flex items-center gap-1.5">
                     <% if country_icon(country_name) %>
-                      <%= image_tag country_icon(country_name), alt: country_name, class: "w-4 h-4 object-contain" %>
+                      <%= image_tag country_icon(country_name), alt: country_name, class: "w-4 h-4 object-contain rounded-sm" %>
                     <% end %>
-                    <span><%= country_name %></span>
+                    <span class="text-xs text-gray-500 font-medium"><%= country_name %></span>
                   </div>
                 <% end %>
               </div>
@@ -101,11 +132,21 @@
           <% end %>
         </div>
       <% else %>
-        <div class="text-center py-12">
-          <p class="text-gray-500 text-lg"><%= t('events.index.no_events') %></p>
+        <%# Empty state %>
+        <div class="text-center py-24">
+          <div class="w-20 h-20 bg-ruby-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fa-regular fa-calendar-xmark text-ruby-400 text-3xl"></i>
+          </div>
+          <h3 class="arc-text-base font-bold text-xl mb-2"><%= t('events.index.no_events') %></h3>
+          <p class="arc-text-xfaint mb-8">Check back soon — the community is always organizing something!</p>
+          <% if can? :create, Event %>
+            <%= link_to new_event_path, class: "arc-btn-ruby" do %>
+              <i class="fa-solid fa-plus text-sm"></i>
+              Create the First Event
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </section>
   <% end %>
-
 </div>

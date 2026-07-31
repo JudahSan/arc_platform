@@ -1,36 +1,40 @@
-<main class="min-h-screen bg-white">
-  <!-- Hero Section with Search -->
-  <div class="bg-white border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div class="text-center mb-8">
-        <h1 class="text-4xl sm:text-5xl font-bold mb-4 text-gray-900"><%= t('projects.index.title') %></h1>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto"><%= t('projects.index.description') %></p>
+<main class="min-h-screen">
+  <%# ── HERO ── %>
+  <div class="arc-hero-ruby py-16 px-6 lg:px-8">
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest mb-4">
+          <i class="fa-solid fa-code text-xs"></i>
+          Open Source
+        </div>
+        <h1 class="text-white font-extrabold text-4xl lg:text-5xl mb-2"><%= t('projects.index.title') %></h1>
+        <p class="text-white/75 text-lg max-w-xl"><%= t('projects.index.description') %></p>
       </div>
-      
-      <!-- Search Bar -->
-      <%= form_with url: projects_path, method: :get, class: "max-w-2xl mx-auto" do |f| %>
-        <div class="relative">
-          <%= f.text_field :query, value: params[:query], placeholder: t('projects.index.search_placeholder'), class: "w-full h-16 px-6 pr-16 rounded-full border-2 border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-red-300 focus:border-red-500 shadow-sm text-lg bg-white" %>
-          <button type="submit" class="bg-red-600 hover:bg-red-700 text-white w-12 h-12 rounded-full transition-colors flex items-center justify-center" style="position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
+    </div>
+  </div>
+
+  <%# ── SEARCH ── %>
+  <div class="bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6">
+      <%= form_with url: projects_path, method: :get do |f| %>
+        <div class="relative max-w-2xl">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm pointer-events-none"></i>
+          <%= f.text_field :query, value: params[:query],
+              placeholder: t('projects.index.search_placeholder'),
+              class: "w-full h-12 pl-10 pr-32 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm" %>
+          <button type="submit" class="absolute right-1.5 top-1.5 arc-btn-ruby text-xs py-2 px-4 rounded-lg">
+            Search
           </button>
         </div>
       <% end %>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-    <!-- Featured Section -->
+  <%# ── MAIN CONTENT ── %>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
     <%= render 'featured_project', featured_project: @featured_project %>
-
-    <!-- Projects Grid -->
     <section>
       <%= render 'projects', projects: @projects, pagy: @pagy %>
     </section>
   </div>
 </main>
-
-

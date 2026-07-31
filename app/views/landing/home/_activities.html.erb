@@ -1,12 +1,24 @@
-<h1 class="md:pt-36 pt-24 pb-10 text-4xl text-red-600 font-bold text-center">
-  <%= t('landing.index.activities.title') %>
-</h1>
-
-<div class="grid  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 px-20 place-content-center">
-  <% activities.each do |activity| %>
-    <div class="place-self-center w-72 h-72 md:w-full md:h-60 card rounded flex flex-col gap-4">
-      <%= image_tag activity[:image], alt: activity[:title], class: 'hover:scale-105' %>
-      <p class="text-center text-xl md:text-base capitalize font-semibold"><%= activity[:title] %></p>
+<%# ── ACTIVITIES ── %>
+<section class="py-20 lg:py-24 px-6 lg:px-8 arc-bg-subtle arc-section-subtle">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+      <h2 class="arc-heading arc-heading-center">
+        <%= t('landing.index.activities.title') %>
+      </h2>
+      <p class="arc-text-faint mt-4 max-w-xl mx-auto"><%= t('landing.about.description_2').truncate(120) %></p>
     </div>
-  <% end %>
-</div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <% activities.each do |activity| %>
+        <div class="group flex flex-col overflow-hidden rounded-2xl arc-bg-card arc-border border hover:border-ruby-300 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-default">
+          <div class="w-full h-44 overflow-hidden bg-ruby-50 relative">
+            <%= image_tag activity[:image], alt: activity[:title], class: 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500' %>
+          </div>
+          <div class="p-4 text-center">
+            <p class="text-base font-bold arc-text-base group-hover:text-ruby-600 transition-colors capitalize"><%= activity[:title] %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
