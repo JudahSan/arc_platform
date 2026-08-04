@@ -1,0 +1,17 @@
+<!-- Shared auth card wrapper for all Devise views.-->
+<!--    Usage in caller views:-->
+      <%# content = capture do %>
+<!--        ... header strip + form body ...-->
+      <%# end %>
+      <%#= render "devise/shared/auth_card", content: content %>
+<!---->
+<!--    To change the card width for ALL auth pages, edit only the max-w-* classes below. -->
+<!---->
+
+
+
+<div class="arc-auth-container p-4">
+  <div class="arc-auth-card w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
+    <%= content %>
+  </div>
+</div>

@@ -208,6 +208,13 @@ sw:
 
   sponsors:
     current:
+      ruby_central: "Ruby Central"
+      kopo_kopo: "Kopo Kopo"
+      finplus: "Finplus Group"
+      typesense: "Typesense"
+      sidekiq: "Sidekiq"
+
+    previous:
       solutech: "Solutech"
       app_signal: "App Signal"
       ruby_central: "Ruby Central"
@@ -218,17 +225,6 @@ sw:
       prosper: "Prosper Hedge"
       gurzu: "Gurzu"
       must_company: "Must Company"
-    previous:
-      shopify: "Shopify"
-      microverse: "Microverse"
-      planet_argon: "Planet Argon"
-      nairobits: "Nairobits"
-      turing: "Turing"
-      kwara: "Kwara"
-      ihub: "iHub, Nairobi"
-      friendly_rb: "FriendlyRB"
-      kca: "Chuo Kikuu cha KCA"
-      andela: "Andela"
 
   social_media:
     twitter: "ARC Twitter"
