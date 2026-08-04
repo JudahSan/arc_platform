@@ -1,6 +1,14 @@
 <%# ── HERO: Building the future with Ruby in Africa ── %>
 <section class="relative overflow-hidden arc-hero-landing min-h-[85vh] flex items-center justify-center py-20 lg:py-28 px-6 lg:px-8"
-         style="--hero-img: url('<%= image_path('hero-community.jpg') %>');">
+         style="background-image: none !important; background: transparent !important;">
+
+  <%# Faint, Theme-Agnostic Background Image Overlay (Guaranteed Single Render) %>
+  <div class="absolute inset-0 pointer-events-none bg-cover bg-center bg-no-repeat"
+       style="background-image: url('<%= image_path('hero-community.jpg') %>') !important; opacity: 0.12 !important; filter: grayscale(100%) contrast(110%) !important;">
+  </div>
+
+  <%# Theme adaptation backdrop overlay %>
+  <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-slate-50/90 via-slate-50/50 to-slate-50/90 dark:from-slate-950/90 dark:via-slate-950/60 dark:to-slate-950/90"></div>
 
   <%# Modern tech dot-matrix pattern overlay %>
   <div class="absolute inset-0 pointer-events-none opacity-20 dark:opacity-30"
@@ -50,15 +58,16 @@
       </div>
     </div>
 
-    <%# CTA buttons with generous padding %>
-    <div class="flex flex-wrap justify-center gap-5">
-      <%= link_to new_user_registration_path, class: "group arc-btn-ruby text-base px-9 py-4 shadow-xl shadow-ruby-900/30 hover:scale-[1.04] transition-all duration-300" do %>
+    <%# CTA buttons %>
+    <div class="flex flex-wrap items-center justify-center gap-5">
+      <%= link_to new_user_registration_path, class: "group arc-btn-ruby text-base px-9 py-4 shadow-xl shadow-ruby-900/30 hover:scale-[1.04] transition-all duration-300 shrink-0" do %>
         <i class="fa-solid fa-users text-sm group-hover:scale-110 transition-transform"></i>
         <%= t('common.actions.join_us') %>
       <% end %>
-      <%= link_to landing_about_path, class: "group inline-flex items-center gap-2.5 text-slate-800 dark:text-white/90 hover:text-ruby-600 dark:hover:text-white font-bold text-base border-2 border-slate-300 dark:border-white/30 hover:border-ruby-600 dark:hover:border-white/70 rounded-full px-9 py-4 backdrop-blur-sm bg-white/60 dark:bg-white/5 hover:bg-white/90 dark:hover:bg-white/15 hover:scale-[1.04] transition-all duration-300 shadow-sm" do %>
-        <%= t('common.actions.learn_more', default: 'Learn More') %>
-        <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+
+      <%= link_to landing_about_path, class: "group inline-flex items-center justify-center gap-3 text-slate-800 dark:text-white/90 hover:text-ruby-600 dark:hover:text-white font-bold text-base border-2 border-slate-300 dark:border-white/30 hover:border-ruby-600 dark:hover:border-white/70 rounded-full hover:bg-white/90 dark:hover:bg-white/15 hover:scale-[1.04] transition-all duration-300 shadow-sm shrink-0 w-auto whitespace-nowrap backdrop-blur-sm bg-white/60 dark:bg-white/5", style: "padding-left: 1.5rem !important; padding-right: 1.5rem !important; padding-top: 1rem !important; padding-bottom: 1rem !important; display: inline-flex !important;" do %>
+        <span><%= t('common.actions.read_more', default: 'Learn More') %></span>
+        <i class="fa-solid fa-arrow-right text-sm group-hover:translate-x-1 transition-transform shrink-0"></i>
       <% end %>
     </div>
 

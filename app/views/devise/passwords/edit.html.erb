@@ -1,31 +1,47 @@
-<div class="flex justify-center pt-16 ">
-  <div class="card md:w-1/2 bg:w-1/2 bg-base-100 shadow-xl">
-    <figure>
-      <%= image_tag 'sign_up_karate.png' %>
+<% auth_content = capture do %>
+  <%# ── Header strip ── %>
+  <div class="arc-hero-ruby px-8 py-8 text-center relative overflow-hidden">
+    <figure class="mb-4">
+      <%= image_tag 'sign_up_karate.png', alt: "Change Password",
+          class: "h-24 w-auto object-contain mx-auto opacity-90 drop-shadow-lg" %>
     </figure>
-    <div class="card-body">
-      <h2 class="card-title"><%= t('devise.views.passwords.edit.title') %></h2>
+    <h1 class="text-white font-extrabold text-2xl mb-1"><%= t('devise.views.passwords.edit.title') %></h1>
+    <p class="text-white/70 text-sm">Choose a strong new password 🔐</p>
+  </div>
 
-      <%= simple_form_for(resource, as: resource_name,
-                          url: password_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.hidden_field :reset_password_token %>
+  <%# ── Form body ── %>
+  <div class="px-8 py-8">
+    <%= simple_form_for(resource, as: resource_name,
+        url: password_path(resource_name),
+        html: { method: :put, class: 'space-y-4' }) do |f| %>
 
-        <%= f.input :password, placeholder: t('devise.views.passwords.edit.password_placeholder'), label: t('devise.views.passwords.edit.password_label'),
-                    input_html: { class: 'input-bordered w-full', autofocus: true,
-                                  autocomplete: "new-password" } %>
+      <%= f.hidden_field :reset_password_token %>
 
-        <%= f.input :password_confirmation, placeholder: t('devise.views.passwords.edit.password_confirmation_placeholder'),
-                    label: t('devise.views.passwords.edit.password_confirmation_label'), input_html: { class: 'input-bordered w-full',
-                                                             autocomplete: "new-password" } %>
+      <div>
+        <label class="block text-sm font-semibold arc-text-base mb-1.5"><%= t('devise.views.passwords.edit.password_label') %></label>
+        <%= f.input :password,
+            placeholder: t('devise.views.passwords.edit.password_placeholder'),
+            label: false, wrapper: false,
+            input_html: { class: 'arc-input w-full', autofocus: true, autocomplete: 'new-password' } %>
+      </div>
 
-        <div class="card-actions justify-end pt-8">
-          <%= f.button :button, t('devise.views.passwords.edit.submit_button'), class: 'btn btn-primary' %>
-        </div>
-      <% end %>
+      <div>
+        <label class="block text-sm font-semibold arc-text-base mb-1.5"><%= t('devise.views.passwords.edit.password_confirmation_label') %></label>
+        <%= f.input :password_confirmation,
+            placeholder: t('devise.views.passwords.edit.password_confirmation_placeholder'),
+            label: false, wrapper: false,
+            input_html: { class: 'arc-input w-full', autocomplete: 'new-password' } %>
+      </div>
 
-      <div class="divider"></div>
+      <div class="pt-2">
+        <%= f.button :button, t('devise.views.passwords.edit.submit_button'),
+            class: 'w-full arc-btn-ruby justify-center text-base py-3.5 cursor-pointer' %>
+      </div>
+    <% end %>
+
+    <div class="mt-6 text-center">
       <%= render "devise/shared/links" %>
     </div>
   </div>
-</div>
-
+<% end %>
+<%= render "devise/shared/auth_card", content: auth_content %>

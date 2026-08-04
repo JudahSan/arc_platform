@@ -8,32 +8,37 @@
       <% end %>
 
       <%# ── Desktop nav links ── %>
-      <nav class="hidden md:flex items-center gap-6 flex-shrink min-w-0">
+      <nav class="hidden md:flex items-center gap-4 lg:gap-6 flex-shrink min-w-0">
         <%= link_to t('navigation.home'), root_path,
-            class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(root_path) ? 'active' : ''}" %>
+                    class: "arc-nav-link whitespace-nowrap flex-shrink-0 text-sm sm:text-base #{current_page?(root_path) ? 'active' : ''}" %>
+
         <%= link_to t('navigation.about'), landing_about_path,
-            class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(landing_about_path) ? 'active' : ''}" %>
+                    class: "arc-nav-link whitespace-nowrap flex-shrink-0 text-sm sm:text-base #{current_page?(landing_about_path) ? 'active' : ''}" %>
 
-        <% if FeatureFlag.find_by(name: 'events').try(:enabled) %>
-          <%= link_to t('navigation.events'), events_path,
-              class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(events_path) ? 'active' : ''}" %>
-        <% end %>
+        <%# ── Community Dropdown ── %>
+        <div class="dropdown dropdown-hover">
+          <button tabindex="0" class="arc-nav-link whitespace-nowrap flex-shrink-0 text-sm sm:text-base flex items-center gap-1">
+            <%= t('navigation.community') %>
+            <i class="fa-solid fa-chevron-down text-[10px]"></i>
+          </button>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow-lg bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl w-48">
+            <li><%= link_to t('navigation.events'), events_path, class: "text-sm" %></li>
+            <li><%= link_to t('navigation.chapters'), chapters_path, class: "text-sm" %></li>
+            <li><%= link_to t('navigation.projects'), projects_path, class: "text-sm" %></li>
+          </ul>
+        </div>
 
-        <%= link_to t('navigation.chapters'), chapters_path,
-            class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(chapters_path) ? 'active' : ''}" %>
-
-        <% if FeatureFlag.find_by(name: 'projects')&.enabled %>
-          <%= link_to t('navigation.projects'), projects_path,
-              class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(projects_path) ? 'active' : ''}" %>
-        <% end %>
-
-        <% if FeatureFlag.find_by(name: 'learning_materials')&.enabled %>
-          <%= link_to t('navigation.learning_materials'), learning_materials_path,
-              class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(learning_materials_path) ? 'active' : ''}" %>
-        <% end %>
-
-        <%= link_to t('navigation.built_with_ruby'), built_with_ruby_path,
-            class: "arc-nav-link whitespace-nowrap flex-shrink-0 #{current_page?(built_with_ruby_path) ? 'active' : ''}" %>
+        <%# ── Resources Dropdown ── %>
+        <div class="dropdown dropdown-hover">
+          <button tabindex="0" class="arc-nav-link whitespace-nowrap flex-shrink-0 text-sm sm:text-base flex items-center gap-1">
+            <%= t('navigation.resources') %>
+            <i class="fa-solid fa-chevron-down text-[10px]"></i>
+          </button>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow-lg bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-xl w-48">
+            <li><%= link_to t('navigation.learning_materials'), learning_materials_path, class: "text-sm" %></li>
+            <li><%= link_to t('navigation.built_with_ruby'), built_with_ruby_path, class: "text-sm" %></li>
+          </ul>
+        </div>
       </nav>
 
       <%# ── Right side actions ── %>
@@ -70,16 +75,14 @@
               <li><%= link_to t('navigation.update_profile'), edit_user_registration_path, class: "text-sm" %></li>
               <li>
                 <%= button_to t('navigation.sign_out'), destroy_user_session_path, method: :delete,
-                    class: "text-sm text-red-600 font-medium w-full text-left px-3 py-2 hover:bg-red-50 rounded-lg" %>
+                              class: "text-sm text-red-600 font-medium w-full text-left px-3 py-2 hover:bg-red-50 rounded-lg" %>
               </li>
             </ul>
           </div>
 
         <% else %>
           <%= link_to t('navigation.sign_in'), new_user_session_path,
-              class: "arc-nav-link text-sm font-semibold whitespace-nowrap" %>
-          <%= link_to t('navigation.sign_up'), new_user_registration_path,
-              class: "arc-btn-ruby text-sm py-2 px-4 whitespace-nowrap flex-shrink-0" %>
+                      class: "arc-nav-link text-sm font-semibold whitespace-nowrap" %>
         <% end %>
       </div>
 
@@ -123,7 +126,6 @@
               <li><%= link_to t('navigation.update_profile'), edit_user_registration_path, class: "rounded-xl font-medium" %></li>
               <li><%= button_to t('navigation.sign_out'), destroy_user_session_path, method: :delete, class: "rounded-xl font-medium text-red-600" %></li>
             <% else %>
-              <li><%= link_to t('navigation.sign_up'), new_user_registration_path, class: "rounded-xl font-bold text-white bg-ruby-600 hover:bg-ruby-700 justify-center" %></li>
               <li><%= link_to t('navigation.sign_in'), new_user_session_path, class: "rounded-xl font-medium" %></li>
             <% end %>
           </ul>

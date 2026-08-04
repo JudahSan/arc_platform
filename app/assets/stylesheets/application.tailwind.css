@@ -44,6 +44,7 @@
   --bg-subtle: #F9FAFB;
   --bg-nav: rgba(255, 255, 255, 0.95);
   --bg-nav-border: rgba(229, 231, 235, 0.8);
+  --backdrop-filter: blur(24px);
   --bg-dropdown: #FFFFFF;
 
   --text-base: #1A1A1A;
@@ -335,6 +336,7 @@
   #main-navbar .arc-navbar-bg {
     background-color: var(--bg-nav);
     border-bottom-color: var(--bg-nav-border);
+    backdrop-filter: var(--backdrop-filter-nav);
     box-shadow: var(--shadow-nav);
     transition: background-color 0.25s ease, border-color 0.25s ease;
   }
@@ -504,7 +506,8 @@
   /* ── Auth page background container ── */
   .arc-auth-container {
     min-height: 100vh;
-    display: flex;
+    width: 100%;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     padding: 4rem 1rem;
@@ -518,9 +521,11 @@
     border-radius: 1.25rem;
     box-shadow: var(--shadow-hover);
     overflow: hidden;
-    max-width: 480px;
-    width: 100%;
     transition: background-color 0.2s ease;
+  }
+
+  .arc-auth-card .card-body {
+    padding: 0;
   }
 
   /* ── Hero section with hero-community.jpg background & theme overlays ── */

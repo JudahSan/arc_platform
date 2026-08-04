@@ -106,6 +106,7 @@ sw:
         subtitle: "Sisi ni nani?"
         description_1: "Jumuiya ya Ruby ya Kiafrika, ARC ni shirika lililoanzishwa mwaka 2010. Jumuiya hii kwa sasa ina wanachama zaidi ya 5,000 waliotawanyika katika Afrika Mashariki, wakiwemo wabunifu (wahandisi), wajasiriamali, wabunifu wa michoro na wafanyakazi huru. Katika maendeleo na maonyesho, jumuiya inazingatia teknolojia na mifumo ya Ruby, ambayo yote ni ya chanzo huria na inatumika sana na makampuni mapya kuunda miundo na kufanya uthibitisho wa dhana pamoja na mkakati wa kuingia sokoni."
         description_2: "Jumuiya inaandaa mikutano ya kila wiki na kila mwezi katika miji mbalimbali ya Afrika Mashariki. Jumuiya inakupatia Mkutano wa Ruby kila mwaka na mada mbalimbali ili kujaza pengo linalopo kati ya shule na tasnia na kwa kurudi inasaidia kuchochea uvumbuzi na ukuaji katika mchango wa uchumi wa kimataifa."
+        countries_count: "Nchi zote"
       activities:
         title: "Shughuli"
         items:
@@ -114,6 +115,7 @@ sw:
           programming: "uprogramu"
           workshops: "warsha"
           hackathons: "mashindano ya uprogramu"
+          events: "matukio"
       chapters:
         title: "Sura"
         join_community: "Jiunge na jumuiya"

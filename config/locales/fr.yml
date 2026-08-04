@@ -106,6 +106,7 @@ fr:
         subtitle: "Qui sommes-nous ?"
         description_1: "La Communauté Ruby Africaine, ARC, est une organisation qui a été créée en 2010. La communauté compte actuellement plus de 5 000 membres répartis dans toute l'Afrique de l'Est, composés de développeurs (ingénieurs), d'entrepreneurs, de designers et de freelances. En termes de développement et de démonstrations, la communauté se concentre sur les technologies et frameworks Ruby, qui sont tous open source et largement utilisés par les startups pour prototyper et réaliser des preuves de concept avec une stratégie de mise sur le marché."
         description_2: "La communauté organise des rencontres hebdomadaires et mensuelles dans différentes villes d'Afrique de l'Est. La communauté vous apporte la Conférence Ruby chaque année avec différents thèmes pour combler le fossé qui existe entre l'école et l'industrie et en retour aide à stimuler l'innovation et la croissance en contribution à l'économie mondiale."
+        countries_count: "Pays"
       activities:
         title: "Activités"
         items:
@@ -114,6 +115,7 @@ fr:
           programming: "programmation"
           workshops: "ateliers"
           hackathons: "hackathons"
+          events: "événements"
       chapters:
         title: "Chapitres"
         join_community: "Rejoindre la communauté"
