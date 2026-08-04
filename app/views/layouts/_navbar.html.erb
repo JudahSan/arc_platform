@@ -29,6 +29,8 @@
             <li><%= link_to t('navigation.learning_materials'), learning_materials_path %></li>
           <% end %>
 
+          <li><%= link_to t('navigation.built_with_ruby'), built_with_ruby_path %></li>
+
           <% if user_signed_in? %>
             <li><%= button_to t('navigation.sign_out'), destroy_user_session_path, method: :delete %></li>
           <% else %>
@@ -67,6 +69,9 @@
           <%= link_to t('navigation.learning_materials'), learning_materials_path,
                       class: "hover:text-red-600 #{current_page?(learning_materials_path) ? 'text-red-600 border-b-2 border-red-600' : ''}" %>
         <% end %>
+
+        <%= link_to t('navigation.built_with_ruby'), built_with_ruby_path,
+                    class: "hover:text-red-600 #{current_page?(built_with_ruby_path) ? 'text-red-600 border-b-2 border-red-600' : ''}" %>
       </nav>
       <% if user_signed_in? %>
 

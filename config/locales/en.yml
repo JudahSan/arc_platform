@@ -277,6 +277,7 @@ en:
     chapters: "Chapters"
     projects: "Projects"
     learning_materials: "Learning Materials"
+    built_with_ruby: "Built with Ruby"
     sign_in: "Sign in"
     sign_up: "Sign up"
     sign_out: "Sign out"
@@ -286,6 +287,26 @@ en:
     community_name: "African Ruby Community"
 
   # Footer translations
+  companies:
+    index:
+      title: "Built with Ruby"
+      subtitle: "Discover companies across Africa powered by Ruby & Rails"
+      search_placeholder: "Search by company name or tech tags..."
+      all_countries: "All countries"
+      submit_company: "Submit a Company"
+      no_companies: "No companies found matching your search criteria."
+      careers: "Careers"
+      website: "Website"
+      featured: "Featured"
+    create:
+      success: "Company submitted successfully! It will be visible once approved."
+    new:
+      title: "Submit a Company"
+      subtitle: "Help us grow the directory of Ruby companies in Africa"
+      form_title: "Company Details"
+      submit_button: "Submit Company"
+      back_button: "Back to Directory"
+
   footer:
     home: "Home"
     events: "Events"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_05_193250) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_30_234010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -51,6 +51,21 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_05_193250) do
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_chapters_on_country_id"
     t.index ["name"], name: "index_chapters_on_name", unique: true
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "careers_url"
+    t.string "city"
+    t.string "country", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.boolean "featured", default: false
+    t.string "name", null: false
+    t.boolean "published", default: false
+    t.string "slug", null: false
+    t.datetime "updated_at", null: false
+    t.string "website_url"
+    t.index ["slug"], name: "index_companies_on_slug", unique: true
   end
 
   create_table "countries", force: :cascade do |t|
