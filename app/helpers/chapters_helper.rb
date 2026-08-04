@@ -29,7 +29,7 @@ module ChaptersHelper
     { image: 'sponsors/current/typesense-logo.png', link: 'https://typesense.org/',
       alt_key: 'sponsors.current.typesense' },
     { image: 'sponsors/current/rubycon_italy.png', link: 'https://rubycon.it/',
-      alt_key: 'sponsors.current.rubycon_italy' },
+      alt_key: 'sponsors.current.rubycon_italy' }
   ].freeze
 
   PREVIOUS_SPONSORS = [
