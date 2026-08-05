@@ -127,7 +127,9 @@ fr:
         placeholder_content: "contenu"
       sponsors:
         featured_title: "Sponsors Vedettes"
+        featured_description: "Les sponsors suivants ont offert leur soutien à la communauté Ruby Africaine."
         previous_title: "Sponsors Précédents"
+        previous_description: "Les sponsors suivants ont offert leur soutien à la communauté Ruby Africaine."
         become_sponsor: "Devenir sponsor"
     about:
       title: "À propos d'ARC - Communauté Ruby Africaine"
@@ -143,6 +145,7 @@ fr:
     index:
       title: "Chapitres"
       page_title: "Chapitres"
+      mini_title: "Chapitres locaux"
       page_description: "Une vitrine des différentes communautés ruby réparties dans la région d'Afrique de l'Est."
     show:
       title: "Chapitres"
@@ -296,6 +299,7 @@ fr:
     contact_us: "Nous contacter"
     code_of_conduct: "Code de conduite"
     connect: "Se connecter"
+    about_details: "African Ruby Community. Autonomiser plus de 5 000 développeurs, créateurs et leaders technologiques à travers l'Afrique grâce à Ruby, au logiciel libre et à l'innovation collaborative depuis 2010."
     copyright: "Tous droits réservés. Communauté Ruby Africaine. Copyright %{year}"
 
   # Learning Materials page translations
@@ -318,6 +322,7 @@ fr:
     index:
       title: "Événements"
       page_title: "Événements"
+      mini_title: "Événements de la communauté"
       page_description: "Découvrez les événements de la communauté Ruby, rencontres, conférences et ateliers"
       create_event: "Créer un Événement"
       search_placeholder: "Rechercher par titre ou description..."

@@ -127,7 +127,9 @@ sw:
         placeholder_content: "maudhui"
       sponsors:
         featured_title: "Wafadhili Wakuu"
+        featured_description: "Wafadhili wa jumuiya ya Ruby ya Kiafrika"
         previous_title: "Wafadhili wa Awali"
+        previous_description: "Wafadhili wa jumuiya ya Ruby ya Kiafrika"
         become_sponsor: "Kuwa mfadhili"
     about:
       title: "Kuhusu ARC - Jumuiya ya Ruby ya Kiafrika"
@@ -143,6 +145,7 @@ sw:
     index:
       title: "Sura"
       page_title: "Sura"
+      mini_title: "Matawi ya Eneo"
       page_description: "Maonyesho ya jumuiya mbalimbali za ruby zilizotawanyika katika eneo la Afrika Mashariki."
     show:
       title: "Sura"
@@ -295,6 +298,7 @@ sw:
     contact_us: "Wasiliana Nasi"
     code_of_conduct: "Kanuni za maadili"
     connect: "Unganisha"
+    about_details: "African Ruby Community. Kukuza na kuwezesha zaidi ya wataalamu 5,000 wa mfumo wa kidijitali, wabunifu na viongozi wa kiteknolojia kote Barani Afrika kupitia Ruby, chanzo wazi na ubunifu wa pamoja tangu 2010."
     copyright: "Haki Zote Zimehifadhiwa. Jumuiya ya Ruby ya Kiafrika. Hakimiliki %{year}"
 
   # Learning Materials page translations
@@ -317,6 +321,7 @@ sw:
     index:
       title: "Matukio"
       page_title: "Matukio"
+      mini_title: "Matukio ya Jamii"
       page_description: "Gundua matukio ya jumuiya ya Ruby, mikutano, mikutano na warsha"
       create_event: "Unda Tukio"
       search_placeholder: "Tafuta kwa kichwa au maelezo..."

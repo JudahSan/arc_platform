@@ -1,16 +1,16 @@
 <%# ── FEATURED SPONSORS ── %>
-<section class="py-16 px-6 lg:px-8 arc-section-white arc-bg-base border-t arc-border">
+  <section class="py-16 px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-10">
       <h2 class="arc-heading arc-heading-center text-2xl"><%= t('landing.index.sponsors.featured_title') %></h2>
-      <p class="arc-text-faint mt-3 text-sm"><%= t('landing.index.sponsors.become_sponsor_hint', default: 'Our generous partners who make the community possible') %></p>
+      <p class="arc-text-base mt-3 text-sm"><%= t('landing.index.sponsors.become_sponsor_hint', default: 'Our generous partners who make the community possible') %></p>
     </div>
 
     <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
       <% featured_sponsors.each do |sponsor| %>
         <%= link_to sponsor[:link], target: '_blank', rel: 'noopener' do %>
-          <div class="flex items-center justify-center" style="width: 120px; height: 70px;">
-            <%= image_tag sponsor[:image], alt: t(sponsor[:alt_key]), class: 'max-w-full max-h-full object-contain arc-sponsor-logo' %>
+          <div class="flex items-center justify-center w-32 h-16 hover:scale-105 transition-transform duration-300">
+            <%= image_tag sponsor[:image], alt: t(sponsor[:alt_key]), class: 'max-w-full max-h-full object-contain' %>
           </div>
         <% end %>
       <% end %>

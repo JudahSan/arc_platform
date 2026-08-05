@@ -3,12 +3,11 @@
    Stack: Tailwind CSS v4 + DaisyUI
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
-
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================================
    Design Tokens — @theme
@@ -42,13 +41,13 @@
   --bg-card: #FFFFFF;
   --bg-muted: #F3F4F6;
   --bg-subtle: #F9FAFB;
-  --bg-nav: rgba(255, 255, 255, 0.95);
+  --bg-nav: #FFFFFF;
   --bg-nav-border: rgba(229, 231, 235, 0.8);
-  --backdrop-filter: blur(24px);
+  --backdrop-filter: none;
   --bg-dropdown: #FFFFFF;
 
   --text-base: #1A1A1A;
-  --text-muted: #4B5563;
+  --text-muted: #101214;
   --text-faint: #6B7280;
   --text-xfaint: #9CA3AF;
 
@@ -66,7 +65,7 @@
   --bg-card: #1E293B;
   --bg-muted: #1F2937;
   --bg-subtle: #263244;
-  --bg-nav: rgba(15, 23, 42, 0.97);
+  --bg-nav: #0F172A;
   --bg-nav-border: rgba(55, 65, 81, 0.5);
   --bg-dropdown: #1E293B;
 
@@ -336,7 +335,6 @@
   #main-navbar .arc-navbar-bg {
     background-color: var(--bg-nav);
     border-bottom-color: var(--bg-nav-border);
-    backdrop-filter: var(--backdrop-filter-nav);
     box-shadow: var(--shadow-nav);
     transition: background-color 0.25s ease, border-color 0.25s ease;
   }
@@ -531,8 +529,8 @@
   /* ── Hero section with hero-community.jpg background & theme overlays ── */
   .arc-hero-landing {
     background-image:
-      linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(254, 242, 242, 0.86) 50%, rgba(255, 255, 255, 0.94) 100%),
-      var(--hero-img);
+            linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(254, 242, 242, 0.86) 50%, rgba(255, 255, 255, 0.94) 100%),
+            var(--hero-img);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -541,8 +539,8 @@
 
   [data-theme="dark"] .arc-hero-landing {
     background-image:
-      linear-gradient(135deg, rgba(13, 3, 5, 0.92) 0%, rgba(24, 6, 10, 0.88) 50%, rgba(13, 3, 5, 0.95) 100%),
-      var(--hero-img);
+            linear-gradient(135deg, rgba(13, 3, 5, 0.92) 0%, rgba(24, 6, 10, 0.88) 50%, rgba(13, 3, 5, 0.95) 100%),
+            var(--hero-img);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -560,7 +558,7 @@
     position: absolute;
     inset: 0;
     background-image:
-      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 20px);
+            repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 20px);
     pointer-events: none;
   }
 
@@ -649,16 +647,34 @@
   }
 
   /* ── Pull quote ── */
+
+
   .arc-pull-quote {
     position: relative;
-    padding: 1.5rem 1.75rem;
-    border-left: 4px solid #CC342D;
-    background: rgba(204, 52, 45, 0.05);
-    border-radius: 0 0.75rem 0.75rem 0;
+    display: block;
+    padding: 1.75rem 1.75rem 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(248, 250, 252, 0.95);
+    color: #111827;
     font-size: 1.05rem;
-    font-style: italic;
-    color: var(--text-muted);
-    line-height: 1.7;
+    font-weight: 500;
+    line-height: 1.8;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+  }
+
+  .arc-pull-quote.text-gray-800 {
+    color: #111827 !important;
+  }
+
+  [data-theme="dark"] .arc-pull-quote {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(148, 163, 184, 0.15);
+    color: #F8FAFC;
+  }
+
+  [data-theme="dark"] .arc-pull-quote.dark\:text-gray-100 {
+    color: #F8FAFC !important;
   }
 
   .arc-pull-quote::before {
@@ -686,10 +702,10 @@
 
   /* ── Footer ── */
   footer.arc-footer {
-    background-color: #0D1117;
-    color: #94A3B8;
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--text-faint) !important;
     transition: none;
-    /* footer is always dark */
   }
 
   /* ── Table styles (preserved) ── */
@@ -845,7 +861,6 @@
   /* Pull quote dark */
   [data-theme="dark"] .arc-pull-quote {
     background: rgba(204, 52, 45, 0.08);
-    color: var(--text-muted);
   }
 
   /* Stats / info boxes in light sections */
@@ -853,6 +868,11 @@
     background-color: var(--bg-subtle) !important;
     border-color: var(--border-color) !important;
   }
+
+  /*Chapters*/
+
+  [data-theme="light"] .chapters-dark { display: none; }
+  [data-theme="dark"] .chapters-light { display: none; }
 
   /* Who we are stats grid */
   [data-theme="dark"] .hover\:bg-ruby-50:hover {

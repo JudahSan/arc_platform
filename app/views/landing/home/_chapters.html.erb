@@ -1,7 +1,7 @@
 <%# ── CHAPTERS (Always Dark Mode) ── %>
 <section class="dark py-20 lg:py-28 px-6 lg:px-8 relative overflow-hidden">
   <%# Background image layer - isolated from any .dark section overrides %>
-  <div class="absolute inset-0" style="background-image: url(<%= image_path('countries.png') %>); background-size: cover; background-position: center;"></div>
+  <div class="absolute inset-0" style="background-image: url(<%= image_path('countries-black.png') %>); background-size: cover; background-position: center;"></div>
   <%# Dark overlay - always visible %>
   <div class="absolute inset-0 bg-gray-950/80"></div>
   <div class="relative z-10 max-w-7xl mx-auto">
@@ -9,7 +9,7 @@
       <h2 class="text-white font-extrabold mb-3" style="font-size: clamp(1.75rem, 4vw, 2.5rem);">
         <%= t('landing.index.chapters.title') %>
       </h2>
-      <p class="text-gray-300 max-w-lg mx-auto"><%= t('landing.index.chapters.subtitle') %></p>
+<!--      <p class="text-gray-300 max-w-lg mx-auto"><%#= t('landing.index.chapters.subtitle') %></p>-->
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       <% chapters.each do |chapter| %>

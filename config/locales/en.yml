@@ -129,7 +129,9 @@ en:
         placeholder_content: "content"
       sponsors:
         featured_title: "Featured Sponsors"
+        featured_description: "Our sponsors help us to provide the best experience for our members."
         previous_title: "Previous Sponsors"
+        previous_description: "Our sponsors help us to provide the best experience for our members."
         become_sponsor: "Become a sponsor"
     about:
       title: "About ARC - African Ruby Community"
@@ -145,6 +147,7 @@ en:
     index:
       title: "Chapters"
       page_title: "Chapters"
+      mini_title: "Local Chapters"
       page_description: "A showcase of the different ruby communities spread across the East African region."
     show:
       title: "Chapters"
@@ -318,6 +321,7 @@ en:
     contact_us: "Contact Us"
     code_of_conduct: "Code of conduct"
     connect: "Connect"
+    about_details: "African Ruby Community. Empowering 5,000+ developers, creators, and tech leaders across Africa through Ruby, open source, and collaborative innovation since 2010."
     copyright: "All Rights Reserved. African Ruby Community. Copyright %{year}"
 
   # Learning Materials page translations
@@ -340,6 +344,7 @@ en:
     index:
       title: "Events"
       page_title: "Events"
+      mini_title: "Community Events"
       page_description: "Discover Ruby community events, meetups, conferences, and workshops"
       create_event: "Create Event"
       search_placeholder: "Search by title or description..."

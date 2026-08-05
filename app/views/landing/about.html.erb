@@ -42,9 +42,6 @@
 
       <%# Right: Pull quote + timeline %>
       <div class="space-y-8">
-        <div class="arc-pull-quote text-gray-800 dark:text-gray-100">
-          <%= t('landing.about.description_3').truncate(200) %>
-        </div>
 
         <div>
           <h3 class="font-bold arc-text-base text-lg mb-6 flex items-center gap-2">
@@ -79,19 +76,8 @@
   </div>
 </section>
 
-<%# ── MINASWAN Banner ── %>
-<section class="py-14 px-6 lg:px-8 arc-hero-ruby">
-  <div class="relative z-10 max-w-3xl mx-auto text-center">
-    <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-3"><%= t('landing.about.philosophy_label', default: 'Our Philosophy') %></p>
-    <h2 class="text-white font-black text-3xl lg:text-4xl mb-4">M.I.N.A.S.W.A.N</h2>
-    <p class="text-white/80 text-lg">
-      <em><%= t('landing.about.minaswan', default: 'Matz Is Nice And So We Are Nice') %></em> — <%= t('landing.about.minaswan_desc', default: "the Ruby community's guiding principle that we live by every day.") %>
-    </p>
-  </div>
-</section>
-
 <%# ── CTA ── %>
-<section class="py-20 px-6 lg:px-8 arc-section-white text-center">
+<section class="py-20 lg:py-24 px-6 lg:px-8 arc-bg-subtle text-center arc-section-subtle">
   <div class="max-w-2xl mx-auto">
     <h2 class="arc-heading arc-heading-center mb-4"><%= t('landing.about.cta_title', default: 'Ready to Join Us?') %></h2>
     <p class="arc-text-faint mb-8"><%= t('landing.about.cta_desc', default: "Be part of Africa's most vibrant Ruby developer community.") %></p>
