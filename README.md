@@ -166,7 +166,7 @@ $ rails db:create
 $ rails db:migrate
 ```
 
-### Step 4: Install Yarn Dependencies
+### Step 5: Install Yarn Dependencies
 
 ```sh
 $ yarn install
@@ -174,21 +174,33 @@ $ yarn install
 
 This installs JavaScript dependencies. Tailwind CSS is compiled by `tailwindcss-rails` and is started automatically by `./bin/dev` in development.
 
-### Step 5: Start Server
+### Step 6: Start Server
 
 ```sh
 $ ./bin/dev
 ```
 
-### Step 6: Creating a Pull Request
+> Clear cache: `rails assets:clobber` the yarn build
+
+### Step 7: Creating a Pull Request
 
 1. Make changes locally on your branch.
 2. Push your changes to your branch on GitHub.
 3. Create a pull request to the main branch of the main repository.
 
-### Step 7: Merging
+### Step 8: Merging
 
 Once your changes are reviewed, they will be merged into the main branch.
+
+## Troubleshooting
+### Clearing Asset & Style Caches
+
+
+```sh
+rails assets:clobber
+yarn build
+bundle exec rails tailwindcss:build
+```
 
 ## Contributing
 

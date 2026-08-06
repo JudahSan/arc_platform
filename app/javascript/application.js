@@ -2,6 +2,20 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
+// Page transitions
+document.addEventListener("turbo:before-visit", () => {
+  document.querySelector("main")?.classList.add("turbo-animate-out")
+})
+
+document.addEventListener("turbo:load", () => {
+  const main = document.querySelector("main")
+  if (main) {
+    main.classList.remove("turbo-animate-out")
+    main.classList.add("turbo-animate-in")
+    main.addEventListener("animationend", () => main.classList.remove("turbo-animate-in"), { once: true })
+  }
+})
+
 function renderTurnstileIfReady() {
     const el = document.querySelector(".cf-turnstile")
     if (!el) return

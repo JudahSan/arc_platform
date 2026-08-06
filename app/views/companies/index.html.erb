@@ -36,10 +36,10 @@
       <%= form_with url: built_with_ruby_path, method: :get, class: "flex items-center", local: true do |f| %>
         <div class="relative">
           <%= f.select :country,
-              options_for_select([[t('companies.index.all_countries'), ""]] + @countries.map { |c| [c, c] }, params[:country]),
-              {},
-              class: "h-11 pl-4 pr-10 rounded-xl border border-gray-200 text-gray-700 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm appearance-none cursor-pointer",
-              onchange: "this.form.submit();" %>
+                       options_for_select([[t('companies.index.all_countries'), ""]] + @countries.map { |c| [c, c] }, params[:country]),
+                       {},
+                       class: "h-11 pl-4 pr-10 rounded-xl border border-gray-200 text-gray-700 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm appearance-none cursor-pointer",
+                       onchange: "this.form.submit();" %>
           <i class="fa-solid fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
         </div>
       <% end %>
@@ -57,51 +57,61 @@
   <% if @companies.any? %>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
       <% @companies.each do |company| %>
-        <div class="arc-card group relative">
-          <%# Hiring badge %>
-          <% if company.careers_url.present? %>
-            <div class="absolute top-4 right-4 z-10">
-              <span class="arc-badge arc-badge-hiring">
-                <i class="fa-solid fa-briefcase mr-1 text-xs"></i>Hiring
-              </span>
-            </div>
-          <% end %>
-
-          <%# Featured badge %>
-          <% if company.featured? %>
-            <div class="absolute top-4 left-4 z-10">
-              <span class="arc-badge arc-badge-amber">
-                <i class="fa-solid fa-star mr-1 text-xs"></i><%= t('companies.index.featured') %>
-              </span>
-            </div>
-          <% end %>
-
-          <%# Logo area %>
-          <div class="px-6 pt-8 pb-4 flex justify-center" style="height: 120px;">
-            <% if company.logo.attached? %>
-              <%= image_tag company.logo, class: "h-full w-full object-contain", alt: company.name %>
-            <% else %>
-              <div class="w-20 h-20 bg-ruby-50 border-2 border-ruby-100 flex items-center justify-center rounded-2xl group-hover:border-ruby-300 transition-colors">
-                <span class="text-3xl font-black text-ruby-400"><%= company.name[0] %></span>
+        <div class="arc-card group relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <%# Hiring badge %>
+            <% if company.careers_url.present? %>
+              <div class="absolute top-3 right-3 z-20">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-emerald-300 bg-black/60 backdrop-blur-md border border-white/20 shadow-lg">
+                  <i class="fa-solid fa-briefcase text-emerald-400 text-[11px]"></i>
+                  Hiring
+                </span>
               </div>
             <% end %>
-          </div>
 
-          <%# Card body %>
-          <div class="px-6 pb-6">
-            <h2 class="font-bold text-gray-900 text-lg mb-1 group-hover:text-ruby-600 transition-colors"><%= company.name %></h2>
+            <%# Featured badge %>
+            <% if company.featured? %>
+              <div class="absolute top-3 left-3 z-20">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-amber-300 bg-black/60 backdrop-blur-md border border-white/20 shadow-lg">
+                  <i class="fa-solid fa-star text-amber-400 text-[11px]"></i>
+                  <%= t('companies.index.featured') %>
+                </span>
+              </div>
+            <% end %>
 
-            <div class="flex items-center gap-1.5 text-gray-400 text-xs mb-3">
-              <i class="fa-solid fa-location-dot text-ruby-300 text-xs"></i>
-              <%= [company.city, company.country].reject(&:blank?).join(", ") %>
+            <%# Large Media Banner Area %>
+            <div class="h-48 w-full bg-slate-900 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
+              <% if company.logo.attached? %>
+                <%# Scaled cover with subtle blur background for crisp aspect ratios %>
+                <%= image_tag company.logo, class: "absolute inset-0 h-full w-full object-cover blur-md opacity-20 scale-110", alt: "" %>
+                <%= image_tag company.logo, class: "relative z-0 max-h-36 max-w-[80%] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300", alt: company.name %>
+              <% else %>
+                <%# Fallback Initials Block %>
+                <% initials = company.name.to_s.split.map(&:first).join.first(2).upcase %>
+                <div class="w-full h-full bg-gradient-to-br from-ruby-600 to-ruby-800 flex items-center justify-center">
+                  <span class="text-4xl font-black text-white/90 tracking-wider group-hover:scale-110 transition-transform duration-300 select-none"><%= initials.presence || "RC" %></span>
+                </div>
+              <% end %>
             </div>
 
-            <p class="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-5"><%= company.description %></p>
+            <%# Card body %>
+            <div class="px-6 pt-5 pb-4">
+              <h2 class="font-bold text-gray-900 text-lg mb-1 group-hover:text-ruby-600 transition-colors"><%= company.name %></h2>
 
-            <div class="flex items-center justify-between pt-4 border-t border-gray-50 gap-3">
+              <div class="flex items-center gap-1.5 text-gray-400 text-xs mb-3">
+                <i class="fa-solid fa-location-dot text-ruby-300 text-xs"></i>
+                <%= [company.city, company.country].reject(&:blank?).join(", ") %>
+              </div>
+
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4"><%= company.description %></p>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-0">
+            <div class="flex items-center justify-between pt-4 border-t border-gray-100 gap-3">
               <% if company.website_url.present? %>
                 <%= link_to company.website_url, target: "_blank", rel: "noopener",
-                    class: "flex items-center gap-1.5 text-ruby-600 hover:text-ruby-700 text-sm font-semibold transition-colors" do %>
+                            class: "flex items-center gap-1.5 text-ruby-600 hover:text-ruby-700 text-sm font-semibold transition-colors" do %>
                   <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                   <%= t('companies.index.website') %>
                 <% end %>
@@ -109,7 +119,7 @@
 
               <% if company.careers_url.present? %>
                 <%= link_to company.careers_url, target: "_blank", rel: "noopener",
-                    class: "arc-btn-ruby text-xs py-1.5 px-4 flex-shrink-0" do %>
+                            class: "arc-btn-ruby text-xs py-1.5 px-4 flex-shrink-0" do %>
                   <%= t('companies.index.careers') %>
                 <% end %>
               <% end %>

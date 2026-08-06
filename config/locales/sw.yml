@@ -23,7 +23,7 @@ sw:
   # Authentication and authorization
   unauthorized:
     sign_in: 'Tafadhali ingia ili kufanya kitendo hiki'
-    
+
   # Flash messages
   flash:
     notice: 'Taarifa'
@@ -286,6 +286,26 @@ sw:
     community_name: "Jumuiya ya Ruby ya Kiafrika"
 
   # Footer translations
+  companies:
+    index:
+      title: "Imejengwa kwa Ruby"
+      subtitle: "Gundua makampuni kote Afrika yanayoendeshwa na Ruby & Rails"
+      search_placeholder: "Tafuta kwa jina la kampuni au lebo za teknolojia..."
+      all_countries: "Nchi zote"
+      submit_company: "Wasilisha Kampuni"
+      no_companies: "Hakuna makampuni yaliyopatikana yanayolingana na utafutaji wako."
+      careers: "Nafasi za Kazi"
+      website: "Tovuti"
+      featured: "Bora"
+    create:
+      success: "Kampuni imewasilishwa kikamilifu! Itaonekana punde tu itakapoidhinishwa."
+    new:
+      title: "Wasilisha Kampuni"
+      subtitle: "Tusaidie kukuza orodha ya makampuni ya Ruby barani Afrika"
+      form_title: "Maelezo ya Kampuni"
+      submit_button: "Wasilisha Kampuni"
+      back_button: "Rudi kwenye Orodha"
+
   footer:
     home: "Nyumbani"
     events: "Matukio"

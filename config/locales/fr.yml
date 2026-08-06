@@ -23,7 +23,7 @@ fr:
   # Authentication and authorization
   unauthorized:
     sign_in: 'Veuillez vous connecter pour effectuer cette action'
-    
+
   # Flash messages
   flash:
     notice: 'Avis'
@@ -287,6 +287,27 @@ fr:
     community_name: "Communauté Ruby Africaine"
 
   # Footer translations
+
+  companies:
+    index:
+      title: "Développé avec Ruby"
+      subtitle: "Découvrez les entreprises à travers l'Afrique propulsées par Ruby & Rails"
+      search_placeholder: "Rechercher par nom d'entreprise ou technologies..."
+      all_countries: "Tous les pays"
+      submit_company: "Soumettre une entreprise"
+      no_companies: "Aucune entreprise ne correspond à vos critères de recherche."
+      careers: "Recrutement"
+      website: "Site web"
+      featured: "En vedette"
+    create:
+      success: "Entreprise soumise avec succès ! Elle sera visible une fois approuvée."
+    new:
+      title: "Soumettre une entreprise"
+      subtitle: "Aidez-nous à développer le répertoire des entreprises Ruby en Afrique"
+      form_title: "Détails de l'entreprise"
+      submit_button: "Soumettre l'entreprise"
+      back_button: "Retour au répertoire"
+
   footer:
     home: "Accueil"
     events: "Événements"
