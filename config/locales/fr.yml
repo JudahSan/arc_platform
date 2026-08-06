@@ -14,6 +14,7 @@ fr:
       confirm: 'Êtes-vous sûr?'
       join_us: 'Rejoignez-nous'
       read_more: 'Lire la suite'
+      contact_organizers: 'Contactez les organisateurs'
     messages:
       success: 'Opération réussie'
       error: 'Une erreur est survenue'
@@ -139,7 +140,63 @@ fr:
       description_1: "La Communauté Ruby Africaine, ARC, est une organisation qui a été créée en 2010. La communauté a actuellement une portée de plus de 5 000 membres répartis dans toute l'Afrique de l'Est, composés de développeurs (ingénieurs), d'entrepreneurs, de designers et de freelances. En termes de développement et de démonstrations, la communauté se concentre sur les technologies et frameworks Ruby, qui sont tous open source et largement utilisés par les startups pour prototyper et réaliser des preuves de concept avec une stratégie de mise sur le marché."
       description_2: "La communauté organise des rencontres hebdomadaires et mensuelles dans différentes villes d'Afrique de l'Est. La communauté vous apporte la Conférence Ruby chaque année avec différents thèmes pour combler le fossé qui existe entre l'école et l'industrie et en retour aide à stimuler l'innovation et la croissance en contribution à l'économie mondiale."
       description_3: "ARC rassemble entrepreneurs, développeurs, designers et contributeurs open source. Pourquoi ? Nous croyons en une approche holistique ; grâce à l'entrepreneuriat, une \"approche solution\" et l'open source, nous pouvons résoudre tant de problèmes. Cela en retour donne à tous ceux qui participent les \"outils\" technologiques et la \"méthodologie\" entrepreneuriale pour atteindre leur plein potentiel et inspirer le reste du monde et leurs communautés."
+      journey_title: "Notre Parcours"
+      founded: "Fondation"
+      founded_desc: "Création de la communauté African Ruby à Nairobi, au Kenya"
+      regional_growth: "Croissance Régionale"
+      regional_desc: "Extension des sections locales en Ouganda, en Tanzanie et au Rwanda"
+      first_conf: "Première RubyConf Africa"
+      first_conf_desc: "Organisation de la toute première conférence dédiée à Ruby sur le continent"
+      members_desc: "La communauté s'est agrandie pour dépasser les 5 000 membres en Afrique de l'Est"
+      growing: "En Plein Essor"
+      growing_desc: "Poursuite de la construction de l'écosystème Ruby en Afrique"
+      cta_title: "Prêt à Nous Rejoindre ?"
+      cta_desc: "Faites partie de la communauté de développeurs Ruby la plus dynamique d'Afrique."
 
+  # Code of Conduct page translations
+  code_of_conduct:
+    page_title: "Code de Conduite"
+    page_description: "Lisez le code de conduite de la communauté African Ruby. Nous nous engageons à offrir un environnement sûr, inclusif et accueillant pour tous les membres."
+    badge: "Normes Communautaires"
+    title: "Code de Conduite"
+    hero_alt: "Membres de la communauté African Ruby en interaction"
+    commitment_title: "Notre Engagement"
+    commitment_text: "La communauté African Ruby s'engage à offrir une expérience exempte de tout harcèlement et inclusive pour chacun, indépendamment de l'identité ou de l'expression de genre, de l'orientation sexuelle, du handicap, de la neurodiversité, de l'apparence physique, de la taille, de l'origine ethnique, de la nationalité, de la race, de l'âge, de la religion ou de toute autre catégorie protégée."
+
+    expected_behavior_title: "Comportement Attendu"
+    be_excellent_title: "Soyez Exemplaires les Uns Envers les Autres"
+    be_excellent_text: "Nous voulons que notre communauté soit une expérience excellente pour tous, quel que soit votre parcours. Traitez tout le monde avec respect. Participez en reconnaissant que chacun a sa place ici et que chacun d'entre nous a le droit de profiter de son expérience sans crainte de harcèlement, de discrimination ou de condescendance, qu'elle soit flagrante ou sous forme de micro-agressions."
+    speak_up_title: "Exprimez-vous si Vous Observez ou Entendez Quelque Chose"
+    speak_up_text: "Le harcèlement n'est pas toléré, et vous êtes encouragé(e) à intervenir poliment lorsque vous ou d'autres personnes faites l'objet d'un manque de respect. La personne qui vous met mal à l'aise n'est peut-être pas consciente de son comportement, et il est conseillé de lui en faire part poliment. Si vous êtes victime de harcèlement ou si vous vous sentez mal à l'aise, si vous remarquez que quelqu'un d'autre est harcelé, ou si vous avez d'autres préoccupations, veuillez contacter immédiatement un organisateur de la communauté."
+
+    unacceptable_behavior_title: "Comportements Inacceptables"
+    harassment_text: "Le harcèlement n'est pas toléré et comprend, sans s'y limiter :"
+    harassment_1: "Propos verbaux ou écrits renforçant des structures sociales de domination"
+    harassment_2: "Imagerie sexuelle dans les espaces publics ou partagés de la communauté"
+    harassment_3: "Intimidation délibérée, traque, suivi ou enregistrement/photographie harcelant"
+    harassment_4: "Perturbation continue des rencontres, discussions, forums en ligne ou canaux communautaires"
+    harassment_5: "Publication de communications privées ou de données personnelles sans consentement"
+    harassment_6: "Contacts physiques inappropriés et attentions sexuelles non désirées"
+    harassment_compliance: "Les membres invités à cesser tout comportement de harcèlement doivent s'y conformer immédiatement."
+
+    scope_title: "Champ d'Application"
+    scope_text_1: "Cette politique s'applique à tous les espaces communautaires—en ligne et hors ligne—y compris les rencontres, les forums en ligne, les canaux de discussion, les dépôts de code, les rassemblements sociaux, tous les membres, partenaires, sponsors et organisateurs."
+    scope_text_2: "La communauté African Ruby se réserve le droit de refuser l'accès ou d'exclure toute personne de tout espace ou événement hébergé par la communauté (y compris les événements futurs) à tout moment et à sa seule discrétion."
+    zero_tolerance: "Notre politique de tolérance zéro signifie que nous examinerons chaque allégation de violation de nos directives communautaires et y répondrons de manière appropriée."
+
+    partners_title: "Partenaires et Sponsors"
+    partners_text: "Les sponsors, organisations partenaires et prestataires de la communauté sont également soumis à cette politique. En particulier, les partenaires ne doivent pas utiliser d'images sexuées, d'activités ou d'autres supports déplacés, ni créer un environnement à caractère sexuel lors des interactions communautaires."
+
+    why_important_title: "Pourquoi cette Politique est Importante"
+    why_important_text: "L'établissement d'une politique officielle vise à préciser que le harcèlement envers quiconque, pour n'importe quelle raison, est inacceptable au sein de notre communauté. Cette politique définit des attentes claires en matière de comportement, rassure les membres et encourage une participation inclusive."
+
+    license_title: "Licence et Attribution"
+    license_text_1: "Cette politique est sous licence"
+    license_link_text: "Creative Commons Zero"
+    license_text_2: "N'hésitez pas à adopter et à adapter cette politique pour vos sections locales de la communauté Ruby."
+
+    cta_title: "Vous Avez des Questions ou Devez Signaler un Incident ?"
+    cta_desc: "Contactez nos organisateurs communautaires en toute confidentialité. Tous les signalements restent strictement confidentiels."
   # Chapters page translations
   chapters:
     index:
@@ -270,10 +327,13 @@ fr:
 
   # Navigation translations
   navigation:
+    community: "Communauté"
+    resources: "Ressources"
     home: "Accueil"
     about: "À propos"
     about_arc: "À propos d'ARC"
     events: "Événements"
+    code_of_conduct: "Code de Conduite"
     conferences: "Conférences"
     chapters: "Chapitres"
     projects: "Projets"

@@ -2,7 +2,7 @@
 
 class LandingController < ApplicationController
   # People should not require authentication for following actions
-  skip_before_action :authenticate_user!, only: %i[index about learn]
+  skip_before_action :authenticate_user!, only: %i[index about learn code_of_conduct]
   def index; end
 
   ##
@@ -12,4 +12,8 @@ class LandingController < ApplicationController
   ##
   # Featured learning materials
   def learn; end
+
+  ##
+  # Code of Conduct page
+  def code_of_conduct; end
 end
