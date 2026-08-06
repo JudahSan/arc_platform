@@ -382,6 +382,8 @@ en:
     contact_us: "Contact Us"
     code_of_conduct: "Code of conduct"
     connect: "Connect"
+    made_with: "Made with"
+    by_arc: "by African Ruby Community"
     about_details: "African Ruby Community. Empowering 5,000+ developers, creators, and tech leaders across Africa through Ruby, open source, and collaborative innovation since 2010."
     copyright: "All Rights Reserved. African Ruby Community. Copyright %{year}"
 

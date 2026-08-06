@@ -380,6 +380,8 @@ fr:
     contact_us: "Nous contacter"
     code_of_conduct: "Code de conduite"
     connect: "Se connecter"
+    made_with: "Fait avec"
+    by_arc: "par African Ruby Community"
     about_details: "African Ruby Community. Autonomiser plus de 5 000 développeurs, créateurs et leaders technologiques à travers l'Afrique grâce à Ruby, au logiciel libre et à l'innovation collaborative depuis 2010."
     copyright: "Tous droits réservés. Communauté Ruby Africaine. Copyright %{year}"
 

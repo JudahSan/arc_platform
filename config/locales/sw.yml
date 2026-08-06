@@ -378,6 +378,9 @@ sw:
     contact_us: "Wasiliana Nasi"
     code_of_conduct: "Kanuni za maadili"
     connect: "Unganisha"
+    made_with: "Imetengenezwe kwa"
+    by_arc: "na African Ruby Community"
+
     about_details: "African Ruby Community. Kukuza na kuwezesha zaidi ya wataalamu 5,000 wa mfumo wa kidijitali, wabunifu na viongozi wa kiteknolojia kote Barani Afrika kupitia Ruby, chanzo wazi na ubunifu wa pamoja tangu 2010."
     copyright: "Haki Zote Zimehifadhiwa. Jumuiya ya Ruby ya Kiafrika. Hakimiliki %{year}"
 
