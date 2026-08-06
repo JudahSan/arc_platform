@@ -5,6 +5,7 @@ fr:
         new:
           title: "Se connecter"
           email_label: "Email"
+          welcome: "Bon retour sur RubyCommunity Africa 🌍"
           email_placeholder: "Entrez votre adresse email"
           password_label: "Mot de passe"
           password_placeholder: "Entrez votre mot de passe"
@@ -44,6 +45,7 @@ fr:
       confirmations:
         new:
           title: "Renvoyer les instructions de confirmation"
+          subtitle: "Nous vous renverrons vos instructions de confirmation ✉️"
           email_label: "Email"
           email_placeholder: "Entrez votre adresse email"
           submit_button: "Renvoyer les instructions"
@@ -87,6 +89,7 @@ fr:
       failure: "Impossible de vous authentifier depuis %{kind} car \"%{reason}\"."
       success: "Authentifié avec succès depuis le compte %{kind}."
     passwords:
+      message: "Nous vous enverrons un lien pour réinitialiser votre mot de passe ✉️"
       no_token: "Vous ne pouvez pas accéder à cette page sans venir d'un email de réinitialisation de mot de passe. Si vous venez d'un email de réinitialisation de mot de passe, assurez-vous d'utiliser l'URL complète fournie."
       send_instructions: "Vous recevrez un email avec des instructions pour réinitialiser votre mot de passe dans quelques minutes."
       send_paranoid_instructions: "Si votre adresse email existe dans notre base de données, vous recevrez un lien de récupération de mot de passe à votre adresse email dans quelques minutes."
@@ -106,6 +109,11 @@ fr:
       signed_out: "Déconnecté avec succès."
       already_signed_out: "Déconnecté avec succès."
     unlocks:
+      title: "Renvoyer les instructions de déverrouillage"
+      subtitle: "Nous vous enverrons un lien pour déverrouiller votre compte 🔓"
+      email: "Email"
+      email_label: "Saisissez votre adresse e-mail"
+      resend_instructions: "Renvoyer les instructions"
       send_instructions: "Vous recevrez un email avec des instructions pour déverrouiller votre compte dans quelques minutes."
       send_paranoid_instructions: "Si votre compte existe, vous recevrez un email avec des instructions pour le déverrouiller dans quelques minutes."
       unlocked: "Votre compte a été déverrouillé avec succès. Veuillez vous connecter pour continuer."

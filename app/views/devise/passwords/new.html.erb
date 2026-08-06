@@ -1,12 +1,12 @@
 <% auth_content = capture do %>
   <%# ── Header strip ── %>
   <div class="arc-hero-ruby px-8 py-8 text-center relative overflow-hidden">
-    <figure class="mb-4">
-      <%= image_tag 'sign_up_karate.png', alt: "Reset Password",
-          class: "h-24 w-auto object-contain mx-auto opacity-90 drop-shadow-lg" %>
+    <figure class="flex justify-center">
+      <%= image_tag "sign_up_karate.png",
+                    class: "h-64 sm:h-80 w-auto object-contain" %>
     </figure>
     <h1 class="text-white font-extrabold text-2xl mb-1"><%= t('devise.views.passwords.new.title') %></h1>
-    <p class="text-white/70 text-sm">We'll send you a link to reset your password ✉️</p>
+    <p class="text-white/70 text-sm"><%= t('devise.passwords.message') %></p>
   </div>
 
   <%# ── Form body ── %>

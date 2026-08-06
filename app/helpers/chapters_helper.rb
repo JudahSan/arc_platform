@@ -20,23 +20,30 @@ module ChaptersHelper
 
   FEATURED_SPONSORS = [
 
-    { image: 'sponsors/current/ruby_central.png', link: 'https://rubycentral.org/',
-      alt_key: 'sponsors.current.ruby_central' },
-    { image: 'sponsors/current/sidekiq.png', link: 'https://sidekiq.org/',
-      alt_key: 'sponsors.current.sidekiq' },
     { image: 'sponsors/current/kopo_kopo.png', link: 'https://kopokopo.co.ke', alt_key: 'sponsors.current.kopo_kopo' },
-    { image: 'sponsors/current/finplus.png', link: 'https://finplusgroup.com', alt_key: 'sponsors.current.finplus' },
+
     { image: 'sponsors/current/typesense-logo.png', link: 'https://typesense.org/',
       alt_key: 'sponsors.current.typesense' },
+    { image: 'sponsors/current/sidekiq.png', link: 'https://sidekiq.org/',
+      alt_key: 'sponsors.current.sidekiq' },
+    { image: 'sponsors/current/fata.png', link: 'https://fata.dev/',
+      alt_key: 'sponsors.current.fata' },
+    { image: 'sponsors/current/senga.png', link: 'https://senga.co/',
+      alt_key: 'sponsors.current.senga' },
+    { image: 'sponsors/current/ustechnology.jpeg', link: 'https://ustechmiami.com/',
+      alt_key: 'sponsors.current.ustechnologies' },
+    { image: 'sponsors/current/kodees.png', link: 'https://www.kodees.co.ke/', alt_key: 'sponsors.current.kodees' },
     { image: 'sponsors/current/rubycon_italy.png', link: 'https://rubycon.it/',
       alt_key: 'sponsors.current.rubycon_italy' }
   ].freeze
 
   PREVIOUS_SPONSORS = [
+
+    { image: 'sponsors/current/ruby_central.png', link: 'https://rubycentral.org/',
+      alt_key: 'sponsors.current.ruby_central' },
+    { image: 'sponsors/current/finplus.png', link: 'https://finplusgroup.com', alt_key: 'sponsors.current.finplus' },
     { image: 'sponsors/previous/solutech_official.svg', link: 'https://solutech.co.ke',
       alt_key: 'sponsors.current.solutech' },
-    { image: 'sponsors/current/typesense-logo.png', link: 'https://typesense.org/',
-      alt_key: 'sponsors.current.typesense' },
     { image: 'sponsors/previous/daystar.png', link: 'https://www.daystar.ac.ke/', alt_key: 'sponsors.current.daystar' },
     { image: 'sponsors/current/prosper.png', link: 'https://www.prosperhedge.com/',
       alt_key: 'sponsors.current.prosper' },
@@ -177,6 +184,7 @@ module ChaptersHelper
 
     icon_map[country_name]
   end
+
   # rubocop:enable Metrics/MethodLength
 end
 # rubocop:enable Metrics/ModuleLength

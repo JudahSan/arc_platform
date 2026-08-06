@@ -5,6 +5,7 @@ sw:
         new:
           title: "Ingia"
           email_label: "Barua pepe"
+          welcome: "Karibu tena katika RubyCommunity Africa 🌍"
           email_placeholder: "Ingiza anwani ya barua pepe"
           password_label: "Nywila"
           password_placeholder: "Ingiza nywila"
@@ -44,6 +45,7 @@ sw:
       confirmations:
         new:
           title: "Tuma tena maagizo ya uthibitisho"
+          subtitle: "Tutatuma tena maagizo yako ya uthibitisho ✉️"
           email_label: "Barua pepe"
           email_placeholder: "Ingiza anwani ya barua pepe"
           submit_button: "Tuma tena maagizo"
@@ -87,6 +89,7 @@ sw:
       failure: "Haikuweza kukuthibitisha kutoka %{kind} kwa sababu \"%{reason}\"."
       success: "Imethibitishwa kwa ufanisi kutoka akaunti ya %{kind}."
     passwords:
+      message: "Tutatuma kiungo cha kuweka upya nenosiri lako ✉️"
       no_token: "Huwezi kufikia ukurasa huu bila kutoka barua pepe ya kuweka upya nywila. Ikiwa unakuja kutoka barua pepe ya kuweka upya nywila, tafadhali hakikisha umetumia URL kamili iliyotolewa."
       send_instructions: "Utapokea barua pepe yenye maagizo ya jinsi ya kuweka upya nywila yako katika dakika chache."
       send_paranoid_instructions: "Ikiwa anwani yako ya barua pepe ipo katika hifadhidata yetu, utapokea kiungo cha kurejesha nywila katika anwani yako ya barua pepe katika dakika chache."
@@ -106,6 +109,11 @@ sw:
       signed_out: "Umetoka kwa ufanisi."
       already_signed_out: "Umetoka kwa ufanisi."
     unlocks:
+      title: "Tuma Tena Maagizo ya Kufungua"
+      subtitle: "Tutatuma kiungo cha kufungua akaunti yako 🔓"
+      email: "Barua pepe"
+      email_label: "Ingiza anwani ya barua pepe"
+      resend_instructions: "Tuma tena maagizo"
       send_instructions: "Utapokea barua pepe yenye maagizo ya jinsi ya kufungua akaunti yako katika dakika chache."
       send_paranoid_instructions: "Ikiwa akaunti yako ipo, utapokea barua pepe yenye maagizo ya jinsi ya kuifungua katika dakika chache."
       unlocked: "Akaunti yako imefunguliwa kwa ufanisi. Tafadhali ingia ili kuendelea."
