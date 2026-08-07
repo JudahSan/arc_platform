@@ -1,0 +1,219 @@
+<% content_for(:title, t('code_of_conduct.page_title', default: 'Code of Conduct')) %>
+<% content_for(:description, t('code_of_conduct.page_description', default: 'Our commitment to a welcoming, safe, and inclusive community.')) %>
+
+<%# ── HERO SECTION ── %>
+<section class="relative overflow-hidden min-h-[400px] flex items-center justify-center bg-neutral-950">
+  <%= image_tag('workshop.jpg', alt: t('code_of_conduct.hero_alt', default: 'Community members interacting'), class: "absolute inset-0 w-full h-full object-cover select-none", loading: "eager") %>
+
+  <%# Dark overlay for background depth %>
+  <div class="absolute inset-0 bg-neutral-950/60" aria-hidden="true"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-transparent to-neutral-950/80" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 py-20 lg:py-28 flex flex-col items-center justify-center text-center">
+
+    <%# Badge with bold border %>
+    <div class="badge badge-lg gap-2 bg-neutral-950/90 border-2 border-rose-500/60 text-rose-300 font-black uppercase tracking-widest mb-6 py-4 px-5 shadow-2xl backdrop-blur-sm">
+      <i class="fa-solid fa-shield-halved text-rose-400 text-xs"></i>
+      <%= t('code_of_conduct.badge', default: 'Community Standards') %>
+    </div>
+
+    <%# Heading — Maximum Black Weight + Thicker 2px Dark Surround %>
+    <h1 class="text-white font-black tracking-tight leading-none mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl [text-shadow:_0_0_16px_rgba(0,0,0,1),_0_0_6px_rgba(0,0,0,1),_-2px_-2px_0_#000,_2px_-2px_0_#000,-2px_2px_0_#000,_2px_2px_0_#000]">
+      <%= t('code_of_conduct.title', default: 'Code of Conduct') %>
+    </h1>
+
+    <%# Subtitle — Ultra-Bold Weight + 1.5px Dark Surround %>
+    <p class="text-white font-extrabold text-lg sm:text-xl max-w-2xl leading-relaxed [text-shadow:_0_0_12px_rgba(0,0,0,1),_0_0_4px_rgba(0,0,0,1),_-1.5px_-1.5px_0_#000,_1.5px_-1.5px_0_#000,-1.5px_1.5px_0_#000,_1.5px_1.5px_0_#000]">
+      <%= t('code_of_conduct.page_description', default: 'Our commitment to fostering a safe, respectful, and inclusive environment for everyone.') %>
+    </p>
+
+  </div>
+</section>
+
+<%# ── MAIN CONTENT SECTION ── %>
+<section class="py-16 lg:py-24 px-6 lg:px-8 bg-base-100 text-base-content">
+  <div class="max-w-4xl mx-auto space-y-20">
+
+    <%# Commitment Callout %>
+    <div class="card bg-rose-500/10 shadow-sm rounded-2xl p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row items-start gap-4">
+        <div class="p-3 bg-rose-600/10 rounded-xl text-rose-600 shrink-0">
+          <i class="fa-solid fa-heart text-2xl"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-3 text-base-content">
+            <%= t('code_of_conduct.commitment_title', default: 'Our Commitment') %>
+          </h2>
+          <p class="text-base sm:text-lg leading-relaxed">
+            <%= t('code_of_conduct.commitment_text', default: 'We are committed to providing a harassment-free community experience for everyone, regardless of gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, age, or religion.') %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <%# Expected Behavior %>
+    <div class="border-t border-base-200/80 pt-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold flex items-center gap-3 text-base-content mb-8">
+        <i class="fa-solid fa-star text-rose-600 text-xl"></i>
+        <%= t('code_of_conduct.expected_behavior_title', default: 'Expected Behavior') %>
+      </h2>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="card bg-base-200 border border-base-300 p-6 rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-2 mb-3">
+            <i class="fa-solid fa-users text-rose-600 text-xl mt-1 shrink-0"></i>
+            <h3 class="font-bold text-lg text-base-content">
+              <%= t('code_of_conduct.be_excellent_title', default: 'Be Respectful and Inclusive') %>
+            </h3>
+          </div>
+          <p class="leading-relaxed text-base-content/75 text-sm sm:text-base">
+            <%= t('code_of_conduct.be_excellent_text', default: 'Treat all community members with empathy and kindness. Exercise consideration in your speech and actions, collaborate authentically, and welcome diverse viewpoints.') %>
+          </p>
+        </div>
+
+        <div class="card bg-base-200 border border-base-300 p-6 rounded-2xl flex flex-col justify-between hover:shadow-md transition-shadow">
+          <div class="flex items-start gap-2 mb-3">
+            <i class="fa-solid fa-bullhorn text-rose-600 text-xl mt-1 shrink-0"></i>
+            <h3 class="font-bold text-lg text-base-content">
+              <%= t('code_of_conduct.speak_up_title', default: 'Speak Up & Support Others') %>
+            </h3>
+          </div>
+          <p class="leading-relaxed text-base-content/75 text-sm sm:text-base">
+            <%= t('code_of_conduct.speak_up_text', default: 'If you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, speak up or contact the community organizers immediately.') %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <%# Unacceptable Behavior %>
+    <div class="border-t border-base-200/80 pt-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold flex items-center gap-3 text-base-content mb-8">
+        <i class="fa-solid fa-ban text-rose-600 text-xl"></i>
+        <%= t('code_of_conduct.unacceptable_behavior_title', default: 'Unacceptable Behavior') %>
+      </h2>
+
+      <div class="bg-base-200 border border-base-300 rounded-2xl p-6 sm:p-8 space-y-6">
+        <p class="font-semibold text-base-content text-lg">
+          <%= t('code_of_conduct.harassment_text', default: 'Harassment and unacceptable behavior includes, but is not limited to:') %>
+        </p>
+
+        <ul class="grid gap-4 sm:grid-cols-2">
+          <% [
+               'harassment_1',
+               'harassment_2',
+               'harassment_3',
+               'harassment_4',
+               'harassment_5',
+               'harassment_6'
+             ].each do |key| %>
+            <li class="flex items-start gap-3 bg-base-100 p-3.5 rounded-xl border border-base-300/60">
+
+              <span class="text-sm text-base-content/85 leading-snug"><%= t("code_of_conduct.#{key}") %></span>
+            </li>
+          <% end %>
+        </ul>
+
+        <div class="rounded-xl border border-amber-500/20 bg-amber-500/10 p-4  flex items-start gap-3 backdrop-blur-sm shadow-sm">
+          <i class="fa-solid fa-triangle-exclamation text-amber-600 dark:text-amber-400 text-lg mt-0.5 shrink-0"></i>
+          <p class="text-sm font-medium leading-relaxed">
+            <%= t('code_of_conduct.harassment_compliance', default: 'Participants asked to stop any harassing behavior are expected to comply immediately.') %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <%# Scope Section %>
+    <div class="border-t border-base-200/80 pt-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold flex items-center gap-3 text-base-content mb-8">
+        <i class="fa-solid fa-globe text-rose-600 text-xl"></i>
+        <%= t('code_of_conduct.scope_title', default: 'Scope') %>
+      </h2>
+
+      <div class="bg-base-200 border border-base-300 rounded-2xl p-6 sm:p-8 space-y-6">
+        <p class="leading-relaxed text-base-content/80">
+          <%= t('code_of_conduct.scope_text_1', default: 'This Code of Conduct applies within all community spaces—both online and offline—including Slack channels, GitHub repositories, meetups, workshops, social gatherings, and direct communications.') %>
+        </p>
+        <p class="leading-relaxed text-base-content/80">
+          <%= t('code_of_conduct.scope_text_2', default: 'It also applies when an individual is officially representing the community in public spaces or external industry channels.') %>
+        </p>
+
+        <div class="alert alert-error shadow-sm border-red-500 bg-red-50 text-red-900 rounded-xl flex items-start gap-3">
+          <i class="fa-solid fa-shield-cat text-xl text-red-600 mt-0.5 shrink-0"></i>
+          <p class="text-sm font-medium leading-relaxed">
+            <%= t('code_of_conduct.zero_tolerance', default: 'We maintain zero tolerance for harassment and reserve the right to remove any participant who violates these guidelines.') %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <%# Partners and Sponsors %>
+    <div class="border-t border-base-200/80 pt-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold flex items-center gap-3 text-base-content mb-8">
+        <i class="fa-solid fa-handshake text-rose-600 text-xl"></i>
+        <%= t('code_of_conduct.partners_title', default: 'Partners & Sponsors') %>
+      </h2>
+
+      <div class="bg-base-200 border border-base-300 rounded-2xl p-6 sm:p-8">
+        <p class="leading-relaxed text-base-content/80">
+          <%= t('code_of_conduct.partners_text', default: 'Sponsors, partners, and community leaders are also subject to the Code of Conduct. In particular, partners should not use sexualized images, activities, or other material that compromises a respectful environment.') %>
+        </p>
+      </div>
+    </div>
+
+    <%# Why This Policy %>
+    <div class="border-t border-base-200/80 pt-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold flex items-center gap-3 text-base-content mb-8">
+        <i class="fa-solid fa-circle-question text-rose-600 text-xl"></i>
+        <%= t('code_of_conduct.why_important_title', default: 'Why This Policy Matters') %>
+      </h2>
+
+      <div class="alert alert-success bg-emerald-500/10 text-base-content border border-emerald-500/30 rounded-2xl p-6 flex items-start gap-4">
+        <i class="fa-solid fa-lightbulb text-emerald-600 text-2xl mt-0.5 shrink-0"></i>
+        <p class="leading-relaxed text-base-content/90">
+          <%= t('code_of_conduct.why_important_text', default: 'Explicit policies foster an environment where everyone—especially underrepresented developers—can learn, collaborate, and thrive without fear of hostility or exclusion.') %>
+        </p>
+      </div>
+    </div>
+
+    <%# License %>
+    <div class="border-t border-base-200/80 pt-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold flex items-center gap-3 text-base-content mb-8">
+        <i class="fa-solid fa-scale-balanced text-rose-600 text-xl"></i>
+        <%= t('code_of_conduct.license_title', default: 'License & Attribution') %>
+      </h2>
+
+      <div class="bg-base-200 border border-base-300 rounded-2xl p-6 sm:p-8 space-y-4 text-base-content/80">
+        <p class="leading-relaxed">
+          <%= t('code_of_conduct.license_text_1', default: 'This Code of Conduct is adapted from open-source community standards and released under the') %>
+          <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener" class="link link-hover text-rose-600 font-semibold">
+            <%= t('code_of_conduct.license_link_text', default: 'Creative Commons Zero License') %>
+          </a>.
+        </p>
+        <p class="leading-relaxed">
+          <%= t('code_of_conduct.license_text_2', default: 'Feel free to adopt and adapt this policy for your own regional Ruby meetups and community events.') %>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<%# ── CTA ── %>
+<section class="py-20 lg:py-24 px-6 lg:px-8 bg-base-200 text-center border-t border-base-300">
+  <div class="max-w-2xl mx-auto space-y-4">
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-base-content">
+      <%= t('code_of_conduct.cta_title', default: 'Have Questions or Need to Report an Incident?') %>
+    </h2>
+    <p class="text-base-content/70 text-base sm:text-lg mb-6">
+      <%= t('code_of_conduct.cta_desc', default: 'Reach out to our organizers privately. Reports are kept confidential.') %>
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 pt-2">
+      <%= link_to "mailto:organisers@rubycommunity.africa", class: "btn btn-error gap-2 shadow-md hover:shadow-lg transition-all" do %>
+        <i class="fa-solid fa-envelope text-sm"></i>
+        <%= t('common.actions.contact_organizers', default: 'Contact Organizers') %>
+      <% end %>
+    </div>
+  </div>
+</section>

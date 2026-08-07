@@ -9,9 +9,9 @@ gem 'active_storage_validations', '~> 1.0' # Active Storage gems for validating 
 gem 'aws-sdk-s3', '~> 1.208', require: false # Official AWS Ruby gem for Amazon S3
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'cancancan', '~> 3.4' # Authorization library which restricts what resources a given user is allowed to access
-gem 'cssbundling-rails' # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'devise' # Devise 4.0 works with Rails 4.1 onwards.
 gem 'geocoder', '~> 1.8' # Complete geocoding solution for Ruby
+gem 'tailwindcss-rails' # Use Tailwind via Rails asset pipeline
 # OAuth integration
 gem 'omniauth'
 gem 'omniauth-github'

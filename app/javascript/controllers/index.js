@@ -15,3 +15,6 @@ application.register("turbo_frames", TurboFramesController)
 
 import TurnstileController from "./turnstile_controller.js"
 application.register("turnstile", TurnstileController)
+
+import ThemeController from "./theme_controller.js"
+application.register("theme", ThemeController)

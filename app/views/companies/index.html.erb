@@ -1,110 +1,146 @@
-<div class="bg-white min-h-screen">
-  <%# Hero Section %>
-  <div class="bg-gradient-to-br from-red-600 to-red-700 py-16 px-4 sm:px-6 lg:px-8 text-center text-white">
-    <div class="max-w-7xl mx-auto">
-      <h1 class="text-4xl font-extrabold sm:text-5xl md:text-6xl">
-        <%= t('companies.index.title') %>
-      </h1>
-      <p class="mt-4 text-xl max-w-2xl mx-auto opacity-90">
-        <%= t('companies.index.subtitle') %>
-      </p>
+<%# ── HERO ── %>
+<div class="arc-hero-ruby py-16 px-6 lg:px-8">
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest mb-4">
+      <i class="fa-brands fa-gem text-xs"></i>
+      Built with Ruby
     </div>
-  </div>
+    <h1 class="text-white font-extrabold text-4xl lg:text-5xl mb-3"><%= t('companies.index.title') %></h1>
+    <p class="text-white/75 text-lg max-w-2xl mb-6"><%= t('companies.index.subtitle') %></p>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <%# Filter Bar - Country Only %>
-    <div class="mb-12">
-      <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
-        <div class="flex flex-col sm:flex-row gap-3 items-center w-full sm:w-auto">
-          <label class="text-sm font-medium text-gray-700 whitespace-nowrap">
-            <%= t('companies.index.filter_by_country', default: 'Filter by country:') %>
-          </label>
-          <%= form_with url: built_with_ruby_path, method: :get, class: "w-full sm:w-72", local: true do |f| %>
-            <%= f.select :country,
-                         options_for_select([[t('companies.index.all_countries'), ""]] + @countries.map { |c| [c, c] }, params[:country]),
-                         {},
-                         class: "select select-bordered w-full h-12 text-base focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all bg-white",
-                         onchange: "this.form.submit();" %>
-          <% end %>
-        </div>
-
-        <%# Submit Company Button %>
-        <% if user_signed_in? %>
-          <div>
-            <%= link_to new_company_path,
-                        class: "btn btn-outline border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white h-12 px-6 font-medium whitespace-nowrap transition-all hover:shadow-lg w-full sm:w-auto" do %>
-              <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-              <%= t('companies.index.submit_company') %>
-            <% end %>
-          </div>
-        <% end %>
+    <%# Stats strip %>
+    <div class="flex flex-wrap gap-3">
+      <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-white/15">
+        <i class="fa-solid fa-building text-white/60"></i>
+        <span class="text-white font-bold"><%= @companies.count %></span>
+        <span class="text-white/60 text-sm">Companies</span>
+      </div>
+      <div class="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-white/15">
+        <i class="fa-solid fa-globe text-white/60"></i>
+        <span class="text-white font-bold"><%= @countries.count %></span>
+        <span class="text-white/60 text-sm">Countries</span>
       </div>
     </div>
+  </div>
+</div>
 
-    <%# Company Grid %>
-    <% if @companies.any? %>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <% @companies.each do |company| %>
-          <div class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-            <div class="px-6 pt-6 flex justify-center h-32 w-full">
+<div class="max-w-7xl mx-auto px-6 lg:px-8 py-10">
+
+  <%# ── FILTER + SUBMIT BAR ── %>
+  <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-10">
+    <div class="flex items-center gap-3">
+      <label class="text-sm font-medium text-gray-600 whitespace-nowrap">
+        <i class="fa-solid fa-filter text-ruby-400 mr-1"></i>
+        <%= t('companies.index.filter_by_country', default: 'Filter by country:') %>
+      </label>
+      <%= form_with url: built_with_ruby_path, method: :get, class: "flex items-center", local: true do |f| %>
+        <div class="relative">
+          <%= f.select :country,
+                       options_for_select([[t('companies.index.all_countries'), ""]] + @countries.map { |c| [c, c] }, params[:country]),
+                       {},
+                       class: "h-11 pl-4 pr-10 rounded-xl border border-gray-200 text-gray-700 focus:outline-none focus:ring-2 focus:ring-ruby-500/30 focus:border-ruby-500 bg-gray-50 text-sm appearance-none cursor-pointer",
+                       onchange: "this.form.submit();" %>
+          <i class="fa-solid fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs pointer-events-none"></i>
+        </div>
+      <% end %>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= link_to new_company_path, class: "arc-btn-ruby text-sm flex-shrink-0" do %>
+        <i class="fa-solid fa-plus text-xs"></i>
+        <%= t('companies.index.submit_company') %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%# ── COMPANY GRID ── %>
+  <% if @companies.any? %>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      <% @companies.each do |company| %>
+        <div class="arc-card group relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <%# Hiring badge %>
+            <% if company.careers_url.present? %>
+              <div class="absolute top-3 right-3 z-20">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-emerald-300 bg-black/60 backdrop-blur-md border border-white/20 shadow-lg">
+                  <i class="fa-solid fa-briefcase text-emerald-400 text-[11px]"></i>
+                  Hiring
+                </span>
+              </div>
+            <% end %>
+
+            <%# Featured badge %>
+            <% if company.featured? %>
+              <div class="absolute top-3 left-3 z-20">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-amber-300 bg-black/60 backdrop-blur-md border border-white/20 shadow-lg">
+                  <i class="fa-solid fa-star text-amber-400 text-[11px]"></i>
+                  <%= t('companies.index.featured') %>
+                </span>
+              </div>
+            <% end %>
+
+            <%# Large Media Banner Area %>
+            <div class="h-48 w-full bg-slate-900 flex items-center justify-center overflow-hidden relative border-b border-gray-100">
               <% if company.logo.attached? %>
-                <%= image_tag company.logo, class: "h-full w-full object-contain", alt: company.name %>
+                <%# Scaled cover with subtle blur background for crisp aspect ratios %>
+                <%= image_tag company.logo, class: "absolute inset-0 h-full w-full object-cover blur-md opacity-20 scale-110", alt: "" %>
+                <%= image_tag company.logo, class: "relative z-0 max-h-36 max-w-[80%] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300", alt: company.name %>
               <% else %>
-                <div class="h-24 w-24 bg-gray-100 flex items-center justify-center rounded-lg">
-                  <span class="text-3xl font-bold text-gray-300"><%= company.name[0] %></span>
+                <%# Fallback Initials Block %>
+                <% initials = company.name.to_s.split.map(&:first).join.first(2).upcase %>
+                <div class="w-full h-full bg-gradient-to-br from-ruby-600 to-ruby-800 flex items-center justify-center">
+                  <span class="text-4xl font-black text-white/90 tracking-wider group-hover:scale-110 transition-transform duration-300 select-none"><%= initials.presence || "RC" %></span>
                 </div>
               <% end %>
             </div>
 
-            <div class="card-body">
-              <div class="flex justify-between items-start">
-                <h2 class="card-title text-xl font-bold text-gray-800"><%= company.name %></h2>
-                <% if company.featured? %>
-                  <div class="badge badge-secondary bg-yellow-400 border-none text-black text-xs font-bold uppercase"><%= t('companies.index.featured') %></div>
-                <% end %>
-              </div>
+            <%# Card body %>
+            <div class="px-6 pt-5 pb-4">
+              <h2 class="font-bold text-gray-900 text-lg mb-1 group-hover:text-ruby-600 transition-colors"><%= company.name %></h2>
 
-              <div class="flex items-center text-sm text-gray-500 mb-2">
-                <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
+              <div class="flex items-center gap-1.5 text-gray-400 text-xs mb-3">
+                <i class="fa-solid fa-location-dot text-ruby-300 text-xs"></i>
                 <%= [company.city, company.country].reject(&:blank?).join(", ") %>
               </div>
 
-              <p class="text-gray-600 line-clamp-3 mb-4">
-                <%= company.description %>
-              </p>
-
-              <div class="card-actions justify-between items-center pt-4 border-t border-gray-50">
-                <% if company.website_url.present? %>
-                  <%= link_to company.website_url, target: "_blank", class: "text-red-600 hover:text-red-800 text-sm font-semibold flex items-center" do %>
-                    <%= t('companies.index.website') %>
-                    <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                  <% end %>
-                <% end %>
-
-                <% if company.careers_url.present? %>
-                  <%= link_to company.careers_url, target: "_blank", class: "btn btn-sm btn-ghost text-gray-600 hover:text-red-600" do %>
-                    <%= t('companies.index.careers') %>
-                  <% end %>
-                <% end %>
-              </div>
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4"><%= company.description %></p>
             </div>
           </div>
+
+          <div class="px-6 pb-6 pt-0">
+            <div class="flex items-center justify-between pt-4 border-t border-gray-100 gap-3">
+              <% if company.website_url.present? %>
+                <%= link_to company.website_url, target: "_blank", rel: "noopener",
+                            class: "flex items-center gap-1.5 text-ruby-600 hover:text-ruby-700 text-sm font-semibold transition-colors" do %>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  <%= t('companies.index.website') %>
+                <% end %>
+              <% end %>
+
+              <% if company.careers_url.present? %>
+                <%= link_to company.careers_url, target: "_blank", rel: "noopener",
+                            class: "arc-btn-ruby text-xs py-1.5 px-4 flex-shrink-0" do %>
+                  <%= t('companies.index.careers') %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center py-24">
+      <div class="w-20 h-20 bg-ruby-50 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fa-regular fa-building text-ruby-400 text-3xl"></i>
+      </div>
+      <h3 class="text-gray-800 font-bold text-xl mb-2"><%= t('companies.index.no_companies') %></h3>
+      <p class="text-gray-400 mb-8">Be the first to list a Ruby company from your country!</p>
+      <% if user_signed_in? %>
+        <%= link_to new_company_path, class: "arc-btn-ruby" do %>
+          <i class="fa-solid fa-plus text-sm"></i>
+          Submit a Company
         <% end %>
-      </div>
-    <% else %>
-      <div class="text-center py-20 bg-gray-50 rounded-xl">
-        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        <h3 class="mt-2 text-lg font-medium text-gray-900"><%= t('companies.index.no_companies') %></h3>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

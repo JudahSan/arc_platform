@@ -12,6 +12,17 @@ The Africa Ruby Community (ARC) Platform is a project aimed at creating a hub fo
 
 *Note: This project is open source, and contributions are encouraged.*
 
+## Tech Stack
+
+* Ruby 3.4.7
+* Rails 8.1
+* PostgreSQL
+* Tailwind CSS (`tailwindcss-rails`)
+* DaisyUI
+* Turbo
+* Stimulus
+* esbuild (JavaScript bundling)
+
 ## Application Setup
 
 ### Dev Containers
@@ -106,30 +117,31 @@ Confirm the default Ruby version matches the version you just installed.
 which ruby
 #=> /Users/username/.asdf/shims/ruby
 ruby -v
-#=> 3.4.1
+#=> 3.4.7
 ```
 
-Install Node.js for handling Javascript in our Rails app
+#### Installing Node.js and Yarn
+
+Node.js is required for JavaScript bundling with **esbuild**. Tailwind CSS is managed separately by **`tailwindcss-rails`**.
 
 ```sh
-asdf install nodejs 20.9.0
-asdf global nodejs 20.9.0
+asdf install nodejs 22.23.2
+asdf global nodejs 22.23.2
 
 which node
 #=> /Users/username/.asdf/shims/node
-node -v
-#=> 20.9.0
 
-# Install yarn for Rails jsbundling/cssbundling or webpacker
-npm install -g yarn
+node -v
+#=> 22.23.2
 ```
 
-To switch to a different Ruby and Node version for a specific project, you can use the following command to set the Ruby or Node version for that project. You should be in the project directory.
+To switch to a different Ruby or Node version for this project:
 
 ```sh
-asdf local ruby <ruby version>  # eg 3.4.7
-asdf local nodejs <nodejs version> # eg 20.9.0
+asdf local ruby <ruby version>      # e.g. 3.4.7
+asdf local nodejs <nodejs version>  # e.g. 22.23.2
 ```
+
 
 ### Step 2: Create a Fork & Branch
 
@@ -154,27 +166,41 @@ $ rails db:create
 $ rails db:migrate
 ```
 
-### Step 4: Install Yarn Dependencies
+### Step 5: Install Yarn Dependencies
 
 ```sh
 $ yarn install
 ```
 
-### Step 5: Start Server
+This installs JavaScript dependencies. Tailwind CSS is compiled by `tailwindcss-rails` and is started automatically by `./bin/dev` in development.
+
+### Step 6: Start Server
 
 ```sh
 $ ./bin/dev
 ```
 
-### Step 6: Creating a Pull Request
+> Clear cache: `rails assets:clobber` the yarn build
+
+### Step 7: Creating a Pull Request
 
 1. Make changes locally on your branch.
 2. Push your changes to your branch on GitHub.
 3. Create a pull request to the main branch of the main repository.
 
-### Step 7: Merging
+### Step 8: Merging
 
 Once your changes are reviewed, they will be merged into the main branch.
+
+## Troubleshooting
+### Clearing Asset & Style Caches
+
+
+```sh
+rails assets:clobber
+yarn build
+bundle exec rails tailwindcss:build
+```
 
 ## Contributing
 

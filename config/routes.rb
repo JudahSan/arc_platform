@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   root 'landing#index'
 
   get "about_us", to: "landing#about", as: :landing_about
+  get "code_of_conduct", to: "landing#code_of_conduct", as: :landing_code_of_conduct
   get "learn", to: "landing#learn", as: :landing_learn
   get "/built-with-ruby", to: "companies#index", as: :built_with_ruby
   resources :companies, only: [:new, :create]

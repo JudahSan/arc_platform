@@ -7,6 +7,7 @@ en:
         new:
           title: "Sign In"
           email_label: "Email"
+          welcome: "Welcome back to RubyCommunity Africa 🌍"
           email_placeholder: "Enter email address"
           password_label: "Password"
           password_placeholder: "Enter password"
@@ -14,6 +15,7 @@ en:
       registrations:
         new:
           title: "Create an account"
+
           email_label: "Email"
           email_placeholder: "Enter email address"
           name_label: "Full name"
@@ -46,6 +48,7 @@ en:
       confirmations:
         new:
           title: "Resend confirmation instructions"
+          subtitle: "We'll resend your confirmation instructions ✉️"
           email_label: "Email"
           email_placeholder: "Enter email address"
           submit_button: "Resend instructions"
@@ -89,6 +92,7 @@ en:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      message: "We'll send you a link to reset your password ✉️"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
@@ -108,6 +112,11 @@ en:
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
     unlocks:
+      title: "Resend Unlock Instructions"
+      subtitle: "We'll send you a link to unlock your account 🔓"
+      email: "Email"
+      email_label: "Enter email address"
+      resend_instructions: "Resend unlock instructions"
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."

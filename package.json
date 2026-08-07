@@ -4,18 +4,14 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.23",
-    "@tailwindcss/cli": "^4.0.0-beta.7",
     "@tailwindcss/typography": "^0.5.19",
-    "autoprefixer": "^10.4.27",
     "daisyui": "^5.5.19",
-    "esbuild": "^0.27.3",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.2.1"
+    "esbuild": "^0.27.3"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
-    "build:css": "node_modules/.bin/tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css",
-    "watch:css": "node_modules/.bin/tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --watch"
+    "build:css": "bundle exec rails tailwindcss:build",
+    "watch:css": "bundle exec rails tailwindcss:watch"
   },
   "packageManager": "yarn@1.22.19"
 }

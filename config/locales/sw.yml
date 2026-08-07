@@ -14,6 +14,7 @@ sw:
       confirm: 'Je, una uhakika?'
       join_us: 'Jiunge Nasi'
       read_more: 'Soma zaidi'
+      contact_organizers: 'Wasiliana na Waandaaji'
     messages:
       success: 'Operesheni imekamilika kwa mafanikio'
       error: 'Hitilafu imetokea'
@@ -23,7 +24,7 @@ sw:
   # Authentication and authorization
   unauthorized:
     sign_in: 'Tafadhali ingia ili kufanya kitendo hiki'
-    
+
   # Flash messages
   flash:
     notice: 'Taarifa'
@@ -106,6 +107,7 @@ sw:
         subtitle: "Sisi ni nani?"
         description_1: "Jumuiya ya Ruby ya Kiafrika, ARC ni shirika lililoanzishwa mwaka 2010. Jumuiya hii kwa sasa ina wanachama zaidi ya 5,000 waliotawanyika katika Afrika Mashariki, wakiwemo wabunifu (wahandisi), wajasiriamali, wabunifu wa michoro na wafanyakazi huru. Katika maendeleo na maonyesho, jumuiya inazingatia teknolojia na mifumo ya Ruby, ambayo yote ni ya chanzo huria na inatumika sana na makampuni mapya kuunda miundo na kufanya uthibitisho wa dhana pamoja na mkakati wa kuingia sokoni."
         description_2: "Jumuiya inaandaa mikutano ya kila wiki na kila mwezi katika miji mbalimbali ya Afrika Mashariki. Jumuiya inakupatia Mkutano wa Ruby kila mwaka na mada mbalimbali ili kujaza pengo linalopo kati ya shule na tasnia na kwa kurudi inasaidia kuchochea uvumbuzi na ukuaji katika mchango wa uchumi wa kimataifa."
+        countries_count: "Nchi zote"
       activities:
         title: "Shughuli"
         items:
@@ -114,6 +116,7 @@ sw:
           programming: "uprogramu"
           workshops: "warsha"
           hackathons: "mashindano ya uprogramu"
+          events: "matukio"
       chapters:
         title: "Sura"
         join_community: "Jiunge na jumuiya"
@@ -125,7 +128,9 @@ sw:
         placeholder_content: "maudhui"
       sponsors:
         featured_title: "Wafadhili Wakuu"
+        featured_description: "Wafadhili wa jumuiya ya Ruby ya Kiafrika"
         previous_title: "Wafadhili wa Awali"
+        previous_description: "Wafadhili wa jumuiya ya Ruby ya Kiafrika"
         become_sponsor: "Kuwa mfadhili"
     about:
       title: "Kuhusu ARC - Jumuiya ya Ruby ya Kiafrika"
@@ -135,12 +140,69 @@ sw:
       description_1: "Jumuiya ya Ruby ya Kiafrika, ARC, ni shirika lililoanzishwa mwaka 2010. Jumuiya hii kwa sasa ina ufikio wa zaidi ya wanachama 5,000 waliotawanyika katika Afrika Mashariki, wakiwemo wabunifu (wahandisi), wajasiriamali, wabunifu wa michoro, na wafanyakazi huru. Katika maendeleo na maonyesho, jumuiya inazingatia teknolojia na mifumo ya Ruby, ambayo yote ni ya chanzo huria na inatumika sana na makampuni mapya kuunda miundo na kufanya uthibitisho wa dhana pamoja na mkakati wa kuingia sokoni."
       description_2: "Jumuiya inaandaa mikutano ya kila wiki na kila mwezi katika miji mbalimbali ya Afrika Mashariki. Jumuiya inakupatia Mkutano wa Ruby kila mwaka na mada mbalimbali ili kujaza pengo linalopo kati ya shule na tasnia na kwa kurudi inasaidia kuchochea uvumbuzi na ukuaji katika mchango wa uchumi wa kimataifa."
       description_3: "ARC inaunganisha wajasiriamali, wabunifu, wabunifu wa michoro, na wachangiaji wa chanzo huria. Kwa nini? Tunaamini katika mbinu ya jumla; kupitia ujasiriamali, \"mbinu ya suluhisho,\" na chanzo huria, tunaweza kutatua matatizo mengi. Hii kwa kurudi inawapa nguvu kila mtu anayehudhuria \"zana\" za kiteknolojia na \"mbinu\" za ujasiriamali ili kufikia uwezo wao kamili na kuhamasisha ulimwengu mzima na jamii zao."
+      journey_title: "Safari Yetu"
+      founded: "Ilivyoanzishwa"
+      founded_desc: "Jamii ya Ruby Afrika iliasisiwa mjini Nairobi, Kenya"
+      regional_growth: "Ukuaji wa Kanda"
+      regional_desc: "Kupanuka kwa matawi nchini Uganda, Tanzania, na Rwanda"
+      first_conf: "RubyConf Africa ya Kwanza"
+      first_conf_desc: "Iliandaa mkutano mkuu wa kwanza wa Ruby barani Afrika"
+      members_desc: "Jamii ilikua na kufikia zaidi ya wanachama 5,000 kote Afrika Mashariki"
+      growing: "Kuendelea Kuwa Imara"
+      growing_desc: "Kuendelea kujenga mfumo wa kijamii wa Ruby barani Afrika"
+      cta_title: "Uko Tayari Kujiunga Nasi?"
+      cta_desc: "Kua sehemu ya jamii iliyochangamka zaidi ya waendelezaji wa Ruby barani Afrika."
 
+  # Code of conduct translations
+  code_of_conduct:
+    page_title: "Mwongozo wa Maadili"
+    page_description: "Soma Mwongozo wa Maadili wa Jamii ya Ruby Afrika. Tumejitolea kutoa mazingira salama, jumuishi, na ya kukaribisha kwa wanachama wote."
+    badge: "Viwango vya Jamii"
+    title: "Mwongozo wa Maadili"
+    hero_alt: "Wanachama wa Jamii ya Ruby Afrika wakitagusana"
+    commitment_title: "Kujitolea Kwetu"
+    commitment_text: "Jamii ya Ruby Afrika imejitolea kutoa mazingira yasiyo na unyanyasaji na jumuishi kwa kila mtu bila kujali utambulisho au kujieleza kijinsia, mtazamo wa kijinsia, ulemavu, tofauti za kineuro, muonekano wa kimwili, ukubwa wa mwili, kabila, utaifa, rangi, umri, dini, au kipengele kingine chochote kilicholindwa."
+
+    expected_behavior_title: "Tabia Inayotarajiwa"
+    be_excellent_title: "Waweni Wema Kila Mmoja kwa Mwenzake"
+    be_excellent_text: "Tunataka jamii yetu iwe na uzoefu bora kwa kila mtu bila kujali asili yake. Mtendee kila mtu kwa heshima. Shiriki ukitambua kuwa kila mtu anastahili kuwa hapa na kila mmoja wetu ana haki ya kufurahia uzoefu wetu bila hofu ya unyanyasaji, ubaguzi, au dharau, iwe ya wazi au kwa njia ya udhalilishaji mdogo."
+    speak_up_title: "Zungumza Ukiona au Ukisikia Kitu"
+    speak_up_text: "Unyanyasaji hauvumiliwi, na una uwezo wa kujihusisha kwa adabu wakati wewe au wengine mnapovunjiwa heshima. Mtu anayekufanya uhisi vibaya huenda asijue anachofanya, na inashauriwa kumfahamisha kwa adabu kuhusu tabia yake. Kama unafanyiwa unyanyasaji au unahisi vibaya, ukigundua kuwa mtu mwingine ananyanyaswa, au una wasiwasi mwingine wowote, tafadhali wasiliana na mwandaaji wa jamii mara moja."
+
+    unacceptable_behavior_title: "Tabia Isiyokubalika"
+    harassment_text: "Unyanyasaji hauvumiliwi na unajumuisha lakini hauishii kwa:"
+    harassment_1: "Lugha ya maneno au ya maandishi inayosisitiza mfumo wa utawala wa kijamii"
+    harassment_2: "Picha au maudhui ya kingono katika maeneo ya umma au ya pamoja ya jamii"
+    harassment_3: "Kutisha kimakusudi, kumfuatilia mtu, au kupiga picha/kurekodi kwa nia ya kunyanyasa"
+    harassment_4: "Usumbufu unaoendelea wa mikutano, majadiliano, jukwaa la mtandaoni, au njia za mawasiliano za jamii"
+    harassment_5: "Kuchapisha mawasiliano ya kibinafsi au taarifa za siri bila idhini"
+    harassment_6: "Mawasiliano yasiyofaa ya kimwili na umakini wa kingono usiotakiwa"
+    harassment_compliance: "Wanachama wanaoombwa kuacha tabia yoyote ya unyanyasaji wanatakiwa kutii mara moja."
+
+    scope_title: "Wigo wa Mwongozo"
+    scope_text_1: "Sera hii inahusu maeneo yote ya jamii—mtandaoni na nje ya mtandao—pamoja na mikutano, majukwaa ya mtandaoni, njia za mazungumzo, hifadhi za kodi, mikusanyiko ya kijamii, wanachama wote, washirika, wadhamini, na waandaaji."
+    scope_text_2: "Jamii ya Ruby Afrika inahifadhi haki ya kumkatalia mtu kuingia, au kumwondoa mtu yeyote kutoka kwa eneo au tukio lolote linaloandaliwa na jamii (pamoja na matukio ya baadaye) wakati wowote kwa hiari yake."
+    zero_tolerance: "Sera yetu ya kutovumilia kabisa inamaanisha kuwa tutakagua kila madai ya ukiukaji wa Miongozo ya Jamii yetu na kujibu kwa njia inayofaa."
+
+    partners_title: "Washirika na Wadhamini"
+    partners_text: "Wadhamini, mashirika washirika, na wauzaji wa jamii pia wako chini ya sera hii. Hasa, washirika hawapaswi kutumia picha za kingono, shughuli, au vifaa vingine, au kuunda mazingira ya kingono katika mwingiliano wa jamii."
+
+    why_important_title: "Kwa Nini Sera Hii ni Muhimu"
+    why_important_text: "Kuunda sera rasmi kunalenga kuweka wazi kuwa unyanyasaji wa mtu yeyote kwa sababu yoyote haukubaliki ndani ya jamii yetu. Sera hii inafafanua matarajio ya wazi ya tabia, inatoa hakikisho, na inahimiza ushiriki jumuishi."
+
+    license_title: "Leseni na Uteuzi"
+    license_text_1: "Sera hii imepewa leseni chini ya"
+    license_link_text: "Leseni ya Creative Commons Zero"
+    license_text_2: "Jisikie huru kuchukua na kubadilisha sera hii kwa matawi yako ya kijamii ya Ruby ya eneo husika."
+
+    cta_title: "Je, Unamaswali au Unahitaji Kuripoti Tukio?"
+    cta_desc: "Wasiliana na waandaaji wetu wa jamii kwa faragha. Taarifa zote zinahifadhiwa kwa siri kubwa."
   # Chapters page translations
   chapters:
     index:
       title: "Sura"
       page_title: "Sura"
+      mini_title: "Matawi ya Eneo"
       page_description: "Maonyesho ya jumuiya mbalimbali za ruby zilizotawanyika katika eneo la Afrika Mashariki."
     show:
       title: "Sura"
@@ -206,6 +268,13 @@ sw:
 
   sponsors:
     current:
+      ruby_central: "Ruby Central"
+      kopo_kopo: "Kopo Kopo"
+      finplus: "Finplus Group"
+      typesense: "Typesense"
+      sidekiq: "Sidekiq"
+
+    previous:
       solutech: "Solutech"
       app_signal: "App Signal"
       ruby_central: "Ruby Central"
@@ -216,17 +285,6 @@ sw:
       prosper: "Prosper Hedge"
       gurzu: "Gurzu"
       must_company: "Must Company"
-    previous:
-      shopify: "Shopify"
-      microverse: "Microverse"
-      planet_argon: "Planet Argon"
-      nairobits: "Nairobits"
-      turing: "Turing"
-      kwara: "Kwara"
-      ihub: "iHub, Nairobi"
-      friendly_rb: "FriendlyRB"
-      kca: "Chuo Kikuu cha KCA"
-      andela: "Andela"
 
   social_media:
     twitter: "ARC Twitter"
@@ -268,10 +326,13 @@ sw:
 
   # Navigation translations
   navigation:
+    community: "Jamii"
+    resources: "Miradi"
     home: "Nyumbani"
     about: "Kuhusu"
     about_arc: "Kuhusu ARC"
     events: "Matukio"
+    code_of_conduct: "Kanuni za maadili"
     conferences: "Mikutano"
     chapters: "Sura"
     projects: "Miradi"
@@ -285,6 +346,26 @@ sw:
     community_name: "Jumuiya ya Ruby ya Kiafrika"
 
   # Footer translations
+  companies:
+    index:
+      title: "Imejengwa kwa Ruby"
+      subtitle: "Gundua makampuni kote Afrika yanayoendeshwa na Ruby & Rails"
+      search_placeholder: "Tafuta kwa jina la kampuni au lebo za teknolojia..."
+      all_countries: "Nchi zote"
+      submit_company: "Wasilisha Kampuni"
+      no_companies: "Hakuna makampuni yaliyopatikana yanayolingana na utafutaji wako."
+      careers: "Nafasi za Kazi"
+      website: "Tovuti"
+      featured: "Bora"
+    create:
+      success: "Kampuni imewasilishwa kikamilifu! Itaonekana punde tu itakapoidhinishwa."
+    new:
+      title: "Wasilisha Kampuni"
+      subtitle: "Tusaidie kukuza orodha ya makampuni ya Ruby barani Afrika"
+      form_title: "Maelezo ya Kampuni"
+      submit_button: "Wasilisha Kampuni"
+      back_button: "Rudi kwenye Orodha"
+
   footer:
     home: "Nyumbani"
     events: "Matukio"
@@ -297,6 +378,10 @@ sw:
     contact_us: "Wasiliana Nasi"
     code_of_conduct: "Kanuni za maadili"
     connect: "Unganisha"
+    made_with: "Imetengenezwe kwa"
+    by_arc: "na African Ruby Community"
+
+    about_details: "African Ruby Community. Kukuza na kuwezesha zaidi ya wataalamu 5,000 wa mfumo wa kidijitali, wabunifu na viongozi wa kiteknolojia kote Barani Afrika kupitia Ruby, chanzo wazi na ubunifu wa pamoja tangu 2010."
     copyright: "Haki Zote Zimehifadhiwa. Jumuiya ya Ruby ya Kiafrika. Hakimiliki %{year}"
 
   # Learning Materials page translations
@@ -319,6 +404,7 @@ sw:
     index:
       title: "Matukio"
       page_title: "Matukio"
+      mini_title: "Matukio ya Jamii"
       page_description: "Gundua matukio ya jumuiya ya Ruby, mikutano, mikutano na warsha"
       create_event: "Unda Tukio"
       search_placeholder: "Tafuta kwa kichwa au maelezo..."

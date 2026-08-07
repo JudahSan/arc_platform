@@ -1,0 +1,1024 @@
+/* ============================================================
+   RubyCommunity.africa — Global Design System
+   Stack: Tailwind CSS v4 + DaisyUI
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+/* Force JetBrains Mono globally — overrides DaisyUI base layer */
+* {
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+.fa, .fas, .far, .fab, i[class*="fa-"] {
+  font-family: "Font Awesome 6 Free" !important;
+}
+
+/* ============================================================
+   Semantic CSS Variables — respond to data-theme
+   ============================================================ */
+:root {
+  --font-sans: "JetBrains Mono", "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root,
+[data-theme="mytheme"] {
+  --bg-base: #fdf6f0;
+  --bg-page: #ffffff;
+  --bg-card: #ffffff;
+  --bg-muted: #f3f4f6;
+  --bg-subtle: #f9fafb;
+  --bg-nav: #ffffff;
+  --bg-nav-border: rgba(229, 231, 235, 0.8);
+  --backdrop-filter: none;
+  --bg-dropdown: #ffffff;
+
+  --text-base: #1a1a1a;
+  --text-muted: #101214;
+  --text-faint: #6b7280;
+  --text-xfaint: #9ca3af;
+
+  --border-color: #e5e7eb;
+  --border-subtle: #f3f4f6;
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.07);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-nav: 0 1px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+  --bg-base: #0f172a;
+  --bg-page: #111827;
+  --bg-card: #1e293b;
+  --bg-muted: #1f2937;
+  --bg-subtle: #263244;
+  --bg-nav: #0f172a;
+  --bg-nav-border: rgba(55, 65, 81, 0.5);
+  --bg-dropdown: #1e293b;
+
+  --text-base: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --text-faint: #94a3b8;
+  --text-xfaint: #64748b;
+
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-nav: 0 1px 8px rgba(0, 0, 0, 0.3);
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   Keyframes
+   ============================================================ */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  40% {
+    transform: translateX(6px);
+  }
+
+  60% {
+    transform: translateX(-4px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes appear-then-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  5%,
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes arc-page-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes arc-page-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================================
+   Utility Classes
+   ============================================================ */
+@utility alert_custom_class {
+  animation: appear-then-fade 6s both;
+  margin-top: 50px;
+}
+
+/* ============================================================
+   Components
+   ============================================================ */
+@layer components {
+  /* ── Base page ── */
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-base);
+    font-family: var(--font-sans) !important;
+    font-size: 1rem;
+    line-height: 1.6;
+    transition:
+      background-color 0.25s ease,
+      color 0.2s ease;
+  }
+
+  body,
+  p,
+  span,
+  div,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    font-family: var(--font-sans) !important;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp,
+  .font-mono {
+    font-family: var(--font-mono) !important;
+  }
+
+  .fa,
+  .fas,
+  .far,
+  .fab,
+  i[class*="fa-"] {
+    font-family: "Font Awesome 6 Free" !important;
+  }
+
+  /* ── Section backgrounds — light uses alternating warm/white, dark uses stepped grays ── */
+  .arc-section-white {
+    background-color: var(--bg-page);
+  }
+
+  .arc-section-muted {
+    background-color: var(--bg-muted);
+  }
+
+  .arc-section-subtle {
+    background-color: var(--bg-subtle);
+  }
+
+  /* ── Turbo ── */
+  .turbo-progress-bar {
+    background: linear-gradient(to right, #cc342d, #f4a261);
+  }
+
+  .text-error {
+    font-size: 0.875rem;
+    color: #f87272;
+  }
+
+  /* ── Semantic background utilities ── */
+  .arc-bg-base {
+    background-color: var(--bg-base);
+  }
+
+  .arc-bg-card {
+    background-color: var(--bg-card);
+  }
+
+  .arc-bg-muted {
+    background-color: var(--bg-muted);
+  }
+
+  .arc-bg-subtle {
+    background-color: var(--bg-subtle);
+  }
+
+  /* ── Semantic text utilities ── */
+  .arc-text-base {
+    color: var(--text-base);
+  }
+
+  .arc-text-muted {
+    color: var(--text-muted);
+  }
+
+  .arc-text-faint {
+    color: var(--text-faint);
+  }
+
+  /* ── Semantic border ── */
+  .arc-border {
+    border-color: var(--border-color);
+  }
+
+  /* ── DaisyUI btn-primary → ruby red ── */
+  .btn-primary {
+    background-color: #cc342d !important;
+    border-color: #cc342d !important;
+    color: white !important;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition:
+      background-color 200ms ease,
+      transform 100ms ease,
+      box-shadow 200ms ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #b01820 !important;
+    border-color: #b01820 !important;
+    box-shadow: 0 4px 15px rgba(204, 52, 45, 0.35);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  /* ── Ruby CTA Button ── */
+  .arc-btn-ruby {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #cc342d;
+    color: white !important;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition:
+      background-color 200ms ease,
+      transform 100ms ease,
+      box-shadow 200ms ease;
+    text-decoration: none;
+  }
+
+  .arc-btn-ruby:hover {
+    background-color: #b01820;
+    box-shadow: 0 4px 15px rgba(204, 52, 45, 0.35);
+    color: white !important;
+  }
+
+  .arc-btn-ruby:active {
+    transform: scale(0.96);
+  }
+
+  /* ── Ruby Outline Button ── */
+  .arc-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: #cc342d;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.68rem 1.6rem;
+    border-radius: 9999px;
+    border: 2px solid #cc342d;
+    cursor: pointer;
+    transition: all 200ms ease;
+    text-decoration: none;
+  }
+
+  .arc-btn-outline:hover {
+    background-color: #cc342d;
+    color: white;
+  }
+
+  /* ── Arc Card ── */
+  .arc-card {
+    background-color: var(--bg-card);
+    color: var(--text-base);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-color);
+    transition:
+      box-shadow 250ms ease,
+      transform 250ms ease,
+      background-color 0.2s ease;
+    overflow: hidden;
+  }
+
+  .arc-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  /* ── Navbar ── */
+  #main-navbar .arc-navbar-bg {
+    background-color: var(--bg-nav);
+    border-bottom-color: var(--bg-nav-border);
+    box-shadow: var(--shadow-nav);
+    transition:
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  /* Hamburger icon inherits text color */
+  #main-navbar svg {
+    color: var(--text-base);
+  }
+
+  /* ── Nav link ── */
+  .arc-nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.25rem 0;
+    text-decoration: none;
+    transition: color 200ms ease;
+    white-space: nowrap;
+  }
+
+  .arc-nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #cc342d;
+    border-radius: 9999px;
+    transition: width 250ms ease;
+  }
+
+  .arc-nav-link:hover {
+    color: #cc342d;
+  }
+
+  .arc-nav-link:hover::after {
+    width: 100%;
+  }
+
+  .arc-nav-link.active {
+    color: #cc342d;
+  }
+
+  .arc-nav-link.active::after {
+    width: 100%;
+  }
+
+  /* ── Dropdown menus ── */
+  .dropdown-content.menu {
+    background-color: var(--bg-dropdown) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-base);
+  }
+
+  .dropdown-content.menu a,
+  .dropdown-content.menu button {
+    color: var(--text-muted);
+  }
+
+  .dropdown-content.menu a:hover,
+  .dropdown-content.menu button:hover {
+    background-color: var(--bg-muted);
+    color: var(--text-base);
+  }
+
+  .menu-title {
+    color: var(--text-xfaint) !important;
+  }
+
+  /* ── Badges ── */
+  .arc-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+
+  .arc-badge-ruby {
+    background-color: rgba(204, 52, 45, 0.1);
+    color: #cc342d;
+    border: 1px solid rgba(204, 52, 45, 0.25);
+  }
+
+  .arc-badge-green {
+    background-color: rgba(22, 163, 74, 0.1);
+    color: #16a34a;
+    border: 1px solid rgba(22, 163, 74, 0.25);
+  }
+
+  .arc-badge-amber {
+    background-color: rgba(217, 119, 6, 0.1);
+    color: #d97706;
+    border: 1px solid rgba(217, 119, 6, 0.25);
+  }
+
+  .arc-badge-hiring {
+    background-color: rgba(34, 197, 94, 0.12);
+    color: #15803d;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  /* ── Section heading ── */
+  .arc-heading {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-base);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .arc-heading::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 4px;
+    background: linear-gradient(to right, #cc342d, #f4a261);
+    border-radius: 9999px;
+    margin-top: 0.5rem;
+  }
+
+  .arc-heading-center::after {
+    margin: 0.5rem auto 0;
+  }
+
+  /* ── Typing animation ── */
+  .arc-typing {
+    display: inline-block;
+    vertical-align: bottom;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 1.2s steps(11, end) 0.3s forwards;
+  }
+
+  /* ── Form input ── */
+  .arc-input {
+    width: 100%;
+    height: 3rem;
+    padding: 0 1rem;
+    border-radius: 0.75rem;
+    border: 1.5px solid var(--border-color);
+    background-color: var(--bg-muted);
+    color: var(--text-base);
+    font-size: 0.95rem;
+    transition:
+      border-color 200ms ease,
+      box-shadow 200ms ease,
+      background-color 0.2s ease;
+    outline: none;
+  }
+
+  .arc-input:focus {
+    border-color: #cc342d;
+    box-shadow: 0 0 0 3px rgba(204, 52, 45, 0.12);
+    background-color: var(--bg-card);
+  }
+
+  .arc-input::placeholder {
+    color: var(--text-xfaint);
+  }
+
+  /* ── Auth page background container ── */
+  .arc-auth-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #fdf6f0 0%, #fff5f5 50%, #ffffff 100%);
+    transition: background-color 0.3s ease;
+  }
+
+  /* ── Auth card ── */
+  .arc-auth-card {
+    background-color: var(--bg-card);
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-hover);
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+  }
+
+  .arc-auth-card .card-body {
+    padding: 0;
+  }
+
+  /* ── Hero section with hero-community.jpg background & theme overlays ── */
+  .arc-hero-landing {
+    background-image:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(254, 242, 242, 0.86) 50%,
+        rgba(255, 255, 255, 0.94) 100%
+      ),
+      var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+  }
+
+  [data-theme="dark"] .arc-hero-landing {
+    background-image:
+      linear-gradient(
+        135deg,
+        rgba(13, 3, 5, 0.92) 0%,
+        rgba(24, 6, 10, 0.88) 50%,
+        rgba(13, 3, 5, 0.95) 100%
+      ),
+      var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* ── Hero ruby strip ── */
+  .arc-hero-ruby {
+    background: linear-gradient(135deg, #cc342d 0%, #8b1219 55%, #1c0a0b 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .arc-hero-ruby::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+    pointer-events: none;
+  }
+
+  /* ── Sponsor logo: Full original color on small viewports, grayscale hover on desktop ── */
+  .arc-sponsor-logo {
+    filter: grayscale(0) opacity(1);
+    transition:
+      filter 300ms ease,
+      transform 250ms ease;
+  }
+
+  @media (min-width: 768px) {
+    .arc-sponsor-logo {
+      filter: grayscale(1) opacity(0.65);
+    }
+
+    .arc-sponsor-logo:hover {
+      filter: grayscale(0) opacity(1);
+      transform: scale(1.06);
+    }
+  }
+
+  /* ── Date badge on event cards ── */
+  .arc-date-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: white;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.65rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    line-height: 1;
+    z-index: 10;
+    min-width: 2.75rem;
+  }
+
+  .arc-date-badge .day {
+    display: block;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #cc342d;
+    line-height: 1;
+  }
+
+  .arc-date-badge .month {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+
+  /* ── Timeline ── */
+  .arc-timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .arc-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.625rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(to bottom, #cc342d, rgba(204, 52, 45, 0.1));
+  }
+
+  .arc-timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .arc-timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.875rem;
+    top: 0.375rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 9999px;
+    background: #cc342d;
+    border: 2px solid var(--bg-card);
+    box-shadow: 0 0 0 3px rgba(204, 52, 45, 0.2);
+  }
+
+  /* ── Pull quote ── */
+
+  .arc-pull-quote {
+    position: relative;
+    display: block;
+    padding: 1.75rem 1.75rem 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(248, 250, 252, 0.95);
+    color: #111827;
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.8;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06);
+  }
+
+  .arc-pull-quote.text-gray-800 {
+    color: #111827 !important;
+  }
+
+  [data-theme="dark"] .arc-pull-quote {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(148, 163, 184, 0.15);
+    color: #f8fafc;
+  }
+
+  [data-theme="dark"] .arc-pull-quote.dark\:text-gray-100 {
+    color: #f8fafc !important;
+  }
+
+  .arc-pull-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.5rem;
+    left: 0.75rem;
+    font-size: 4rem;
+    color: rgba(204, 52, 45, 0.15);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  /* ── Scroll reveal ── */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-reveal="left"] {
+    transform: translateX(-32px);
+  }
+
+  [data-reveal="right"] {
+    transform: translateX(32px);
+  }
+
+  [data-reveal="scale"] {
+    transform: scale(0.94);
+  }
+
+  [data-reveal].arc-revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* stagger children */
+  [data-reveal-stagger] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-reveal-stagger].arc-revealed > *:nth-child(1) { transition-delay: 0ms; }
+  [data-reveal-stagger].arc-revealed > *:nth-child(2) { transition-delay: 80ms; }
+  [data-reveal-stagger].arc-revealed > *:nth-child(3) { transition-delay: 160ms; }
+  [data-reveal-stagger].arc-revealed > *:nth-child(4) { transition-delay: 240ms; }
+  [data-reveal-stagger].arc-revealed > *:nth-child(5) { transition-delay: 320ms; }
+  [data-reveal-stagger].arc-revealed > *:nth-child(6) { transition-delay: 400ms; }
+  [data-reveal-stagger].arc-revealed > *:nth-child(n+7) { transition-delay: 480ms; }
+
+  [data-reveal-stagger].arc-revealed > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── Turbo page transitions ── */
+  .turbo-animate-out {
+    animation: arc-page-out 0.18s ease-in forwards;
+  }
+
+  .turbo-animate-in {
+    animation: arc-page-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* ── Marquee ── */
+  .arc-marquee-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+
+  .arc-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* ── Footer ── */
+  footer.arc-footer {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--text-faint) !important;
+    transition: none;
+  }
+
+  /* ── Table styles (preserved) ── */
+  .resp-table {
+    width: 100%;
+    display: table;
+  }
+
+  .resp-table-body {
+    display: table-row-group;
+  }
+
+  .resp-table-row {
+    display: table-row;
+  }
+
+  .table-body-cell {
+    display: table-cell;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+  }
+
+  .rounded-box {
+    position: relative;
+    overflow: hidden;
+
+    & .absolute {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    & img {
+      display: block;
+    }
+  }
+
+  /* ── Dark mode: override hardcoded Tailwind bg/text utilities ── */
+  [data-theme="dark"] body,
+  [data-theme="dark"] main {
+    background-color: var(--bg-base);
+    color: var(--text-base);
+  }
+
+  /* Section backgrounds */
+  [data-theme="dark"] section.arc-section-white,
+  [data-theme="dark"] .arc-section-white {
+    background-color: var(--bg-page) !important;
+  }
+
+  [data-theme="dark"] .arc-section-muted {
+    background-color: var(--bg-muted) !important;
+  }
+
+  [data-theme="dark"] .arc-section-subtle {
+    background-color: var(--bg-subtle) !important;
+  }
+
+  /* Tailwind utility overrides for dark mode */
+  [data-theme="dark"] .bg-white {
+    background-color: var(--bg-card) !important;
+  }
+
+  [data-theme="dark"] .bg-gray-50 {
+    background-color: var(--bg-muted) !important;
+  }
+
+  [data-theme="dark"] .bg-gray-100 {
+    background-color: var(--bg-subtle) !important;
+  }
+
+  [data-theme="dark"] .text-gray-900 {
+    color: var(--text-base) !important;
+  }
+
+  [data-theme="dark"] .text-gray-800 {
+    color: var(--text-base) !important;
+  }
+
+  [data-theme="dark"] .text-gray-700 {
+    color: var(--text-muted) !important;
+  }
+
+  [data-theme="dark"] .text-gray-600 {
+    color: var(--text-muted) !important;
+  }
+
+  [data-theme="dark"] .text-gray-500 {
+    color: var(--text-faint) !important;
+  }
+
+  [data-theme="dark"] .text-gray-400 {
+    color: var(--text-xfaint) !important;
+  }
+
+  [data-theme="dark"] .border-gray-100,
+  [data-theme="dark"] .border-gray-200 {
+    border-color: var(--border-color) !important;
+  }
+
+  /* Cards */
+  [data-theme="dark"] .arc-card {
+    background-color: var(--bg-card) !important;
+    color: var(--text-base);
+  }
+
+  [data-theme="dark"] .arc-auth-container {
+    background: linear-gradient(
+      135deg,
+      #0c0305 0%,
+      #16060a 50%,
+      #0a0204 100%
+    ) !important;
+  }
+
+  [data-theme="dark"] .arc-auth-card {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--border-color);
+  }
+
+  /* Ruby-50 tinted sections */
+  [data-theme="dark"] .bg-ruby-50 {
+    background-color: rgba(204, 52, 45, 0.08) !important;
+  }
+
+  /* Inputs */
+  [data-theme="dark"] .arc-input {
+    background-color: var(--bg-muted);
+    border-color: var(--border-color);
+    color: var(--text-base);
+  }
+
+  /* DaisyUI base */
+  [data-theme="dark"] .bg-base-100 {
+    background-color: var(--bg-page) !important;
+  }
+
+  /* Outline button in dark */
+  [data-theme="dark"] .arc-btn-outline {
+    border-color: rgba(204, 52, 45, 0.7);
+    color: #fc8181;
+  }
+
+  [data-theme="dark"] .arc-btn-outline:hover {
+    background-color: rgba(204, 52, 45, 0.15);
+    color: #fc8181;
+    border-color: #fc8181;
+  }
+
+  /* Pull quote dark */
+  [data-theme="dark"] .arc-pull-quote {
+    background: rgba(204, 52, 45, 0.08);
+  }
+
+  /* Stats / info boxes in light sections */
+  [data-theme="dark"] .rounded-2xl.border.border-gray-100 {
+    background-color: var(--bg-subtle) !important;
+    border-color: var(--border-color) !important;
+  }
+
+  /*Chapters*/
+
+  [data-theme="light"] .chapters-dark {
+    display: none;
+  }
+  [data-theme="dark"] .chapters-light {
+    display: none;
+  }
+
+  /* Who we are stats grid */
+  [data-theme="dark"] .hover\:bg-ruby-50:hover {
+    background-color: rgba(204, 52, 45, 0.1) !important;
+  }
+
+  [data-theme="dark"] .hover\:border-ruby-200:hover {
+    border-color: rgba(204, 52, 45, 0.3) !important;
+  }
+
+  /* Timeline dot border */
+  [data-theme="dark"] .arc-timeline-item::before {
+    border-color: var(--bg-card);
+  }
+}

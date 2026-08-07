@@ -3,8 +3,19 @@
 require 'test_helper'
 
 class ConferencesControllerPropertyTest < ActionDispatch::IntegrationTest
+  def fixture_event_ids
+    [events(:published_upcoming).id, events(:published_past).id,
+     events(:draft_event).id, events(:archived_event).id,
+     events(:upcoming_conference).id]
+  end
+
   setup do
     @chapter = chapters(:one)
+    Event.where.not(id: fixture_event_ids).destroy_all
+  end
+
+  teardown do
+    Event.where.not(id: fixture_event_ids).destroy_all
   end
 
   # **Feature: events-conferences-chapters, Property 3: Conference type filtering**
@@ -13,10 +24,7 @@ class ConferencesControllerPropertyTest < ActionDispatch::IntegrationTest
   test 'property: conferences index only returns conference-type events' do
     # Test with 100 iterations to verify the property holds across various scenarios
     100.times do |iteration|
-      # Clean up events from previous iterations to ensure test isolation
-      Event.where.not(id: [events(:published_upcoming).id, events(:published_past).id,
-                           events(:draft_event).id, events(:archived_event).id,
-                           events(:upcoming_conference).id]).destroy_all
+      Event.where.not(id: fixture_event_ids).destroy_all
 
       # Generate random events with different types
       event_types = %w[meetup conference workshop]
