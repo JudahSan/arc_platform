@@ -1,11 +1,22 @@
 <% content_for :title, t('learning_materials.index.page_title') %>
 <% content_for(:description, t('learning_materials.index.page_description')) %>
 
-<div class="container pt-20 px-4 xl:px-56 mx-auto">
-  <div class="pt-16 pb-6">
-    <h1 class="text-4xl text-red-600 font-bold text-5xl mb-4"><%= t('learning_materials.index.title') %></h1>
-    <p class="text-gray-600 text-lg max-w-2xl"><%= t('learning_materials.index.page_description') %></p>
+<%# ── HERO ── %>
+<div class="arc-hero-ruby py-16 px-6 lg:px-8">
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-4 py-1.5 text-white/80 text-xs font-bold uppercase tracking-widest mb-4">
+      <i class="fa-solid fa-book-open text-xs"></i>
+      Resources
+    </div>
+    <h1 class="text-white font-extrabold text-4xl lg:text-5xl mb-3"><%=t('learning_materials.index.page_title') %></h1>
+    <p class="text-white/75 text-lg max-w-2xl">
+      <%= t('learning_materials.index.page_description') %>
+    </p>
   </div>
+</div>
+
+
+<div class="container pt-20 px-4 xl:px-56 mx-auto">
 
   <!-- Search Bar -->
   <div class="mb-8" style="display: none">
@@ -24,10 +35,8 @@
     <% end %>
   </div>
 
-  <hr>
-
   <% if @featured_materials.any? %>
-    <section class="mt-10 mb-16">
+    <section class="mb-16">
       <h2 class="text-3xl font-bold text-red-600 mb-6"><%= t('learning_materials.index.featured') %></h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
         <% @featured_materials.each do |m| %>
