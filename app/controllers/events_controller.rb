@@ -43,7 +43,7 @@ class EventsController < ApplicationController
       redirect_to @event, notice: 'Event was successfully created.'
     else
       @chapters = current_user.organization_admin? ? Chapter.all : current_user.chapters
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
       redirect_to @event, notice: 'Event was successfully updated.'
     else
       @chapters = current_user.organization_admin? ? Chapter.all : current_user.chapters
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

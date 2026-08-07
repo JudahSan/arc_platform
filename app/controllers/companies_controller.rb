@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
     if @company.save
       redirect_to built_with_ruby_path, notice: t('.success')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
