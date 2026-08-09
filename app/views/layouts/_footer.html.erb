@@ -62,7 +62,7 @@
                         class: "inline-block text-base-content/70 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200" %>
           </li>
           <li>
-            <%= link_to t('footer.sponsor'), 'mailto:organisers@rubycommunity.africa',
+            <%= mail_to t('footer.sponsor'), 'mailto:organisers@rubycommunity.africa',
                         class: "inline-block text-base-content/70 hover:text-red-500 dark:hover:text-red-400 transition-colors duration-200" %>
           </li>
           <% if FeatureFlag.find_by(name: 'members').try(:enabled) %>
