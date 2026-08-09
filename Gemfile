@@ -26,7 +26,7 @@ gem 'mini_magick', '~> 4.12'
 gem 'motor-admin', '>= 0.4.30'
 gem 'pg', '~> 1.5' # Use postgresql as the database for Active Record
 gem 'premailer-rails', '~> 1.12' # This gem is a drop in solution for styling HTML emails with CSS
-gem 'puma', '~> 6.0' # Use the Puma web server [https://github.com/puma/puma]
+gem 'puma', '~> 7.2' # Use the Puma web server [https://github.com/puma/puma]
 gem 'rails', '~> 8.1' # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 # Pagination
 gem 'pagy', '~> 9.4.0'
