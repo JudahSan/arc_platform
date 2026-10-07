@@ -7,6 +7,8 @@
 ## Introduction
 The Africa Ruby Community (ARC) Platform is a project aimed at creating a hub for Ruby language enthusiasts in Africa. This platform facilitates connection, knowledge sharing, collaboration on projects, and staying updated with the latest Ruby community developments. Whether you're a seasoned developer or a beginner, this platform offers tailored resources for different countries and cities, merchandise, meetup information, and details about online workshops and webinars.
 
+- **RubyConf Africa:** [RubyConf Africa](https://rubyconf.africa)
+- **Merch Store:** [ARC Merch Store](https://shop.rubycommunity.africa)
 - **Project Design:** [ARC Platform Design](https://still-snowflake-8822.animaapp.io/)
 - **Database Design:** [ARC Database Design](https://dbdiagram.io/d/62afab7c9921fe2a96397c1e)
 
