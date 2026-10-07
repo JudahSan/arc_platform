@@ -95,13 +95,15 @@ fr:
     index:
       intro:
         title: "Communauté Ruby Africaine"
-        subtitle: "Ruby Conf Africa 2026"
-        conference_dates: "21-22 août 2026"
+        subtitle: "Ruby Conf Africa 2027"
+        conference_dates: "21-22 mai 2027"
         conference_description: "Rejoignez la plus grande conférence Ruby en Afrique !"
         description: "Une organisation communautaire qui cherche à promouvoir les compétences de programmation logicielle avec le langage de programmation Ruby."
         members_count: "Membres à travers l'Afrique de l'Est"
         years_count: "Années de communauté Ruby"
-        conference_alt: "Ruby Conf Africa 2025"
+        conference_alt: "Ruby Conf Africa 2027"
+        hero_title: "Bâtir l'avenir avec Ruby en Afrique"
+        hero_description: "Une communauté de plus de 5 000 développeurs, entrepreneurs et designers à travers l'Afrique de l'Est, unis par leur passion pour Ruby et les logiciels open source."
       who_we_are:
         title: "Communauté Ruby Africaine"
         subtitle: "Qui sommes-nous ?"
@@ -274,6 +276,9 @@ fr:
       typesense: "Typesense"
       sidekiq: "Sidekiq"
       rubycon_italy: "Rubycon Italy"
+      senga: "Senga"
+      easyqna: "EasyQna"
+      remiapp: "Remiapp"
 
     previous:
       solutech: "Solutech"
@@ -285,7 +290,7 @@ fr:
       daystar: "Daystar"
       prosper: "Prosper Hedge"
       gurzu: "Gurzu"
-      must_company: "Must Company"
+
 
   social_media:
     twitter: "ARC Twitter"
@@ -337,7 +342,9 @@ fr:
     conferences: "Conférences"
     chapters: "Chapitres"
     projects: "Projets"
+    merch_store: "Boutique"
     learning_materials: "Matériel d'Apprentissage"
+    built_with_ruby: "Développé avec Ruby"
     sign_in: "Se connecter"
     sign_up: "S'inscrire"
     sign_out: "Se déconnecter"
@@ -373,6 +380,7 @@ fr:
     events: "Événements"
     chapters: "Chapitres"
     projects: "Projets"
+    merch_store: "Boutique"
     learning_materials: "Matériel d'apprentissage"
     sponsor: "Sponsor"
     members: "Membres"
