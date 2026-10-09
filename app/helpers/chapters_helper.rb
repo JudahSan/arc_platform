@@ -26,12 +26,13 @@ module ChaptersHelper
       alt_key: 'sponsors.current.typesense' },
     { image: 'sponsors/current/sidekiq.png', link: 'https://sidekiq.org/',
       alt_key: 'sponsors.current.sidekiq' },
-    { image: 'sponsors/current/fata.png', link: 'https://fata.dev/',
-      alt_key: 'sponsors.current.fata' },
+    { image: 'sponsors/current/finplus.png', link: 'https://finplusgroup.com', alt_key: 'sponsors.current.finplus' },
     { image: 'sponsors/current/senga.png', link: 'https://senga.co/',
       alt_key: 'sponsors.current.senga' },
-    { image: 'sponsors/current/ustechnology.jpeg', link: 'https://ustechmiami.com/',
-      alt_key: 'sponsors.current.ustechnologies' },
+    { image: 'sponsors/current/easyqna.jpeg', link: 'https://www.biztimamtechnologies.com/',
+      alt_key: 'sponsors.current.easyqna' },
+    { image: 'sponsors/current/remiapp.png', link: 'https://remiapp.ai/',
+      alt_key: 'sponsors.current.remiapp' },
     { image: 'sponsors/current/kodees.png', link: 'https://www.kodees.co.ke/', alt_key: 'sponsors.current.kodees' },
     { image: 'sponsors/current/rubycon_italy.png', link: 'https://rubycon.it/',
       alt_key: 'sponsors.current.rubycon_italy' }
@@ -41,14 +42,14 @@ module ChaptersHelper
 
     { image: 'sponsors/current/ruby_central.png', link: 'https://rubycentral.org/',
       alt_key: 'sponsors.current.ruby_central' },
-    { image: 'sponsors/current/finplus.png', link: 'https://finplusgroup.com', alt_key: 'sponsors.current.finplus' },
+
     { image: 'sponsors/previous/solutech_official.svg', link: 'https://solutech.co.ke',
       alt_key: 'sponsors.current.solutech' },
     { image: 'sponsors/previous/daystar.png', link: 'https://www.daystar.ac.ke/', alt_key: 'sponsors.current.daystar' },
     { image: 'sponsors/current/prosper.png', link: 'https://www.prosperhedge.com/',
       alt_key: 'sponsors.current.prosper' },
-    { image: 'sponsors/previous/gurzu.png', link: 'https://gurzu.com/', alt_key: 'sponsors.current.gurzu' },
-    { image: 'sponsors/current/must-company.png', link: 'https://must.company/', alt_key: 'sponsors.current.must_company' }
+    { image: 'sponsors/previous/gurzu.png', link: 'https://gurzu.com/', alt_key: 'sponsors.current.gurzu' }
+
   ].freeze
 
   SOCIALS = [
