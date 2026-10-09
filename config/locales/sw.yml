@@ -383,6 +383,7 @@ sw:
     sponsor: "Mfadhili"
     members: "Wanachama"
     about: "Kuhusu"
+    built_wit_ruby: "Imejengwa kwa Ruby"
     contact_us: "Wasiliana Nasi"
     code_of_conduct: "Kanuni za maadili"
     connect: "Unganisha"
@@ -390,7 +391,7 @@ sw:
     by_arc: "na African Ruby Community"
 
     about_details: "African Ruby Community. Kukuza na kuwezesha zaidi ya wataalamu 5,000 wa mfumo wa kidijitali, wabunifu na viongozi wa kiteknolojia kote Barani Afrika kupitia Ruby, chanzo wazi na ubunifu wa pamoja tangu 2010."
-    copyright: "Haki Zote Zimehifadhiwa. Jumuiya ya Ruby ya Kiafrika. Hakimiliki %{year}"
+    copyright: "© %{year} Jumuiya ya Ruby ya Kiafrika. Haki Zote Zimehifadhiwa."
 
   # Learning Materials page translations
   learning_materials:

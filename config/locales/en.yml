@@ -97,7 +97,7 @@ en:
       intro:
         title: "African Ruby Community"
         subtitle: "Ruby Conf Africa 2027"
-        conference_dates: "21st–22nd May 202t"
+        conference_dates: "21st–22nd May 2027"
         conference_description: "Join the largest Ruby conference in Africa!"
         description: "A community organization that seeks to promote computer software programming skills with the Ruby programming language."
         members_count: "Members across East Africa"
@@ -386,13 +386,14 @@ en:
     sponsor: "Sponsor"
     members: "Members"
     about: "About"
+    build_with_ruby: "Build with Ruby"
     contact_us: "Contact Us"
     code_of_conduct: "Code of conduct"
     connect: "Connect"
     made_with: "Made with"
     by_arc: "by African Ruby Community"
     about_details: "African Ruby Community. Empowering 5,000+ developers, creators, and tech leaders across Africa through Ruby, open source, and collaborative innovation since 2010."
-    copyright: "All Rights Reserved. African Ruby Community. Copyright %{year}"
+    copyright: "© %{year} African Ruby Community. All Rights Reserved."
 
   # Learning Materials page translations
   learning_materials:
